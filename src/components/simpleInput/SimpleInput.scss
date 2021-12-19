@@ -1,0 +1,19 @@
+@import "../../styles/config.module";
+
+$input-horizontal-multiplier: 2.5;
+
+.SimpleInput {
+  height: $input-height;
+  background: $color-grey5;
+  border-radius: $default-border-radius;
+  border: none;
+  color: $color-secondary;
+  font-family: $app-fonts-regular;
+  font-size: size(2);
+  padding: size() size($input-horizontal-multiplier) size()
+    size($input-horizontal-multiplier);
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+}

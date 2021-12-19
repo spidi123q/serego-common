@@ -1,0 +1,19 @@
+.loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &Logo {
+      height: 128px;
+    }
+    &CircularProgress {
+      margin-top: 2rem;
+    }
+  }
+}

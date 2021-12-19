@@ -1,0 +1,75 @@
+@use "sass:map";
+
+$color-primary: #202020;
+$color-primary2: #2c2c2c;
+$color-secondary: #ffffff;
+$color-secondary-dark: #005da6;
+$color-primary-dark: #000766;
+$color-dark: #898989;
+$color-dark-light: #f2f2f2;
+$color-grey: #c0c0c0;
+$color-grey2: #a0a0a0;
+$color-grey3: #c4c4c4;
+$color-grey4: #3f3f3f;
+$color-grey5: #2e2e2e;
+$color-black: #171717;
+$color-danger: #ed2359;
+$background-color: $color-primary;
+
+$app-fonts-regular: "HelveticaNeue";
+$app-fonts-light: "HelveticaNeue-Light";
+$app-fonts-ultaLight: "HelveticaNeue-UltraLight";
+$app-fonts-bold: "HelveticaNeue-Bold";
+$app-fonts-medium: "HelveticaNeue-Medium";
+
+$default-margin: 0.5rem;
+$default-border-radius: 8px;
+
+// Screem sizes
+$sm-screen: 600px;
+$md-screen: 960px;
+$lg-screen: 1280px;
+$xl-screen: 1920px;
+
+// @font-face {
+//   src: url("../assets/fonts/HelveticaNeue.woff2") format("woff2");
+//   font-family: $app-fonts-regular;
+// }
+
+// @font-face {
+//   src: url("../assets/fonts/HelveticaNeue-UltraLight.woff2") format("woff2");
+//   font-family: $app-fonts-ultaLight;
+// }
+
+// @font-face {
+//   src: url("../assets/fonts/HelveticaNeue-Medium.woff2") format("woff2");
+//   font-family: $app-fonts-medium;
+// }
+
+// @font-face {
+//   src: url("../assets/fonts/HelveticaNeue-Light.woff2") format("woff2");
+//   font-family: $app-fonts-light;
+// }
+
+// @font-face {
+//   src: url("../assets/fonts/HelveticaNeue-Bold.woff2") format("woff2");
+//   font-family: $app-fonts-bold;
+// }
+
+@function size($multiplier: 1) {
+  @return $multiplier * $default-margin;
+}
+
+$input-height: size(5);
+
+:export {
+  primaryColor: $color-primary;
+  secondaryColor: $color-secondary;
+  colorGrey4: $color-grey4;
+  colorGrey5: $color-grey5;
+  appFontsRegular: $app-fonts-regular;
+  appFontsLight: $app-fonts-light;
+  appFontsUltaLight: $app-fonts-ultaLight;
+  appFontsBold: $app-fonts-bold;
+  appFontsMedium: $app-fonts-medium;
+}

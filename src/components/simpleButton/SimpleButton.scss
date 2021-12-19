@@ -1,0 +1,16 @@
+@import "../../styles/config.module";
+
+$input-horizontal-multiplier: 2.5;
+
+.SimpleButton {
+  height: $input-height + 1rem;
+  background-color: $color-black;
+  color: $color-secondary;
+  font-family: $app-fonts-regular;
+  font-size: size(2);
+  border: 1px solid $color-secondary;
+  border-radius: $default-border-radius;
+  padding: size() size($input-horizontal-multiplier) size()
+    size($input-horizontal-multiplier);
+  width: size(35);
+}
