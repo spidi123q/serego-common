@@ -2,11 +2,12 @@ import React from "react";
 import "./SimpleButton.scss";
 import Ripples from "react-ripples";
 
-interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ISimpleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
 }
 
-export default function SimpleButton(props: IProps) {
+export default function SimpleButton(props: ISimpleButtonProps) {
   const { label, ...rest } = props;
   return (
     <Ripples>

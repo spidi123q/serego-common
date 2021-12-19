@@ -1,21 +1,22 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
-import SimpleInput, { ISimpleInputProps } from "./SimpleInput";
+import Loader, { ILoaderProps } from "./Loader";
 
 export default {
-  title: "Components/Input",
-  component: SimpleInput,
+  title: "Components/Loader",
+  component: Loader,
 } as Meta;
 
 // Create a master template for mapping args to render the Button component
-const Template: Story<ISimpleInputProps> = (args) => (
-  <div style={{ width: "20rem" }}>
-    <SimpleInput {...args} />
+const Template: Story<ILoaderProps> = (args) => (
+  <div>
+    <Loader {...args} />
   </div>
 );
 
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
 Primary.args = {
-  value: "hello",
+  image: "https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png",
+  type: "brand",
 };

@@ -2,13 +2,13 @@ import "./Loader.scss";
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 
-interface IProps {
+export interface ILoaderProps {
   type: "brand";
-  logo: string;
+  image: string;
 }
 
-const Loader = (props: IProps) => {
-  const { type, logo } = props;
+const Loader = (props: ILoaderProps) => {
+  const { type, image } = props;
   return (
     <div className="loader">
       {(() => {
@@ -16,7 +16,7 @@ const Loader = (props: IProps) => {
           case "brand":
             return (
               <div className="loader__brand">
-                <img className="loader__brandLogo" alt="logo" src={logo} />
+                <img className="loader__brandImage" alt="image" src={image} />
                 <CircularProgress
                   color="primary"
                   thickness={5}
