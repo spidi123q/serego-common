@@ -1,0 +1,49 @@
+@import "../../styles/config.module";
+
+$dot-size: 2;
+
+.simple-timeline {
+  .MuiTimelineItem-root {
+    &::before {
+      content: unset;
+    }
+    &:last-child {
+      .simple-timeline__item-content {
+        border-bottom: unset;
+      }
+    }
+  }
+  .MuiTimelineDot-root {
+    margin: unset;
+    width: size($dot-size);
+    height: size($dot-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+    box-shadow: unset;
+    color: $color-dark;
+    border: 1px solid $color-dark;
+    font-family: $app-fonts-regular;
+    font-size: 0.8rem;
+  }
+  .MuiTimelineConnector-root {
+    border-left: 1px;
+    border-left-style: dashed;
+    border-color: $color-dark-light2;
+    width: unset;
+    background-color: unset;
+  }
+  .MuiTimelineContent-root {
+    padding: 0px 25px;
+  }
+  &__item {
+    &-content {
+      margin-top: 1rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid;
+      border-bottom-color: $color-dark-light2;
+    }
+  }
+}

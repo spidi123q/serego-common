@@ -3,7 +3,7 @@
 $input-horizontal-multiplier: 2.5;
 
 .simple-input {
-  label {
+  .MuiInputLabel-root {
     font-family: $app-fonts-regular;
   }
 }

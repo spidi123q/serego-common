@@ -3,9 +3,12 @@
 $input-horizontal-multiplier: 2.5;
 
 .simple-button {
-  button {
+  .MuiButton-root {
     font-family: $app-fonts-medium;
     box-shadow: none;
     text-transform: none;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }

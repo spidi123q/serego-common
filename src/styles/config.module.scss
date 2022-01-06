@@ -2,8 +2,9 @@
 
 $color-primary: #2faa75;
 $color-secondary: #ffffff;
-$color-dark: #898989;
-$color-dark-light: #f2f2f2;
+$color-dark: #858585;
+$color-dark-light: #c2c2c2;
+$color-dark-light2: #dbdbdb;
 $color-danger: #ed2359;
 
 $app-fonts-regular: "HelveticaNeue";
@@ -54,6 +55,9 @@ $input-height: size(5);
 :export {
   primaryColor: $color-primary;
   secondaryColor: $color-secondary;
+  colorDark: $color-dark;
+  colorDarkLight: $color-dark-light;
+  colorDarkLight2: $color-dark-light2;
   appFontsRegular: $app-fonts-regular;
   appFontsLight: $app-fonts-light;
   appFontsUltaLight: $app-fonts-ultaLight;
