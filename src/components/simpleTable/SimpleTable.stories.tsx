@@ -1,0 +1,68 @@
+import { Meta, Story } from "@storybook/react/types-6-0";
+import React from "react";
+import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import SimpleTable, { ISimpleTableProps } from "./SimpleTable";
+
+export default {
+  title: "Components/Table",
+  component: SimpleTable,
+} as Meta;
+
+// Create a master template for mapping args to render the Button component
+const Template: Story<ISimpleTableProps> = (args) => (
+  <div style={{ margin: "1rem" }}>
+    <SimpleThemeProvider>
+      <SimpleTable {...args} />
+    </SimpleThemeProvider>
+  </div>
+);
+
+// Reuse that template for creating different stories
+export const Primary = Template.bind({});
+
+Primary.args = {
+  columns: [
+    {
+      headerName: "Dessert",
+      field: "dessert",
+    },
+    {
+      headerName: "Calories",
+      field: "calories",
+    },
+    {
+      headerName: "Fat",
+      field: "fat",
+    },
+    {
+      headerName: "Carbs",
+      field: "carbs",
+    },
+  ],
+  rows: [
+    {
+      dessert: "Frozen yoghurt",
+      calories: "232",
+      fat: "12",
+      carbs: "313",
+    },
+    {
+      dessert: "Ice cream sandwich",
+      calories: "234",
+      fat: "3",
+      carbs: "423",
+    },
+    {
+      dessert: "Eclair",
+      calories: "42",
+      fat: "42",
+      carbs: "313",
+    },
+    {
+      dessert: "Cupcake	",
+      calories: "34",
+      fat: "546",
+      carbs: "54",
+    },
+  ],
+};

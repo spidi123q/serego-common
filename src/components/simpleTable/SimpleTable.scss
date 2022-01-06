@@ -1,0 +1,12 @@
+@import "../../styles/config.module";
+
+.simple-table {
+  .MuiTable-root {
+    border: 1px solid rgba(224, 224, 224, 1);
+    border-radius: size(1.5);
+    border-collapse: unset;
+  }
+  td {
+    border-bottom: unset;
+  }
+}

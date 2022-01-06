@@ -15,6 +15,7 @@
     "@storybook/addon-links": "^6.4.9",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.9",
+    "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.37",
     "add": "^2.0.6",
     "babel-loader": "^8.2.3",
@@ -45,6 +46,7 @@
     "@mui/material": "^5.2.4",
     "classnames": "^2.3.1",
     "install-peers": "^1.0.3",
+    "lodash": "^4.17.21",
     "react-ripples": "^2.2.1"
   }
 }
