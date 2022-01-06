@@ -1,9 +1,13 @@
+import TextField, { OutlinedTextFieldProps } from "@mui/material/TextField";
 import React from "react";
 import "./SimpleInput.scss";
 
-export interface ISimpleInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface ISimpleInputProps extends OutlinedTextFieldProps {}
 
 export default function SimpleInput(props: ISimpleInputProps) {
-  return <input className="SimpleInput" {...props} />;
+  return (
+    <span className="simple-input">
+      <TextField {...props} variant="outlined" />
+    </span>
+  );
 }

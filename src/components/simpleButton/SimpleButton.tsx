@@ -1,19 +1,19 @@
 import React from "react";
 import "./SimpleButton.scss";
 import Ripples from "react-ripples";
+import Button, { ButtonProps } from "@mui/material/Button";
 
-export interface ISimpleButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-}
+export interface ISimpleButtonProps extends ButtonProps {}
 
-export default function SimpleButton(props: ISimpleButtonProps) {
-  const { label, ...rest } = props;
+export default function SimpleButton({
+  children,
+  ...rest
+}: ISimpleButtonProps) {
   return (
-    <Ripples>
-      <button type="button" {...rest} className="SimpleButton">
-        {label}
-      </button>
-    </Ripples>
+    <span className="simple-button">
+      <Button {...rest} variant="contained">
+        {children}
+      </Button>
+    </span>
   );
 }

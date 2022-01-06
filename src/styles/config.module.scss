@@ -1,29 +1,16 @@
 @use "sass:map";
 
-$color-primary: #202020;
-$color-primary2: #2c2c2c;
+$color-primary: #2faa75;
 $color-secondary: #ffffff;
-$color-secondary-dark: #005da6;
-$color-primary-dark: #000766;
 $color-dark: #898989;
 $color-dark-light: #f2f2f2;
-$color-grey: #c0c0c0;
-$color-grey2: #a0a0a0;
-$color-grey3: #c4c4c4;
-$color-grey4: #3f3f3f;
-$color-grey5: #2e2e2e;
-$color-black: #171717;
 $color-danger: #ed2359;
-$background-color: $color-primary;
 
 $app-fonts-regular: "HelveticaNeue";
 $app-fonts-light: "HelveticaNeue-Light";
 $app-fonts-ultaLight: "HelveticaNeue-UltraLight";
 $app-fonts-bold: "HelveticaNeue-Bold";
 $app-fonts-medium: "HelveticaNeue-Medium";
-
-$default-margin: 0.5rem;
-$default-border-radius: 8px;
 
 // Screem sizes
 $sm-screen: 600px;
@@ -60,13 +47,13 @@ $xl-screen: 1920px;
   @return $multiplier * $default-margin;
 }
 
+$default-margin: 0.5rem;
+$default-border-radius: 6px;
 $input-height: size(5);
 
 :export {
   primaryColor: $color-primary;
   secondaryColor: $color-secondary;
-  colorGrey4: $color-grey4;
-  colorGrey5: $color-grey5;
   appFontsRegular: $app-fonts-regular;
   appFontsLight: $app-fonts-light;
   appFontsUltaLight: $app-fonts-ultaLight;

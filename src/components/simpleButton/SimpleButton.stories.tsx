@@ -15,5 +15,5 @@ const Template: Story<ISimpleButtonProps> = (args) => (
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "Click me",
+  children: "Click me",
 };
