@@ -59,14 +59,8 @@ export enum IconFamily {
   Material = "material",
 }
 
-export const DefaultBackgroundColor: string = AppTheme["color-primary2"];
 export const DefaultPrimaryColor: string = AppTheme["color-primary"];
-export const DefaultFontColor: string = AppTheme["color-secondary"];
-export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
-export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
-export const DefaultPlaceholderBackgroudColor: string = AppTheme["color-grey5"];
-export const DefaultPlaceholderHighlightColor: string = AppTheme["color-grey4"];
 
 export const DefaultOpacity: number = 0.65;
 
@@ -80,3 +74,5 @@ export const DefaultLogoWidth: number = 68;
 export const DefaultAvatarSize: number = 35;
 
 export const PageBorderRadius: number = DefaultBorderRadius * 4;
+
+export const Colors = AppTheme;

@@ -43,6 +43,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.2.4",
+    "classnames": "^2.3.1",
     "install-peers": "^1.0.3",
     "react-ripples": "^2.2.1"
   }
