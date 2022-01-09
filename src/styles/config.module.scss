@@ -1,6 +1,7 @@
 @use "sass:map";
 
 $color-primary: #2faa75;
+$color-primary-light: mix($color-primary, white, 50%);
 $color-secondary: #ffffff;
 $color-dark: #858585;
 $color-dark-light: #c2c2c2;

@@ -20,4 +20,15 @@ $input-horizontal-multiplier: 2.5;
       margin-left: size(2);
     }
   }
+
+  &__variant {
+    &--contained-light {
+      .MuiButton-root {
+        background-color: $color-primary-light;
+        &:hover {
+          background-color: mix($color-primary-light, white, 70%);
+        }
+      }
+    }
+  }
 }
