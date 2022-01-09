@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import React from "react";
 import { SimpleThemeProvider } from "../SimpleThemeProvider";
-import SimpleTable, { ISimpleTableProps } from "./SimpleTable";
+import { ISimpleTableProps, SimpleTable } from "./SimpleTable";
 
 export default {
   title: "Components/Table",

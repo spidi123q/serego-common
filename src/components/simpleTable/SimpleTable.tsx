@@ -9,16 +9,24 @@ import TableRow from "@mui/material/TableRow";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import Grid from "@mui/material/Grid";
 import { isEmpty } from "lodash";
+import classNames from "classnames";
 
 export interface ISimpleTableProps {
   columns: IColumn[];
+  variant?: "outline" | "clear";
   rows?: any[];
 }
 
-export default function SimpleTable(props: ISimpleTableProps) {
-  const { columns, rows } = props;
+export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
+  props
+) => {
+  const { columns, rows, variant } = props;
   return (
-    <TableContainer className="simple-table">
+    <TableContainer
+      className={classNames("simple-table", {
+        [`simple-table__variant--${variant}`]: variant,
+      })}
+    >
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -56,7 +64,11 @@ export default function SimpleTable(props: ISimpleTableProps) {
       </Table>
     </TableContainer>
   );
-}
+};
+
+SimpleTable.defaultProps = {
+  variant: "outline",
+};
 
 interface IColumn {
   headerName: string;
