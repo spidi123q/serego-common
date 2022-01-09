@@ -1,0 +1,9 @@
+@import "../../styles/config.module";
+
+.simple-tab {
+  .MuiTabs-flexContainer {
+    .MuiButtonBase-root {
+      text-transform: none;
+    }
+  }
+}
