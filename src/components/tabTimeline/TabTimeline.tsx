@@ -2,30 +2,42 @@ import "./TabTimeline.scss";
 import React, { useState } from "react";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import classNames from "classnames";
+import { SimpleButton } from "../..";
 
 export interface ITabTimelineProps {
   tabs: ITabItem[];
   activeTabIndex?: number;
+  onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
+  disableNextOnIncomplete?: boolean;
 }
 
 export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
   props
 ) => {
-  const { tabs } = props;
+  const { tabs, onSubmit, disableNextOnIncomplete } = props;
   const [activeTabIndex, setActiveTabIndex] = useState<number>(
     props.activeTabIndex ?? 0
   );
+
+  const onNext = () => {
+    setActiveTabIndex(activeTabIndex + 1);
+  };
+
+  const onBack = () => {
+    setActiveTabIndex(activeTabIndex - 1);
+  };
 
   return (
     <div className="tab-timeline">
       <div className="tab-timeline__header">
         {tabs.map((tab, index) => (
-          <div className="tab-timeline__header-item">
+          <div className="tab-timeline__header-item" key={index}>
             <div className="tab-timeline__header-title">
               <span
                 className={classNames("tab-timeline__header-title-index", {
                   "tab-timeline__header-title-index--active":
-                    activeTabIndex === index,
+                    activeTabIndex === index && !tab.completed,
+                  "tab-timeline__header-title-index--completed": tab.completed,
                 })}
               >
                 {index + 1}
@@ -34,14 +46,20 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
                 <SimpleTypography
                   family="medium"
                   variant="subtitle1"
-                  color={activeTabIndex === index ? "colorBlack" : "colorDark"}
+                  color={
+                    activeTabIndex === index || tab.completed
+                      ? "colorBlack"
+                      : "colorDark"
+                  }
                 >
                   {tab.title}
                 </SimpleTypography>
                 <SimpleTypography
                   variant="subtitle2"
                   color={
-                    activeTabIndex === index ? "colorDark" : "colorDarkLight3"
+                    activeTabIndex === index || tab.completed
+                      ? "colorDark"
+                      : "colorDarkLight3"
                   }
                 >
                   {tab.subTitle}
@@ -51,7 +69,38 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
           </div>
         ))}
       </div>
-      <div className="tab-timeline__body"></div>
+      <div className="tab-timeline__body">
+        {tabs.map((tab, index) => (
+          <div
+            key={index}
+            className={classNames("tab-timeline__body-content", {
+              "tab-timeline__body-content--active": activeTabIndex === index,
+            })}
+          >
+            {tab.content}
+          </div>
+        ))}
+      </div>
+      <div className="tab-timeline__actions">
+        {activeTabIndex > 0 && (
+          <SimpleButton onClick={onBack} variant="outlined" marginRight>
+            Back
+          </SimpleButton>
+        )}
+        {activeTabIndex + 1 < tabs.length && (
+          <SimpleButton
+            onClick={onNext}
+            disabled={
+              disableNextOnIncomplete && !tabs[activeTabIndex].completed
+            }
+          >
+            Next
+          </SimpleButton>
+        )}
+        {activeTabIndex + 1 == tabs.length && (
+          <SimpleButton onClick={onSubmit}>Submit</SimpleButton>
+        )}
+      </div>
     </div>
   );
 };
@@ -60,4 +109,5 @@ export interface ITabItem {
   title: string;
   subTitle: string;
   content: string | number | JSX.Element;
+  completed?: boolean;
 }

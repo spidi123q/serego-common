@@ -11,4 +11,13 @@ $input-horizontal-multiplier: 2.5;
       box-shadow: none;
     }
   }
+
+  &__margin {
+    &--right {
+      margin-right: size(2);
+    }
+    &--left {
+      margin-left: size(2);
+    }
+  }
 }

@@ -34,6 +34,20 @@ $dot-size: 5;
         &--active {
           background-color: $color-black;
         }
+        &--completed {
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+
+  &__body {
+    margin-top: size(2);
+    margin-bottom: size(2);
+    &-content {
+      display: none;
+      &--active {
+        display: block;
       }
     }
   }

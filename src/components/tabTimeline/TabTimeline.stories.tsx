@@ -24,14 +24,15 @@ Primary.args = {
     {
       title: "Origin Details",
       subTitle: "Enter the origin details",
+      completed: false,
       content: (
         <div>
-          is simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged. It
+          Origin Details is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It
         </div>
       ),
     },
@@ -40,9 +41,10 @@ Primary.args = {
       subTitle: "Enter the destination details",
       content: (
         <div>
-          unknown printer took a galley of type and scrambled it to make a type
-          specimen book. It has survived not only five centuries, but also the
-          leap into electronic typesetting, remaining essentially unchanged. It
+          Destinationunknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries,
+          but also the leap into electronic typesetting, remaining essentially
+          unchanged. It
         </div>
       ),
     },
@@ -51,10 +53,10 @@ Primary.args = {
       subTitle: "Enter the consignment details",
       content: (
         <div>
-          tting industry. Lorem Ipsum has been the industry's standard dummy
-          text ever since the 1500s, when an unknown printer took a galley of
-          type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
+          Consignment tting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took
+          a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap into electronic
           typesetting, remaining essentially unchanged. It
         </div>
       ),
@@ -64,9 +66,9 @@ Primary.args = {
       subTitle: "Let's confirm it!",
       content: (
         <div>
-          tting industry. Lorem Ipsum has been the industry's standard dummy
-          text ever since the 1500s, when an unknown printer took a galley of
-          type and scrambled it to make a type specimen book. It has survived
+          Review tting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s, when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book. It has survived
           not only five centuries, but also the leap into electronic
           typesetting, remaining essentially unchanged. It
         </div>
