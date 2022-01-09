@@ -1,0 +1,40 @@
+@import "../../styles/config.module";
+
+$dot-size: 5;
+
+.tab-timeline {
+  &__header {
+    display: flex;
+    &-item {
+      flex-grow: 1;
+      border-bottom: 1px solid $color-dark-light2;
+      border-right: 1px solid $color-dark-light2;
+      padding-bottom: size(2);
+
+      &:last-child {
+        border-right: unset;
+      }
+    }
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-index {
+        width: size($dot-size);
+        height: size($dot-size);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: $app-fonts-regular;
+        font-size: size(2.5);
+        margin-right: size(1);
+        background-color: $color-disabled;
+        &--active {
+          background-color: $color-black;
+        }
+      }
+    }
+  }
+}
