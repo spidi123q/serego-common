@@ -17,6 +17,8 @@
     "@storybook/react": "^6.4.9",
     "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.37",
+    "@types/redux-actions": "^2.6.2",
+    "@types/uuid": "^8.3.4",
     "add": "^2.0.6",
     "babel-loader": "^8.2.3",
     "css-loader": "5",
@@ -45,9 +47,14 @@
     "@emotion/styled": "^11.6.0",
     "@mui/lab": "^5.0.0-alpha.63",
     "@mui/material": "^5.2.4",
+    "@mui/styles": "^5.2.3",
+    "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "install-peers": "^1.0.3",
     "lodash": "^4.17.21",
-    "react-ripples": "^2.2.1"
+    "react-ripples": "^2.2.1",
+    "redux": "^4.1.2",
+    "redux-actions": "^2.6.5",
+    "uuid": "^8.3.2"
   }
 }
