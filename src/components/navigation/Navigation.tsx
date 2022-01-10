@@ -19,8 +19,13 @@ import { UserPermissions } from "../../models/enum";
 import { IUserMenuProps, UserMenu } from "./UserMenu";
 import { isAuthorized } from "../../helpers/auth";
 import { IHeaderAction } from "../../models/HeaderAction";
-import { InitialUser } from "../../models/User";
+import MenuIcon from "@mui/icons-material/Menu";
 import { styles } from "./Navigation.style";
+import Box from "@mui/material/Box";
+import Badge from "@mui/material/Badge";
+import { SimpleIcon } from "../simpleIcon/SimpleIcon";
+import { IconNames } from "../simpleIcon/helper";
+import { useIsSmScreen } from "../../hooks/mediaQuery";
 
 export interface INavigationProps extends IUserMenuProps {
   pathname: string;
@@ -29,6 +34,7 @@ export interface INavigationProps extends IUserMenuProps {
   navigationItems: INavigationItem[];
   headerTitle: string;
   userPermissions: UserPermissions[];
+  children?: JSX.Element;
   clearHeaderActions(): any;
   historyPush(pathname: string): void;
 }
@@ -51,6 +57,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
   } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const classes = styles();
+  const isSm = useIsSmScreen();
 
   //Apply authorization
   let navItemList = navigationItems.filter((navItem) =>
@@ -80,49 +87,97 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
   };
 
   const drawerContent = (
-    <>
-      <div className={Cx("center-all-direction", classes.toolbar)}>
-        <Typography variant="h6" color="textSecondary">
-          Menu
-        </Typography>
-      </div>
-      <Divider />
-      <List>
-        {navItemList.map((item, index) => (
-          <ListItem
-            button
-            key={index}
-            onClick={() => {
-              if (pathname !== item.path) {
-                item.path && historyPush(item.path);
-                item.onClick && item.onClick();
-                clearHeaderActions();
-                isDrawerOpen && handleDrawerToggle();
-              }
-            }}
-          >
-            <ListItemIcon>
-              <Icon color={item.selected ? "primary" : undefined}>
-                {item.icon}
-              </Icon>
-            </ListItemIcon>
-            <ListItemText
-              primary={
-                <Typography color={item.selected ? "primary" : undefined}>
-                  {item.title}
-                </Typography>
-              }
-            />
-          </ListItem>
-        ))}
-      </List>
-    </>
+    <List>
+      {navItemList.map((item, index) => (
+        <ListItem
+          button
+          key={index}
+          onClick={() => {
+            if (pathname !== item.path) {
+              item.path && historyPush(item.path);
+              item.onClick && item.onClick();
+              clearHeaderActions();
+              isDrawerOpen && handleDrawerToggle();
+            }
+          }}
+        >
+          <ListItemIcon>
+            <Icon color={item.selected ? "primary" : undefined}>
+              {item.icon}
+            </Icon>
+          </ListItemIcon>
+          <ListItemText
+            primary={
+              <Typography color={item.selected ? "primary" : undefined}>
+                {item.title}
+              </Typography>
+            }
+          />
+        </ListItem>
+      ))}
+    </List>
+  );
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
+        <Toolbar>
+          {isSm && (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+            >
+              <Icon>menu</Icon>
+            </IconButton>
+          )}
+          <Typography variant="h6" noWrap component="div">
+            Clipped drawer
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          {headerActions.map((action, index) => (
+            <IconButton
+              onClick={(ev) => action.onClick(ev)}
+              color="inherit"
+              key={index}
+            >
+              <Icon>{action.icon}</Icon>
+            </IconButton>
+          ))}
+          <UserMenu enqueueSnackbar={enqueueSnackbar} user={user} />
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant={isSm ? "temporary" : "permanent"}
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        open={isDrawerOpen}
+        onClose={handleDrawerToggle}
+      >
+        <Toolbar />
+        <Box sx={{ overflow: "auto" }}>{drawerContent}</Box>
+      </Drawer>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        {children}
+      </Box>
+    </Box>
   );
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed">
         {isLoading && <LinearProgress color="secondary" />}
         <Toolbar>
           <IconButton
@@ -152,42 +207,27 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            variant="temporary"
-            anchor="left"
-            open={isDrawerOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawerContent}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawerContent}
-          </Drawer>
-        </Hidden>
+        <Drawer
+          variant="temporary"
+          anchor="left"
+          open={isDrawerOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {drawerContent}
+        </Drawer>
       </nav>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        <div />
         {children}
       </main>
     </div>
   );
 };
+
+const drawerWidth = 240;
 
 export interface INavigationItem {
   title: string;

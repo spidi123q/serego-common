@@ -14,12 +14,6 @@ export const styles = makeStyles((theme: Theme) =>
         flexShrink: 0,
       },
     },
-    appBar: {
-      [theme.breakpoints.up("sm")]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-      },
-    },
     menuButton: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.up("sm")]: {
@@ -27,7 +21,6 @@ export const styles = makeStyles((theme: Theme) =>
       },
     },
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
     drawerPaper: {
       width: drawerWidth,
     },

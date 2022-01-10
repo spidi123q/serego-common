@@ -13,6 +13,8 @@ import Grid from "@mui/material/Grid";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import IUser from "../../models/User";
 import { IAvatarListItem } from "../AvatarList";
+import { SimpleIcon } from "../simpleIcon/SimpleIcon";
+import { IconNames } from "../simpleIcon/helper";
 
 export interface IUserMenuProps {
   enqueueSnackbar(msg: string): void;
@@ -92,7 +94,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <Icon>account_circle</Icon>
+        <SimpleIcon name={IconNames.user} />
       </IconButton>
       <Popper
         open={open}

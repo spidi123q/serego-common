@@ -7,9 +7,6 @@ export const CustomThemeOptions: ThemeOptions = {
     primary: {
       main: colors.primaryColor,
     },
-    secondary: {
-      main: colors.secondaryColor,
-    },
   },
   typography: {
     h1: {
