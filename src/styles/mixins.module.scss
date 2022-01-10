@@ -13,3 +13,17 @@
   text-overflow: ellipsis;
   text-decoration: inherit;
 }
+
+@mixin set-icon-size($height) {
+  svg {
+    height: $height;
+    width: $height;
+  }
+}
+
+@mixin set-icon-color($color) {
+  g,
+  path {
+    fill: $color;
+  }
+}

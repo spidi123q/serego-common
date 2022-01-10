@@ -3,7 +3,7 @@ import React from "react";
 import { AppFonts, Colors, IFontFamily } from "../../config/themeConfig";
 
 export interface ISimpleTypographyProps extends TypographyProps {
-  color?: string;
+  color?: IColor;
   family?: IFontFamily;
   fontWeight?: number;
 }
@@ -29,3 +29,15 @@ export const SimpleTypography: React.FunctionComponent<
 SimpleTypography.defaultProps = {
   family: "regular",
 };
+
+export type IColor =
+  | "primaryColor"
+  | "primaryColorLight"
+  | "colorDark"
+  | "colorDark2"
+  | "colorDarkLight"
+  | "colorDarkLight2"
+  | "colorDarkLight3"
+  | "colorDisabled"
+  | "colorBlack"
+  | "colorDanger";

@@ -1,0 +1,56 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.simple-icon {
+  &__size {
+    &--regular {
+      @include set-icon-size(1.5rem);
+    }
+
+    &--lg {
+      @include set-icon-size(3rem);
+    }
+  }
+
+  &__color {
+    &--primaryColor {
+      @include set-icon-color($color-primary);
+    }
+
+    &--primaryColorLight {
+      @include set-icon-color($color-primary-light);
+    }
+
+    &--colorDark {
+      @include set-icon-color($color-dark);
+    }
+
+    &--colorDark2 {
+      @include set-icon-color($color-dark2);
+    }
+
+    &--colorDarkLight {
+      @include set-icon-color($color-dark-light);
+    }
+
+    &--colorDarkLight2 {
+      @include set-icon-color($color-dark-light2);
+    }
+
+    &--colorDarkLight3 {
+      @include set-icon-color($color-dark-light3);
+    }
+
+    &--colorDisabled {
+      @include set-icon-color($color-black);
+    }
+
+    &--colorBlack {
+      @include set-icon-color($color-disabled);
+    }
+
+    &--colorDanger {
+      @include set-icon-color($color-danger);
+    }
+  }
+}
