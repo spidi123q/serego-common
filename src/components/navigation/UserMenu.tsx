@@ -93,6 +93,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
         aria-controls={open ? "menu-list-grow" : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
+        className="navigation-root__navIcons"
       >
         <SimpleIcon name={IconNames.user} />
       </IconButton>

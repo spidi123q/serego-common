@@ -4,6 +4,7 @@ import { SimpleThemeProvider } from "../SimpleThemeProvider";
 import { INavigationProps, Navigation } from "./Navigation";
 import { UserPermissions } from "../../models/enum";
 import { InitialUser } from "../../models/User";
+import { IconNames } from "../simpleIcon/helper";
 
 export default {
   title: "Components/Navigation",
@@ -24,26 +25,26 @@ export const Primary = Template.bind({});
 Primary.args = {
   navigationItems: [
     {
-      title: "Bookings",
+      title: "Dashboard",
       path: "RoutePath.BookingsPage",
-      icon: "calendar_today",
+      icon: IconNames.home,
       selected: false,
     },
     {
-      title: "Organizations",
+      title: "My Shipment",
       path: "RoutePath.OrganizationsPage",
-      icon: "corporate_fare",
+      icon: IconNames.package,
       selected: false,
     },
     {
-      title: "Users",
+      title: "Reports",
       path: "RoutePath.UsersPage",
-      icon: "people_outline",
+      icon: IconNames.report,
       selected: false,
     },
     {
-      title: "API Catalogue",
-      icon: "http",
+      title: "Support",
+      icon: IconNames["life-gaurd"],
       selected: false,
     },
   ],

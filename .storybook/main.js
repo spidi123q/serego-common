@@ -6,5 +6,5 @@ module.exports = {
     "@storybook/preset-scss",
   ],
   framework: "@storybook/react",
-  staticDirs: ["../src/assets/fonts"],
+  staticDirs: ["../src/assets/fonts", "../src/assets"],
 };

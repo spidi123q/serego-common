@@ -1,31 +1,26 @@
-import React, { useState, useEffect } from "react";
-import Cx from "classnames";
+import "./Navigation.scss";
+import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Icon from "@mui/material/Icon";
-import _ from "lodash";
-import LinearProgress from "@mui/material/LinearProgress";
-import Hidden from "@mui/material/Hidden";
 import { UserPermissions } from "../../models/enum";
 import { IUserMenuProps, UserMenu } from "./UserMenu";
 import { isAuthorized } from "../../helpers/auth";
 import { IHeaderAction } from "../../models/HeaderAction";
-import MenuIcon from "@mui/icons-material/Menu";
-import { styles } from "./Navigation.style";
 import Box from "@mui/material/Box";
-import Badge from "@mui/material/Badge";
-import { SimpleIcon } from "../simpleIcon/SimpleIcon";
-import { IconNames } from "../simpleIcon/helper";
 import { useIsSmScreen } from "../../hooks/mediaQuery";
+import { find } from "lodash";
+import { getIcon, IconNames } from "../simpleIcon/helper";
+import { SimpleTypography } from "../simpleTypography/SimpleTypography";
+import { SimpleIcon } from "../simpleIcon/SimpleIcon";
+import classNames from "classnames";
 
 export interface INavigationProps extends IUserMenuProps {
   pathname: string;
@@ -56,7 +51,6 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     user,
   } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-  const classes = styles();
   const isSm = useIsSmScreen();
 
   //Apply authorization
@@ -80,7 +74,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     }
   });
 
-  const selectedNavItem = _.find(navItemList, { selected: true });
+  const selectedNavItem = find(navItemList, { selected: true });
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -100,17 +94,24 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               isDrawerOpen && handleDrawerToggle();
             }
           }}
+          className={classNames("navigation-root__drawer-menu-item", {
+            "navigation-root__drawer-menu-item--active": item.selected,
+          })}
         >
           <ListItemIcon>
-            <Icon color={item.selected ? "primary" : undefined}>
-              {item.icon}
-            </Icon>
+            <SimpleIcon
+              color={item.selected ? "primaryColor" : "colorDark2"}
+              name={item.icon}
+            />
           </ListItemIcon>
           <ListItemText
             primary={
-              <Typography color={item.selected ? "primary" : undefined}>
+              <SimpleTypography
+                family="medium"
+                color={item.selected ? "primaryColor" : "colorDark2"}
+              >
                 {item.title}
-              </Typography>
+              </SimpleTypography>
             }
           />
         </ListItem>
@@ -119,7 +120,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
   );
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box className="navigation-root" sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -136,9 +137,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               <Icon>menu</Icon>
             </IconButton>
           )}
-          <Typography variant="h6" noWrap component="div">
-            Clipped drawer
-          </Typography>
+          {getIcon(IconNames["app-logo"])}
           <Box sx={{ flexGrow: 1 }} />
           {headerActions.map((action, index) => (
             <IconButton
@@ -166,7 +165,9 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
         onClose={handleDrawerToggle}
       >
         <Toolbar />
-        <Box sx={{ overflow: "auto" }}>{drawerContent}</Box>
+        <Box className="navigation-root__drawer-menu" sx={{ overflow: "auto" }}>
+          {drawerContent}
+        </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
@@ -174,65 +175,14 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
       </Box>
     </Box>
   );
-
-  return (
-    <div className={classes.root}>
-      <AppBar position="fixed">
-        {isLoading && <LinearProgress color="secondary" />}
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <Icon>menu</Icon>
-          </IconButton>
-          <Typography variant="h6" noWrap className={classes.toolbarTitle}>
-            {headerTitle
-              ? headerTitle
-              : selectedNavItem && selectedNavItem.title}
-          </Typography>
-          {headerActions.map((action, index) => (
-            <IconButton
-              onClick={(ev) => action.onClick(ev)}
-              color="inherit"
-              key={index}
-            >
-              <Icon>{action.icon}</Icon>
-            </IconButton>
-          ))}
-          <UserMenu enqueueSnackbar={enqueueSnackbar} user={user} />
-        </Toolbar>
-      </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        <Drawer
-          variant="temporary"
-          anchor="left"
-          open={isDrawerOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {drawerContent}
-        </Drawer>
-      </nav>
-      <main className={classes.content}>
-        <div />
-        {children}
-      </main>
-    </div>
-  );
 };
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 export interface INavigationItem {
   title: string;
   path?: string;
-  icon: string;
+  icon: IconNames;
   selected: boolean;
   permission?: UserPermissions;
   onClick?(): void;

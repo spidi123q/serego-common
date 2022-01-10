@@ -1,0 +1,36 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+@mixin active-menu {
+  background-color: $color-primary-light !important;
+  border-radius: 8px !important;
+}
+
+.navigation-root {
+  .MuiAppBar-root {
+    background-color: white;
+    box-shadow: 0px 3px 20px #0000000f;
+  }
+  .MuiDrawer-paper {
+    border-right: unset;
+  }
+  &__drawer-menu {
+    margin: size(4);
+  }
+  &__drawer-menu-item {
+    margin-bottom: size(2) !important;
+    &--active {
+      @include active-menu;
+    }
+    &:hover {
+      @include active-menu;
+    }
+  }
+
+  &__navIcons {
+    border-radius: 9px !important;
+    background-color: $color-dark-light4 !important;
+    height: 45px;
+    width: 45px;
+  }
+}
