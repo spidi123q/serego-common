@@ -27,3 +27,35 @@
     fill: $color;
   }
 }
+
+@mixin set-fonts {
+  @font-face {
+    src: url("~@classmate_technolabs/serego-common/src/assets/fonts/HelveticaNeue.woff2")
+      format("woff2");
+    font-family: $app-fonts-regular;
+  }
+
+  @font-face {
+    src: url("~@classmate_technolabs/serego-common/src/assets/fonts/HelveticaNeue-UltraLight.woff2")
+      format("woff2");
+    font-family: $app-fonts-ultaLight;
+  }
+
+  @font-face {
+    src: url("~@classmate_technolabs/serego-common/src/assets/fonts/HelveticaNeue-Medium.woff2")
+      format("woff2");
+    font-family: $app-fonts-medium;
+  }
+
+  @font-face {
+    src: url("~@classmate_technolabs/serego-common/src/assets/fonts/HelveticaNeue-Light.woff2")
+      format("woff2");
+    font-family: $app-fonts-light;
+  }
+
+  @font-face {
+    src: url("~@classmate_technolabs/serego-common/src/assets/fonts/HelveticaNeue-Bold.woff2")
+      format("woff2");
+    font-family: $app-fonts-bold;
+  }
+}

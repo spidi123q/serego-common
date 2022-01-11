@@ -24,31 +24,6 @@ $md-screen: 960px;
 $lg-screen: 1280px;
 $xl-screen: 1920px;
 
-// @font-face {
-//   src: url("../assets/fonts/HelveticaNeue.woff2") format("woff2");
-//   font-family: $app-fonts-regular;
-// }
-
-// @font-face {
-//   src: url("../assets/fonts/HelveticaNeue-UltraLight.woff2") format("woff2");
-//   font-family: $app-fonts-ultaLight;
-// }
-
-// @font-face {
-//   src: url("../assets/fonts/HelveticaNeue-Medium.woff2") format("woff2");
-//   font-family: $app-fonts-medium;
-// }
-
-// @font-face {
-//   src: url("../assets/fonts/HelveticaNeue-Light.woff2") format("woff2");
-//   font-family: $app-fonts-light;
-// }
-
-// @font-face {
-//   src: url("../assets/fonts/HelveticaNeue-Bold.woff2") format("woff2");
-//   font-family: $app-fonts-bold;
-// }
-
 @function size($multiplier: 1) {
   @return $multiplier * $default-margin;
 }
