@@ -7,6 +7,10 @@ export const CustomThemeOptions: ThemeOptions = {
     primary: {
       main: colors.primaryColor,
     },
+    secondary: {
+      main: colors.secondaryColor,
+    },
+    mode: "light",
   },
   typography: {
     h1: {

@@ -10,7 +10,6 @@ import { SimpleThemeProvider } from "./components/SimpleThemeProvider";
 import { SimpleTimeline } from "./components/simpleTimeline/SimpleTimeline";
 import { SimpleTypography } from "./components/simpleTypography/SimpleTypography";
 import { TabTimeline } from "./components/tabTimeline/TabTimeline";
-import { AppTheme } from "./config/palette";
 import { isAuthorized } from "./helpers/auth";
 import {
   createAxiosClient,
@@ -56,7 +55,6 @@ export {
    */
   isAuthorized,
   createAxiosClient,
-  AppTheme,
   /**
    * Hooks export start here
    */

@@ -30,5 +30,11 @@ $input-horizontal-multiplier: 2.5;
         }
       }
     }
+
+    &--contained {
+      .MuiButton-root {
+        color: white;
+      }
+    }
   }
 }

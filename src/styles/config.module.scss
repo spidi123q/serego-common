@@ -1,6 +1,7 @@
 @use "sass:map";
 
 $color-primary: #2faa75;
+$color-secondary: #0072ca;
 $color-primary-light: mix($color-primary, white, 50%);
 $color-dark: #858585;
 $color-dark2: #707070;
@@ -34,6 +35,7 @@ $input-height: size(5);
 
 :export {
   primaryColor: $color-primary;
+  secondaryColor: $color-secondary;
   primaryColorLight: $color-primary-light;
   colorDark: $color-dark;
   colorDark2: $color-dark2;

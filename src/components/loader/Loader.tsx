@@ -1,6 +1,7 @@
 import "./Loader.scss";
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import { getIcon, IconNames } from "../simpleIcon/helper";
 
 export interface ILoaderProps {
   type: "brand";
@@ -16,7 +17,7 @@ const Loader = (props: ILoaderProps) => {
           case "brand":
             return (
               <div className="loader__brand">
-                <img className="loader__brandImage" alt="image" src={image} />
+                {getIcon(IconNames["app-logo"])}
                 <CircularProgress
                   color="primary"
                   thickness={5}
