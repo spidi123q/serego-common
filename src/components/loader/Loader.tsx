@@ -5,11 +5,10 @@ import { getIcon, IconNames } from "../simpleIcon/helper";
 
 export interface ILoaderProps {
   type: "brand";
-  image: string;
 }
 
 const Loader = (props: ILoaderProps) => {
-  const { type, image } = props;
+  const { type } = props;
   return (
     <div className="loader">
       {(() => {

@@ -18,6 +18,5 @@ const Template: Story<ILoaderProps> = (args) => (
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
 Primary.args = {
-  image: "https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png",
   type: "brand",
 };
