@@ -1,4 +1,4 @@
-export default interface ToastMessage {
+export interface IToastMessage {
   id: string;
   message: string;
 }

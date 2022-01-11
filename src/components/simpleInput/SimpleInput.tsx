@@ -4,10 +4,12 @@ import "./SimpleInput.scss";
 
 export interface ISimpleInputProps extends OutlinedTextFieldProps {}
 
-export default function SimpleInput(props: ISimpleInputProps) {
+export const SimpleInput: React.FunctionComponent<ISimpleInputProps> = (
+  props
+) => {
   return (
     <span className="simple-input">
       <TextField {...props} variant="outlined" />
     </span>
   );
-}
+};

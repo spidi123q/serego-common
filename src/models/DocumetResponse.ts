@@ -1,4 +1,4 @@
-export default interface IDocumetResponse {
+export interface IDocumetResponse {
   objectUrl: string;
   region: string;
   fileName: string;

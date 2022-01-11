@@ -1,7 +1,7 @@
 import { UserPermissions, UserRoles } from "./enum";
 import { ITimeStamps } from "./TimeStamps";
 
-export default interface IUser extends Partial<ITimeStamps> {
+export interface IUser extends Partial<ITimeStamps> {
   _id: string;
   role: UserRoles;
   dob?: Date;

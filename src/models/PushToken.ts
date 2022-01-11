@@ -7,4 +7,4 @@ export interface IPushToken {
   userId: string;
 }
 
-export type PushTokenEdit = Omit<IPushToken, "userId" | "_id">;
+export type IPushTokenEdit = Omit<IPushToken, "userId" | "_id">;

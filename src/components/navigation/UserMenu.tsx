@@ -11,10 +11,10 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Grid from "@mui/material/Grid";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
-import IUser from "../../models/User";
 import { IAvatarListItem } from "../AvatarList";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
 import { IconNames } from "../simpleIcon/helper";
+import { IUser } from "../../models/User";
 
 export interface IUserMenuProps {
   enqueueSnackbar(msg: string): void;

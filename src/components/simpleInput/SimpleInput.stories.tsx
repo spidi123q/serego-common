@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
-import SimpleInput, { ISimpleInputProps } from "./SimpleInput";
+import { ISimpleInputProps, SimpleInput } from "./SimpleInput";
 import { SimpleThemeProvider } from "../SimpleThemeProvider";
 
 export default {

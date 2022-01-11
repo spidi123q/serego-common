@@ -1,6 +1,6 @@
 {
-  "name": "serego-common",
-  "version": "1.0.0",
+  "name": "@serego/common",
+  "version": "0.10",
   "description": "common library fo serego",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",

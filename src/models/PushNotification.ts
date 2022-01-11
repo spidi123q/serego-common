@@ -1,4 +1,4 @@
-export interface PushNotification {
+export interface IPushNotification {
   from: string;
   notification: {
     body: string;
