@@ -2,7 +2,7 @@ import { createAction } from "redux-actions";
 import HttpStatus from "http-status-codes";
 import { getAuth } from "firebase/auth";
 import { AxiosError } from "axios";
-import { AppInfoActions } from "../state/AppInfoAction";
+import { AppInfoActions } from "../state/appInfo/AppInfoAction";
 import { logout } from "../helpers/auth";
 
 interface AxiosMiddleWareConfigParams {
@@ -11,9 +11,7 @@ interface AxiosMiddleWareConfigParams {
   getSourceAction: any;
 }
 
-export const getAxiosMiddlewareConfig = (
-  logout: (dispatch: any) => Promise<void>
-) => ({
+export const axiosMiddlewareConfig = {
   successSuffix: "OnSuccess",
   errorSuffix: "OnFail",
   interceptors: {
@@ -62,4 +60,4 @@ export const getAxiosMiddlewareConfig = (
       },
     ],
   },
-});
+};

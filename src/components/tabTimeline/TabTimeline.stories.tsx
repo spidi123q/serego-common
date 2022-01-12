@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 import { ITabTimelineProps, TabTimeline } from "./TabTimeline";
 
 export default {
@@ -11,9 +11,9 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ITabTimelineProps> = (args) => (
   <div style={{ margin: "2rem" }}>
-    <SimpleThemeProvider>
+    <StoryBookTemplate>
       <TabTimeline {...args} />
-    </SimpleThemeProvider>
+    </StoryBookTemplate>
   </div>
 );
 

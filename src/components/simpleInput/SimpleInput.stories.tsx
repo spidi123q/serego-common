@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { ISimpleInputProps, SimpleInput } from "./SimpleInput";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 
 export default {
   title: "Components/Input",
@@ -11,9 +11,9 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleInputProps> = (args) => (
   <div style={{ width: "20rem" }}>
-    <SimpleThemeProvider>
+    <StoryBookTemplate>
       <SimpleInput label {...args} />
-    </SimpleThemeProvider>
+    </StoryBookTemplate>
   </div>
 );
 

@@ -6,6 +6,7 @@ import {
   User,
 } from "firebase/auth";
 import { AxiosApi, IRequest } from "./axios";
+import GetUser from "../api/user/GetUser";
 
 export const signInAnonymously = async () => {
   try {
@@ -26,13 +27,10 @@ export const onAuthStateChanged = async (): Promise<User> => {
   });
 };
 
-export const logout = async (
-  dispatch: any,
-  getUser: (stateUpdate?: boolean) => IRequest
-) => {
+export const logout = async (dispatch: any) => {
   await getAuth().signOut();
   await onAuthStateChanged();
-  const request = getUser(true);
+  const request = GetUser(true);
   await dispatch(AxiosApi(request));
 };
 

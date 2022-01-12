@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import React from "react";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 import { ISimpleTableProps, SimpleTable } from "./SimpleTable";
 
 export default {
@@ -11,9 +11,9 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleTableProps> = (args) => (
   <div style={{ margin: "1rem" }}>
-    <SimpleThemeProvider>
+    <StoryBookTemplate>
       <SimpleTable {...args} />
-    </SimpleThemeProvider>
+    </StoryBookTemplate>
   </div>
 );
 

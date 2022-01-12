@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import Loader, { ILoaderProps } from "./Loader";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 
 export default {
   title: "Components/Loader",
@@ -10,9 +10,9 @@ export default {
 
 // Create a master template for mapping args to render the Button component
 const Template: Story<ILoaderProps> = (args) => (
-  <SimpleThemeProvider>
+  <StoryBookTemplate>
     <Loader {...args} />
-  </SimpleThemeProvider>
+  </StoryBookTemplate>
 );
 
 // Reuse that template for creating different stories

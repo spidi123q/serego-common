@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
-import { AppInfoActionTypes } from "../state/AppInfoAction";
+import { AppInfoActionTypes } from "../state/appInfo/AppInfoAction";
 
 export interface IRequest extends AxiosRequestConfig {
   actionType?: string;

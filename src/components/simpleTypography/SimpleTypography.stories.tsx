@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import React from "react";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 import { ISimpleTypographyProps, SimpleTypography } from "./SimpleTypography";
 
 export default {
@@ -11,13 +11,13 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleTypographyProps> = (args) => (
   <div>
-    <SimpleThemeProvider>
+    <StoryBookTemplate>
       <SimpleTypography variant="h1" {...args}>
         h1 Heading
       </SimpleTypography>
       <br />
       <SimpleTypography color="primaryColor">h2 Heading</SimpleTypography>
-    </SimpleThemeProvider>
+    </StoryBookTemplate>
   </div>
 );
 

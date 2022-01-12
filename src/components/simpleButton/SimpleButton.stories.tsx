@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { ISimpleButtonProps, SimpleButton } from "./SimpleButton";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 
 export default {
   title: "Components/Button",
@@ -10,9 +10,9 @@ export default {
 
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleButtonProps> = (args) => (
-  <SimpleThemeProvider>
+  <StoryBookTemplate>
     <SimpleButton {...args} />
-  </SimpleThemeProvider>
+  </StoryBookTemplate>
 );
 
 // Reuse that template for creating different stories

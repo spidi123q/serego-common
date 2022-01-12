@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
-import { SimpleThemeProvider } from "../SimpleThemeProvider";
+import { StoryBookTemplate } from "../StoryBookTemplate";
 import { SimpleIcon, ISimpleIconProps } from "./SimpleIcon";
 import { IconNames } from "./helper";
 
@@ -12,7 +12,7 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleIconProps> = (args) => (
   <div style={{ margin: "2rem" }}>
-    <SimpleThemeProvider>
+    <StoryBookTemplate>
       <SimpleIcon {...args} />
       <br />
       {Object.values(IconNames).map((iconName) => (
@@ -22,7 +22,7 @@ const Template: Story<ISimpleIconProps> = (args) => (
           <br />
         </div>
       ))}
-    </SimpleThemeProvider>
+    </StoryBookTemplate>
   </div>
 );
 
