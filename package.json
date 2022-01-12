@@ -1,6 +1,6 @@
 {
   "name": "@classmate_technolabs/serego-common",
-  "version": "0.0.93",
+  "version": "0.0.96",
   "description": "common library fo serego",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -56,7 +56,7 @@
     "build:watch": "rollup -c -w",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "publish": "yarn publish"
+    "yarn:publish": "yarn publish"
   },
   "dependencies": {
     "axios": "^0.24.0",

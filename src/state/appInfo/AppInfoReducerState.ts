@@ -1,12 +1,12 @@
-import ToastMessage from "../models/ToastMessage";
+import { IToastMessage } from "../../models/ToastMessage";
 
-export interface AppInfoReducerState {
+export interface IAppInfoReducerState {
   appReady: boolean;
   isLoading: boolean;
-  lastApiError?: ToastMessage;
+  lastApiError?: IToastMessage;
 }
 
-export const InitialAppInfoReducerState: AppInfoReducerState = {
+export const InitialAppInfoReducerState: IAppInfoReducerState = {
   appReady: false,
   isLoading: false,
 };

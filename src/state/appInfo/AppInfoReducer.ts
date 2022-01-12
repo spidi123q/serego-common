@@ -1,13 +1,13 @@
 import { AnyAction, Reducer } from "redux";
 import {
-  AppInfoReducerState,
+  IAppInfoReducerState,
   InitialAppInfoReducerState,
 } from "./AppInfoReducerState";
 import { v4 as uuidv4 } from "uuid";
 import { AppInfoActionTypes } from "./AppInfoAction";
 
-export const AppInfoReducer: Reducer<AppInfoReducerState> = (
-  state: AppInfoReducerState = InitialAppInfoReducerState,
+export const AppInfoReducer: Reducer<IAppInfoReducerState> = (
+  state: IAppInfoReducerState = InitialAppInfoReducerState,
   action: AnyAction
 ) => {
   switch (action.type) {
