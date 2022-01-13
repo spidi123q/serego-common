@@ -1,0 +1,19 @@
+@import "../../styles/config.module";
+
+.simple-field {
+  margin: 0.5rem;
+  width: 100%;
+  .MuiFormControl-root,
+  .MuiInputBase-root {
+    width: 100%;
+  }
+  .MuiFormControl-marginNormal {
+    margin-top: unset;
+  }
+  .MuiAutocomplete-root {
+    width: 100%;
+  }
+  .MuiFormHelperText-root {
+    font-family: $app-fonts-regular;
+  }
+}
