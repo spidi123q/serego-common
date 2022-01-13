@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { StoryBookTemplate } from "../StoryBookTemplate";
-import { SimpleField } from "./SimpleField";
+import { ISimpleFieldProps, SimpleField } from "./SimpleField";
 import { Form, Formik, FormikProps } from "formik";
 import { SimpleButton } from "../simpleButton/SimpleButton";
 import * as yup from "yup";
@@ -17,7 +17,7 @@ const validationSchema = yup.object().shape({
 });
 
 // Create a master template for mapping args to render the Button component
-const Template: Story<any> = (args) => (
+const Template: Story<ISimpleFieldProps> = (args) => (
   <div>
     <StoryBookTemplate>
       <Formik
@@ -69,4 +69,4 @@ Primary.args = {
     { Key: "Apple", Value: "Apple" },
     { Key: "Android", Value: "Android" },
   ],
-};
+} as any;

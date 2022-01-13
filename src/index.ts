@@ -17,6 +17,7 @@ import AvatarList from "./components/AvatarList";
 import Loader from "./components/loader/Loader";
 import { Navigation } from "./components/navigation/Navigation";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
+import { ISimpleFieldProps } from "./components/simpleField/SimpleField";
 import { getIcon } from "./components/simpleIcon/helper";
 import { SimpleIcon } from "./components/simpleIcon/SimpleIcon";
 import { SimpleInput } from "./components/simpleInput/SimpleInput";
@@ -224,4 +225,5 @@ export type {
   IUserQuery,
   IYupRecord,
   IAppInfoReducerState,
+  ISimpleFieldProps,
 };

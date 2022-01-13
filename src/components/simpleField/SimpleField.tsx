@@ -31,84 +31,7 @@ import { IKeyValuePair } from "../../models/KeyValuePair";
 import { SimpleInput } from "../..";
 import { ISimpleInputProps } from "../simpleInput/SimpleInput";
 
-export interface xISimpleField extends FieldConfig {
-  type:
-    | "select"
-    | "date"
-    | "date-time"
-    | "string"
-    | "number"
-    | "place"
-    | "textarea"
-    | "slider"
-    | "radio"
-    | "switch"
-    | "password"
-    | "custom"
-    | "file"
-    | "places-autocomplete"
-    | "autocomplete";
-  options?: IKeyValuePair[];
-  formikProps: FormikProps<any>;
-  dropzoneProps?: Partial<DropzoneAreaProps>;
-  label?: string;
-  placeholder?: string;
-  [key: string]: any;
-}
-
-interface ISimpleFieldBase {
-  name: string;
-  formikProps: FormikProps<any>;
-}
-
-interface ITextFieldProps
-  extends ISimpleFieldBase,
-    Omit<ISimpleInputProps, "name" | "variant"> {
-  type: "string" | "number" | "textarea" | "password";
-}
-
-interface ISelectFieldProps
-  extends ISimpleFieldBase,
-    Omit<SelectProps, "name"> {
-  type: "select";
-  options: IKeyValuePair[];
-}
-
-interface IDateFieldProps extends ISimpleFieldBase, MobileDatePickerProps {
-  type: "date";
-}
-
-interface IDateTimeFieldProps extends ISimpleFieldBase, DateTimePickerProps {
-  type: "date-time";
-}
-
-interface IRadioFieldProps extends ISimpleFieldBase, Omit<RadioProps, "name"> {
-  type: "radio";
-  options: IKeyValuePair[];
-}
-
-interface ISwitchFieldProps
-  extends ISimpleFieldBase,
-    Omit<SwitchProps, "name"> {
-  type: "switch";
-}
-
-interface IFileFieldProps extends ISimpleFieldBase, DropzoneAreaProps {
-  type: "file";
-  label: string;
-  progress?: number;
-  isLoading?: boolean;
-  acceptedFiles?: string[];
-  maxFileSize?: number;
-}
-
-interface IPlacesAutocompleteFieldProps
-  extends ISimpleFieldBase,
-    DateTimePickerProps {
-  type: "places-autocomplete";
-}
-
-type ISimpleField =
+export type ISimpleFieldProps =
   | ITextFieldProps
   | ISelectFieldProps
   | IDateFieldProps
@@ -118,7 +41,9 @@ type ISimpleField =
   | IFileFieldProps
   | IPlacesAutocompleteFieldProps;
 
-export const SimpleField: React.FunctionComponent<ISimpleField> = (props) => {
+export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
+  props
+) => {
   const { type, name, formikProps, children, ...rest } = props;
   const isSm = useIsSmScreen();
 
@@ -330,3 +255,55 @@ export const SimpleField: React.FunctionComponent<ISimpleField> = (props) => {
   };
   return <div className="simple-field">{getInput()}</div>;
 };
+
+interface ISimpleFieldBase {
+  name: string;
+  formikProps: FormikProps<any>;
+}
+
+interface ITextFieldProps
+  extends ISimpleFieldBase,
+    Omit<ISimpleInputProps, "name" | "variant"> {
+  type: "string" | "number" | "textarea" | "password";
+}
+
+interface ISelectFieldProps
+  extends ISimpleFieldBase,
+    Omit<SelectProps, "name"> {
+  type: "select";
+  options: IKeyValuePair[];
+}
+
+interface IDateFieldProps extends ISimpleFieldBase, MobileDatePickerProps {
+  type: "date";
+}
+
+interface IDateTimeFieldProps extends ISimpleFieldBase, DateTimePickerProps {
+  type: "date-time";
+}
+
+interface IRadioFieldProps extends ISimpleFieldBase, Omit<RadioProps, "name"> {
+  type: "radio";
+  options: IKeyValuePair[];
+}
+
+interface ISwitchFieldProps
+  extends ISimpleFieldBase,
+    Omit<SwitchProps, "name"> {
+  type: "switch";
+}
+
+interface IFileFieldProps extends ISimpleFieldBase, DropzoneAreaProps {
+  type: "file";
+  label: string;
+  progress?: number;
+  isLoading?: boolean;
+  acceptedFiles?: string[];
+  maxFileSize?: number;
+}
+
+interface IPlacesAutocompleteFieldProps
+  extends ISimpleFieldBase,
+    DateTimePickerProps {
+  type: "places-autocomplete";
+}
