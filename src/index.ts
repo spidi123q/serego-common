@@ -10,7 +10,7 @@ import CreatePushToken from "./api/token/CreatePushToken";
 import CreateUser from "./api/user/CreateUser";
 import GetUser from "./api/user/GetUser";
 import GetUsers from "./api/user/GetUsers";
-import { SignInUser } from "./api/user/SignInUser";
+import { IUserSignIn, IUserToken, SignInUser } from "./api/user/SignInUser";
 import UpdateUser from "./api/user/UpdateUser";
 import { UpdateUserById } from "./api/user/UpdateUserById";
 import AvatarList from "./components/AvatarList";
@@ -20,7 +20,10 @@ import {
   Navigation,
 } from "./components/navigation/Navigation";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
-import { ISimpleFieldProps } from "./components/simpleField/SimpleField";
+import {
+  ISimpleFieldProps,
+  SimpleField,
+} from "./components/simpleField/SimpleField";
 import { getIcon, IconNames } from "./components/simpleIcon/helper";
 import { SimpleIcon } from "./components/simpleIcon/SimpleIcon";
 import { SimpleInput } from "./components/simpleInput/SimpleInput";
@@ -142,7 +145,7 @@ export {
   TabTimeline,
   AvatarList,
   SimpleThemeProvider,
-  getIcon,
+  SimpleField,
   /**
    * Helpers export start here
    */
@@ -222,6 +225,7 @@ export {
   RequestTypes,
   GeoJSONType,
   ToastTitle,
+  getIcon,
 };
 
 export type {
@@ -263,4 +267,6 @@ export type {
   ISimpleTabItem,
   IColumn,
   ITimelineItem,
+  IUserSignIn,
+  IUserToken,
 };
