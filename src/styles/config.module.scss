@@ -12,6 +12,7 @@ $color-dark-light4: #434a870f;
 $color-danger: #ed2359;
 $color-black: #383838;
 $color-disabled: #c9c9c9;
+$color-white: white;
 
 $app-fonts-regular: "HelveticaNeue";
 $app-fonts-light: "HelveticaNeue-Light";
@@ -51,4 +52,5 @@ $input-height: size(5);
   appFontsUltaLight: $app-fonts-ultaLight;
   appFontsBold: $app-fonts-bold;
   appFontsMedium: $app-fonts-medium;
+  colorWhite: $color-white;
 }

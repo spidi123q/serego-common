@@ -28,10 +28,12 @@ export const SimpleTypography: React.FunctionComponent<
 
 SimpleTypography.defaultProps = {
   family: "regular",
+  color: "colorBlack",
 };
 
 export type IColor =
   | "primaryColor"
+  | "secondaryColor"
   | "primaryColorLight"
   | "colorDark"
   | "colorDark2"
@@ -40,4 +42,5 @@ export type IColor =
   | "colorDarkLight3"
   | "colorDisabled"
   | "colorBlack"
+  | "colorWhite"
   | "colorDanger";
