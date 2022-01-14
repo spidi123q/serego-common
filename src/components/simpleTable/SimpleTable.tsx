@@ -70,7 +70,7 @@ SimpleTable.defaultProps = {
   variant: "outline",
 };
 
-interface IColumn {
+export interface IColumn {
   headerName: string;
   field: string;
   align?: "left" | "center" | "right" | "justify" | "inherit";

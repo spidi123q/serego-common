@@ -21,17 +21,16 @@ import { getIcon, IconNames } from "../simpleIcon/helper";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
 import classNames from "classnames";
+import { useNavigate, useLocation } from "react-router-dom";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export interface INavigationProps extends IUserMenuProps {
-  pathname: string;
   isLoading: boolean;
   headerActions: IHeaderAction[];
   navigationItems: INavigationItem[];
-  headerTitle: string;
-  userPermissions: UserPermissions[];
+  headerTitle?: string;
   children?: JSX.Element;
   clearHeaderActions(): any;
-  historyPush(pathname: string): void;
 }
 
 export const Navigation: React.FunctionComponent<INavigationProps> = (
@@ -39,24 +38,23 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
 ) => {
   const {
     children,
-    pathname,
     isLoading,
     headerActions,
     headerTitle,
     clearHeaderActions,
-    userPermissions,
     navigationItems,
-    historyPush,
     enqueueSnackbar,
     user,
   } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const isSm = useIsSmScreen();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   //Apply authorization
   let navItemList = navigationItems.filter((navItem) =>
     navItem.permission
-      ? isAuthorized(userPermissions, navItem.permission)
+      ? isAuthorized(user.permissions, navItem.permission)
       : true
   );
 
@@ -88,7 +86,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
           key={index}
           onClick={() => {
             if (pathname !== item.path) {
-              item.path && historyPush(item.path);
+              item.path && navigate(item.path);
               item.onClick && item.onClick();
               clearHeaderActions();
               isDrawerOpen && handleDrawerToggle();
@@ -126,6 +124,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
+        {isLoading && <LinearProgress color="secondary" />}
         <Toolbar>
           {isSm && (
             <IconButton

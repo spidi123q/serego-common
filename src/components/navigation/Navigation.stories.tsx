@@ -48,18 +48,10 @@ Primary.args = {
       selected: false,
     },
   ],
-  pathname: "RoutePath.BookingsPage",
   headerActions: [],
   headerTitle: "Tilte",
-  userPermissions: [
-    UserPermissions.ReadOrganization,
-    UserPermissions.ReadUser,
-    UserPermissions.ReadUserSelf,
-    UserPermissions.WriteUserSelf,
-  ],
   user: InitialUser,
   clearHeaderActions: () => {},
-  historyPush: () => {},
   children: (
     <div>
       is simply dummy text of the printing and typesetting industry. Lorem Ipsum
