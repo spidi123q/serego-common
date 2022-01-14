@@ -78,6 +78,7 @@ import useDocumentAPI from "./hooks/useDocumentAPI";
 import useLoading from "./hooks/useLoading";
 import useLoginActions from "./hooks/useLoginActions";
 import useNotificationAPI from "./hooks/useNotificationAPI";
+import { useTokenAPI } from "./hooks/useTokenAPI";
 import useUserAPI from "./hooks/useUserAPI";
 import { IDocumetResponse } from "./models/DocumetResponse";
 import {
@@ -175,6 +176,7 @@ export {
   useLoginActions,
   useNotificationAPI,
   useUserAPI,
+  useTokenAPI,
   /**
    * Config export start here
    */
