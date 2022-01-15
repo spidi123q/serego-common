@@ -5,7 +5,7 @@ https://spidi123q.github.io/serego-common/
 # Installation
 
 ```
-yarn add @classmate_technolabs/serego-common @emotion/react @emotion/styled @mui/icons-material @mui/lab @mui/material @mui/styles firebase yup redux redux-actions react-redux formik react-router-dom@6
+yarn add @classmate_technolabs/serego-common @emotion/react @emotion/styled @mui/icons-material @mui/lab @mui/material @mui/styles firebase yup redux redux-actions react-redux formik react-router-dom@6 notistack
 ```
 
 # publish

@@ -15,16 +15,19 @@ import { IAvatarListItem } from "../AvatarList";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
 import { IconNames } from "../simpleIcon/helper";
 import { IUser } from "../../models/User";
+import useLoginActions from "../../hooks/useLoginActions";
+import { getIdToken } from "../../helpers/auth";
 
 export interface IUserMenuProps {
-  enqueueSnackbar(msg: string): void;
   user: IUser;
 }
 
 export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
-  const { enqueueSnackbar, user } = props;
+  const { user } = props;
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const { logout } = useLoginActions();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -71,9 +74,11 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
           icon: "file_copy",
           onClick: async () => {
             try {
-              // const token = await firebase.auth().currentUser?.getIdToken();
-              await navigator.clipboard.writeText("token" ?? "");
-            } catch (err) {}
+              const token = await getIdToken();
+              await navigator.clipboard.writeText(token ?? "");
+            } catch (err) {
+              enqueueSnackbar((err as Error).message, { variant: "error" });
+            }
           },
         },
       ],
@@ -81,7 +86,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
   ];
 
   const signOut = async () => {
-    // logout();
+    logout();
     enqueueSnackbar("Please wait until system logout");
   };
 
@@ -158,3 +163,6 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
     </>
   );
 };
+function useSnackbar(): { enqueueSnackbar: any } {
+  throw new Error("Function not implemented.");
+}

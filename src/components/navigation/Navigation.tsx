@@ -43,13 +43,13 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     headerTitle,
     clearHeaderActions,
     navigationItems,
-    enqueueSnackbar,
     user,
   } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const isSm = useIsSmScreen();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { enqueueSnackbar } = useSnackbar();
 
   //Apply authorization
   let navItemList = navigationItems.filter((navItem) =>
@@ -147,7 +147,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               <Icon>{action.icon}</Icon>
             </IconButton>
           ))}
-          <UserMenu enqueueSnackbar={enqueueSnackbar} user={user} />
+          <UserMenu user={user} />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -185,4 +185,7 @@ export interface INavigationItem {
   selected: boolean;
   permission?: UserPermissions;
   onClick?(): void;
+}
+function useSnackbar(): { enqueueSnackbar: any } {
+  throw new Error("Function not implemented.");
 }

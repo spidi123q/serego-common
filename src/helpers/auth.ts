@@ -34,6 +34,10 @@ export const logout = async (dispatch: any) => {
   await dispatch(AxiosApi(request));
 };
 
+export const getIdToken = async () => {
+  return await getAuth().currentUser?.getIdToken();
+};
+
 /**
  *
  * @param permissions List of current user permissions
