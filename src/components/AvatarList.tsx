@@ -29,9 +29,7 @@ export default function AvatarList(props: IProps) {
           onClick={item.onClick}
         >
           <ListItemAvatar>
-            <Avatar>
-              <Icon color={item.iconColor ?? "primary"}>{item.icon}</Icon>
-            </Avatar>
+            <Avatar>{item.icon}</Avatar>
           </ListItemAvatar>
           <ListItemText
             primary={item.title}
@@ -85,12 +83,11 @@ type IconColor =
   | undefined;
 
 export interface IAvatarListItem {
-  icon: string;
-  iconColor?: IconColor;
+  icon: JSX.Element;
   title: string;
   description: string;
   actions?: {
-    icon: string;
+    icon: JSX.Element;
     disabled?: boolean;
     iconColor?: "inherit" | "default" | "primary" | "secondary";
     onClick(): void;

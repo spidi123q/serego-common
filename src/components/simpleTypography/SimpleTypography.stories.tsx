@@ -16,7 +16,9 @@ const Template: Story<ISimpleTypographyProps> = (args) => (
         h1 Heading
       </SimpleTypography>
       <br />
-      <SimpleTypography color="primaryColor">h2 Heading</SimpleTypography>
+      <SimpleTypography color="primaryColor" onClick={Promise.resolve}>
+        h2 Heading
+      </SimpleTypography>
     </StoryBookTemplate>
   </div>
 );

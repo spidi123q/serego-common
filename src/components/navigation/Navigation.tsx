@@ -23,6 +23,7 @@ import { SimpleIcon } from "../simpleIcon/SimpleIcon";
 import classNames from "classnames";
 import { useNavigate, useLocation } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
+import { useSnackbar } from "notistack";
 
 export interface INavigationProps extends IUserMenuProps {
   isLoading: boolean;
@@ -185,7 +186,4 @@ export interface INavigationItem {
   selected: boolean;
   permission?: UserPermissions;
   onClick?(): void;
-}
-function useSnackbar(): { enqueueSnackbar: any } {
-  throw new Error("Function not implemented.");
 }

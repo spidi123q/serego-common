@@ -1,0 +1,12 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.simple-typography {
+  &__link {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

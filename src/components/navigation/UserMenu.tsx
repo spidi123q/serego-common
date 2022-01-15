@@ -17,6 +17,12 @@ import { IconNames } from "../simpleIcon/helper";
 import { IUser } from "../../models/User";
 import useLoginActions from "../../hooks/useLoginActions";
 import { getIdToken } from "../../helpers/auth";
+import { useSnackbar } from "notistack";
+import Face from "@mui/icons-material/Face";
+import Mail from "@mui/icons-material/MailOutline";
+import Security from "@mui/icons-material/Security";
+import PowerSettingsNew from "@mui/icons-material/PowerSettingsNew";
+import FileCopy from "@mui/icons-material/FileCopyOutlined";
 
 export interface IUserMenuProps {
   user: IUser;
@@ -56,22 +62,22 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
 
   const listItems: IAvatarListItem[] = [
     {
-      icon: "face",
+      icon: <Face />,
       title: user.name ?? "",
       description: "Name",
     },
     {
-      icon: "mail",
+      icon: <Mail />,
       title: user.email ?? "",
       description: "Email",
     },
     {
-      icon: "security",
+      icon: <Security />,
       title: user.role,
       description: "Role",
       actions: [
         {
-          icon: "file_copy",
+          icon: <FileCopy />,
           onClick: async () => {
             try {
               const token = await getIdToken();
@@ -141,7 +147,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
                                   handleClose(ev);
                                 }}
                               >
-                                <Icon color="primary">{action.icon}</Icon>
+                                {action.icon}
                               </IconButton>
                             ))}
                           </ListItemSecondaryAction>
@@ -151,7 +157,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
                   </List>
                   <Grid item container xs={12} justifyContent="center">
                     <IconButton color="primary" onClick={signOut}>
-                      <Icon>power_settings_new</Icon>
+                      <PowerSettingsNew />
                     </IconButton>
                   </Grid>
                 </div>
@@ -163,6 +169,3 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
     </>
   );
 };
-function useSnackbar(): { enqueueSnackbar: any } {
-  throw new Error("Function not implemented.");
-}
