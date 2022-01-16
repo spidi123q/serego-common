@@ -70,7 +70,6 @@
     "install-peers": "^1.0.3",
     "libphonenumber-js": "^1.9.44",
     "lodash": "^4.17.21",
-    "mui-file-dropzone": "^4.0.1",
     "react-dropzone": "^11.5.1",
     "react-ripples": "^2.2.1",
     "uuid": "^8.3.2"

@@ -2,7 +2,7 @@ import "./SimpleDropzone.scss";
 import React, { useState, useEffect, useCallback } from "react";
 import { useSnackbar } from "notistack";
 import Cx from "classnames";
-import { useDropzone } from "react-dropzone";
+import { useDropzone, DropzoneOptions } from "react-dropzone";
 import { useDispatch } from "react-redux";
 import { AxiosApi, IRequest } from "../../helpers/axios";
 import Grid from "@mui/material/Grid";
@@ -19,12 +19,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import FilePresentOutlined from "@mui/icons-material/FilePresentOutlined";
 import IconButton from "@mui/material/IconButton";
-
-interface DropzoneFile extends File {
-  preview: string;
-}
-
-export interface ISimpleDropzoneProps {
+export interface ISimpleDropzoneProps extends DropzoneOptions {
   url: string;
   multiple?: boolean;
   accept?: string | string[];
@@ -36,7 +31,7 @@ export interface ISimpleDropzoneProps {
 export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
   props
 ) => {
-  const { url, onUploadCompleted, multiple, onChange, accept, label } = props;
+  const { url, onUploadCompleted, onChange, label, ...rest } = props;
   const [files, setFiles] = useState<DropzoneFile[]>([]);
   const [uploadPercentage, setUploadPercentage] = useState<number>(0);
   const { enqueueSnackbar } = useSnackbar();
@@ -86,8 +81,7 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
     isDragReject,
   } = useDropzone({
     onDrop,
-    accept,
-    multiple,
+    ...rest,
   });
 
   return (
@@ -173,3 +167,7 @@ const upload = async (
   const result = (await dispatch(AxiosApi(request))) as any;
   onUploadCompleted && onUploadCompleted(result.payload.data);
 };
+
+interface DropzoneFile extends File {
+  preview: string;
+}

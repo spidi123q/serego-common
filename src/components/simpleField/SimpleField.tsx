@@ -26,6 +26,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import { IKeyValuePair } from "../../models/KeyValuePair";
 import { ISimpleInputProps, SimpleInput } from "../simpleInput/SimpleInput";
+import {
+  ISimpleDropzoneProps,
+  SimpleDropzone,
+} from "../simpleDropzone/SimpleDropzone";
 
 export type ISimpleFieldProps =
   | ITextFieldProps
@@ -34,6 +38,7 @@ export type ISimpleFieldProps =
   | IDateTimeFieldProps
   | IRadioFieldProps
   | ISwitchFieldProps
+  | IFileFieldProps
   | IPlacesAutocompleteFieldProps;
 
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
@@ -191,45 +196,26 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           label={props.placeholder ?? ""}
         />
       );
-    }
-    // } else if (type === "file") {
-    //   const { maxFileSize, acceptedFiles, isLoading, progress, label } = props;
-    //   return (
-    //     <Grid>
-    //       <DropzoneArea
-    //         showPreviewsInDropzone={true}
-    //         maxFileSize={maxFileSize ?? Number.MAX_SAFE_INTEGER}
-    //         onChange={async (files) => {
-    //           const file = first(files);
-    //           handleChange(file);
-    //           formikProps.setFieldTouched(name, true);
-    //         }}
-    //         showFileNames={true}
-    //         dropzoneText={label}
-    //         filesLimit={1}
-    //         acceptedFiles={acceptedFiles}
-    //         {...(props.dropzoneProps as any)}
-    //       />
-    //       {isLoading && (
-    //         <LinearProgress
-    //           variant={
-    //             isLoading && (progress === 0 || progress === 100)
-    //               ? undefined
-    //               : "determinate"
-    //           }
-    //           value={progress}
-    //         />
-    //       )}
-    //       <ErrorMessage
-    //         name={name}
-    //         render={(msg) => (
-    //           <SimpleTypography color="colorDanger">{msg}</SimpleTypography>
-    //         )}
-    //       />
-    //     </Grid>
-    //   );
-    // }
-    else if (type === "places-autocomplete") {
+    } else if (type === "file") {
+      return (
+        <Grid>
+          <SimpleDropzone
+            {...props}
+            onChange={async (files) => {
+              const file = first(files);
+              handleChange(file);
+              formikProps.setFieldTouched(name, true);
+            }}
+          />
+          <ErrorMessage
+            name={name}
+            render={(msg) => (
+              <SimpleTypography color="colorDanger">{msg}</SimpleTypography>
+            )}
+          />
+        </Grid>
+      );
+    } else if (type === "places-autocomplete") {
       const { children } = props;
       return (
         <Field name={name}>
@@ -290,14 +276,9 @@ interface ISwitchFieldProps
   type: "switch";
 }
 
-// interface IFileFieldProps extends ISimpleFieldBase, DropzoneAreaProps {
-//   type: "file";
-//   label: string;
-//   progress?: number;
-//   isLoading?: boolean;
-//   acceptedFiles?: string[];
-//   maxFileSize?: number;
-// }
+interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
+  type: "file";
+}
 
 interface IPlacesAutocompleteFieldProps
   extends ISimpleFieldBase,
