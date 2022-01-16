@@ -14,10 +14,11 @@ import { SimpleIcon } from "../simpleIcon/SimpleIcon";
 import { IconNames } from "../simpleIcon/helper";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
+import DeleteIcon from "@mui/icons-material/Delete";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import FilePresentOutlined from "@mui/icons-material/FilePresentOutlined";
+import IconButton from "@mui/material/IconButton";
 
 interface DropzoneFile extends File {
   preview: string;
@@ -73,13 +74,9 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
     enqueueSnackbar("Upload Success", { variant: "success" });
   };
 
-  const thumbs = files.map((file, index) => (
-    <li key={index}>
-      <SimpleTypography>
-        {file.name} - {(file.size / ONE_MEGABYTE).toFixed(1)} MB
-      </SimpleTypography>
-    </li>
-  ));
+  const deleteFile = (myFile: DropzoneFile) => {
+    setFiles(files.filter((file) => file.name !== myFile.name));
+  };
 
   const {
     getRootProps,
@@ -113,7 +110,17 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
         <aside className="simple-dropzone__files">
           <List>
             {files.map((file, index) => (
-              <ListItem>
+              <ListItem
+                secondaryAction={
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => deleteFile(file)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                }
+              >
                 <ListItemIcon>
                   <FilePresentOutlined />
                 </ListItemIcon>
