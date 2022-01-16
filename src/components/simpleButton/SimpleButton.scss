@@ -31,6 +31,16 @@ $input-horizontal-multiplier: 2.5;
       }
     }
 
+    &--contained-dark {
+      .MuiButton-root {
+        background-color: $color-dark-light4;
+        font-family: $app-fonts-regular;
+        &:hover {
+          background-color: mix($color-dark-light4, white, 95%);
+        }
+      }
+    }
+
     &--contained {
       .MuiButton-root {
         color: white;

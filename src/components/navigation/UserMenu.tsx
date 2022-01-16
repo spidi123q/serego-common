@@ -82,6 +82,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
             try {
               const token = await getIdToken();
               await navigator.clipboard.writeText(token ?? "");
+              enqueueSnackbar("Auth token copied");
             } catch (err) {
               enqueueSnackbar((err as Error).message, { variant: "error" });
             }

@@ -30,7 +30,6 @@ export interface INavigationProps extends IUserMenuProps {
   headerActions: IHeaderAction[];
   navigationItems: INavigationItem[];
   headerTitle?: string;
-  children?: JSX.Element;
   clearHeaderActions(): any;
 }
 

@@ -10,6 +10,10 @@
     &--lg {
       @include set-icon-size(3rem);
     }
+
+    &--sm {
+      @include set-icon-size(0.9rem);
+    }
   }
 
   &__color {

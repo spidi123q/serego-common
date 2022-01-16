@@ -1,6 +1,6 @@
 {
   "name": "@classmate_technolabs/serego-common",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "common library fo serego",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -71,6 +71,7 @@
     "libphonenumber-js": "^1.9.44",
     "lodash": "^4.17.21",
     "mui-file-dropzone": "^4.0.1",
+    "react-dropzone": "^11.5.1",
     "react-ripples": "^2.2.1",
     "uuid": "^8.3.2"
   },
@@ -83,13 +84,13 @@
     "@mui/styles": ">=5.2.3",
     "firebase": ">=9.6.2",
     "formik": ">=2.2.9",
+    "notistack": ">=2.0.3",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
     "react-redux": ">=7.2.6",
     "react-router-dom": "6",
     "redux": ">=4.1.2",
     "redux-actions": ">=2.6.5",
-    "yup": ">=0.32.11",
-    "notistack": ">=2.0.3"
+    "yup": ">=0.32.11"
   }
 }

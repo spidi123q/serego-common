@@ -20,6 +20,7 @@ import {
   Navigation,
 } from "./components/navigation/Navigation";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
+import { SimpleDropzone } from "./components/simpleDropzone/SimpleDropzone";
 import {
   ISimpleFieldProps,
   SimpleField,
@@ -37,6 +38,7 @@ import {
 import { SimpleTypography } from "./components/simpleTypography/SimpleTypography";
 import { TabTimeline } from "./components/tabTimeline/TabTimeline";
 import { axiosMiddlewareConfig } from "./config/axiosMiddlewareConfig";
+import { ONE_MEGABYTE } from "./config/constants";
 import {
   firebaseConfig,
   firebaseVapidKey,
@@ -146,6 +148,7 @@ export {
   AvatarList,
   SimpleThemeProvider,
   SimpleField,
+  SimpleDropzone,
   /**
    * Helpers export start here
    */
@@ -187,6 +190,7 @@ export {
   initializeFirebase,
   firebaseConfig,
   firebaseVapidKey,
+  ONE_MEGABYTE,
   /**
    * API request function export start here
    */

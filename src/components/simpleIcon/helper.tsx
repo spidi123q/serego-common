@@ -630,6 +630,33 @@ export const getIcon = (iconName: IconNames) => {
           </g>
         </svg>
       );
+
+    case IconNames.upload:
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+        >
+          <g id="upload_3_" data-name="upload (3)" transform="translate(0)">
+            <path
+              id="Path_6280"
+              data-name="Path 6280"
+              d="M22,13a1,1,0,0,0-1,1v4.213A2.79,2.79,0,0,1,18.213,21H5.787A2.79,2.79,0,0,1,3,18.213V14a1,1,0,0,0-2,0v4.213A4.792,4.792,0,0,0,5.787,23H18.213A4.792,4.792,0,0,0,23,18.213V14A1,1,0,0,0,22,13Z"
+              transform="translate(-1 -1)"
+              fill="#383838"
+            />
+            <path
+              id="Path_6281"
+              data-name="Path 6281"
+              d="M6.707,8.707,11,4.414V17a1,1,0,0,0,2,0V4.414l4.293,4.293a1,1,0,1,0,1.414-1.414l-6-6a1,1,0,0,0-1.414,0l-6,6A1,1,0,1,0,6.707,8.707Z"
+              transform="translate(-1 -1)"
+              fill="#383838"
+            />
+          </g>
+        </svg>
+      );
   }
 };
 
@@ -647,4 +674,5 @@ export enum IconNames {
   notification = "notification",
   user = "user",
   "app-logo" = "app-logo",
+  upload = "upload",
 }
