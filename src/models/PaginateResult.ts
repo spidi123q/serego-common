@@ -15,3 +15,19 @@ export interface IPaginateResult<T> {
 }
 export type IPaginateResponse<T> = IResponse<IPaginateResult<T>>;
 export const IPaginateResponse = Promise;
+
+export const InitialPaginateResult: IPaginateResult<any> = {
+  docs: [],
+  totalDocs: 0,
+  limit: 10,
+  totalPages: 1,
+  pagingCounter: 1,
+  hasPrevPage: false,
+  hasNextPage: true,
+  page: 0,
+  nextPage: 1,
+};
+
+export const InitialPaginateResponse: IPaginateResponse<any> = Promise.resolve({
+  payload: InitialPaginateResult,
+});

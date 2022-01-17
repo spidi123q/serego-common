@@ -10,17 +10,29 @@ import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import Grid from "@mui/material/Grid";
 import { isEmpty } from "lodash";
 import classNames from "classnames";
+import { IPaginateResult } from "../../models/PaginateResult";
+import { SimpleTablePagination } from "./SimpleTablePagination";
 
 export interface ISimpleTableProps {
   columns: IColumn[];
   variant?: "outline" | "clear";
   rows?: any[];
+  paginateResult?: IPaginateResult<unknown>;
+  onPageChange?(page: number): void;
+  onRowsPerPageChange?(page: number): void;
 }
 
 export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
   props
 ) => {
-  const { columns, rows, variant } = props;
+  const {
+    columns,
+    rows,
+    variant,
+    paginateResult,
+    onRowsPerPageChange,
+    onPageChange,
+  } = props;
   return (
     <TableContainer
       className={classNames("simple-table", {
@@ -62,6 +74,13 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
           )}
         </TableBody>
       </Table>
+      {paginateResult && (
+        <SimpleTablePagination
+          {...paginateResult}
+          onPageChange={onPageChange}
+          onRowsPerPageChange={onRowsPerPageChange}
+        />
+      )}
     </TableContainer>
   );
 };

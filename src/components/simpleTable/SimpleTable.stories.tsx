@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import React from "react";
+import { InitialPaginateResult } from "../../models/PaginateResult";
 import { StoryBookTemplate } from "../StoryBookTemplate";
 import { ISimpleTableProps, SimpleTable } from "./SimpleTable";
 
@@ -65,4 +66,8 @@ Primary.args = {
       carbs: "54",
     },
   ],
+  paginateResult: {
+    ...InitialPaginateResult,
+    totalDocs: 50,
+  },
 };
