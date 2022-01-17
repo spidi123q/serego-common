@@ -20,7 +20,7 @@ export const SimpleTypography: React.FunctionComponent<
   return (
     <Typography
       className={typographyClasses}
-      style={{
+      sx={{
         color: color && Colors[color],
         fontFamily: family && AppFonts[family],
         fontWeight,
