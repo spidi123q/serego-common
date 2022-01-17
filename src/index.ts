@@ -20,6 +20,7 @@ import {
   Navigation,
 } from "./components/navigation/Navigation";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
+import { SimpleCard } from "./components/simpleCard/SimpleCard";
 import { SimpleDropzone } from "./components/simpleDropzone/SimpleDropzone";
 import {
   ISimpleFieldProps,
@@ -158,6 +159,7 @@ export {
   SimpleThemeProvider,
   SimpleField,
   SimpleDropzone,
+  SimpleCard,
   /**
    * Helpers export start here
    */

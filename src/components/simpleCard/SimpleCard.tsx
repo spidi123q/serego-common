@@ -1,21 +1,26 @@
+import "./SimpleCard.scss";
 import Card, { CardProps } from "@mui/material/Card";
 import React from "react";
+import classNames from "classnames";
 
-export interface ISimpleCardProps extends CardProps {}
+export interface ISimpleCardProps extends Omit<CardProps, "variant"> {
+  variant?: "shadow" | "plain" | "plain-sharp" | "dark-gradient";
+}
 
 export const SimpleCard: React.FunctionComponent<ISimpleCardProps> = (
   props
 ) => {
-  const { children, ...rest } = props;
+  const { children, variant, ...rest } = props;
+  const simpleCardClasses = classNames("simple-card", {
+    [`simple-card__variant--${variant}`]: variant,
+  });
   return (
-    <Card
-      sx={{
-        borderRadius: "30px",
-        boxShadow: "0px 10px 31px #0000000D",
-      }}
-      {...rest}
-    >
+    <div className={simpleCardClasses} {...rest}>
       {children}
-    </Card>
+    </div>
   );
+};
+
+SimpleCard.defaultProps = {
+  variant: "shadow",
 };

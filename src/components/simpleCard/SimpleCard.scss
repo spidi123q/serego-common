@@ -1,0 +1,28 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.simple-card {
+  padding: size(2);
+  &__variant {
+    &--shadow {
+      border-radius: 30px;
+      box-shadow: 0px 0px 15px #0000000d;
+    }
+
+    &--plain {
+      border-radius: 20px;
+      background-color: $color-dark-light5;
+    }
+
+    &--plain-sharp {
+      border-radius: 6px;
+      background-color: $color-dark-light5;
+    }
+
+    &--dark-gradient {
+      border-radius: 20px;
+      background: transparent linear-gradient(180deg, #313131 0%, #5d5d5d 100%)
+        0% 0% no-repeat padding-box;
+    }
+  }
+}
