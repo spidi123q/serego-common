@@ -1,29 +1,23 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { StoryBookTemplate } from "../StoryBookTemplate";
-import { ISimpleDropzoneProps, SimpleDropzone } from "./SimpleDropzone";
+import { ISimpleItemProps, SimpleItem } from "./SimpleItem";
 
 export default {
-  title: "Components/Dropzone",
-  component: SimpleDropzone,
+  title: "Components/Item",
+  component: SimpleItem,
 } as Meta;
 
 // Create a master template for mapping args to render the Button component
-const Template: Story<ISimpleDropzoneProps> = (args) => (
+const Template: Story<ISimpleItemProps> = (args) => (
   <StoryBookTemplate>
-    <SimpleDropzone onChange={() => {}} />
+    <SimpleItem {...args} />
   </StoryBookTemplate>
 );
 
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
-
 Primary.args = {
-  url: "brand",
-  onChange: (files) => {
-    console.log(
-      "🚀 ~ file: SimpleDropzone.stories.tsx ~ line 24 ~ files",
-      files
-    );
-  },
+  label: "Pickup Location",
+  value: "Small",
 };

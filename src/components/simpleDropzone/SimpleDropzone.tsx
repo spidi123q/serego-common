@@ -20,7 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import FilePresentOutlined from "@mui/icons-material/FilePresentOutlined";
 import IconButton from "@mui/material/IconButton";
 export interface ISimpleDropzoneProps extends DropzoneOptions {
-  url: string;
+  url?: string;
   multiple?: boolean;
   accept?: string | string[];
   label?: string;
@@ -34,7 +34,6 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
   const { url, onUploadCompleted, onChange, label, ...rest } = props;
   const [files, setFiles] = useState<DropzoneFile[]>([]);
   const [uploadPercentage, setUploadPercentage] = useState<number>(0);
-  const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -63,10 +62,15 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
       formData.append(file.name, file);
     }
     // console.log("TCL: onDrop -> formData", formData);
-    await upload(dispatch, url, formData, onUploadProgress, onUploadCompleted);
+    await upload(
+      dispatch,
+      url ?? "",
+      formData,
+      onUploadProgress,
+      onUploadCompleted
+    );
     setFiles([]);
     setUploadPercentage(0);
-    enqueueSnackbar("Upload Success", { variant: "success" });
   };
 
   const deleteFile = (myFile: DropzoneFile) => {
@@ -105,6 +109,7 @@ export const SimpleDropzone: React.FunctionComponent<ISimpleDropzoneProps> = (
           <List>
             {files.map((file, index) => (
               <ListItem
+                key={index}
                 secondaryAction={
                   <IconButton
                     edge="end"
