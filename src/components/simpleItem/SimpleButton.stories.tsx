@@ -11,7 +11,7 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleItemProps> = (args) => (
   <StoryBookTemplate>
-    <SimpleItem {...args} />
+    <SimpleItem {...args}>Mina Zayed, Abu Dhabi.</SimpleItem>
   </StoryBookTemplate>
 );
 
@@ -19,5 +19,4 @@ const Template: Story<ISimpleItemProps> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   label: "Pickup Location",
-  value: "Small",
 };
