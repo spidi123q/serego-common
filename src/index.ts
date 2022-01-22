@@ -13,6 +13,10 @@ import GetUsers from "./api/user/GetUsers";
 import { IUserSignIn, IUserToken, SignInUser } from "./api/user/SignInUser";
 import UpdateUser from "./api/user/UpdateUser";
 import { UpdateUserById } from "./api/user/UpdateUserById";
+import {
+  AsyncAutocomplete,
+  IAsyncAutocompleteProps,
+} from "./components/asyncAutocomplete/AsyncAutocomplete";
 import AvatarList from "./components/AvatarList";
 import Loader from "./components/loader/Loader";
 import {
@@ -166,6 +170,7 @@ export {
   SimpleDropzone,
   SimpleCard,
   PlacesAutocomplete,
+  AsyncAutocomplete,
   /**
    * Helpers export start here
    */
@@ -296,4 +301,5 @@ export type {
   IUserSignIn,
   IUserToken,
   IPlacesAutocompleteProps,
+  IAsyncAutocompleteProps,
 };

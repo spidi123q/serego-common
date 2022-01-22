@@ -39,7 +39,7 @@ export type ISimpleFieldProps =
   | IRadioFieldProps
   | ISwitchFieldProps
   | IFileFieldProps
-  | IPlacesAutocompleteFieldProps;
+  | IAutocompleteFieldProps;
 
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
   props
@@ -221,10 +221,9 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
         <Field name={name}>
           {({ meta }: { meta: any }) => (
             <>
-              {props.children}
+              {children}
               {meta.error && (
                 <SimpleTypography color="colorDanger">
-                  {" "}
                   {meta.error}
                 </SimpleTypography>
               )}
@@ -280,8 +279,6 @@ interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
   type: "file";
 }
 
-interface IPlacesAutocompleteFieldProps
-  extends ISimpleFieldBase,
-    DateTimePickerProps {
-  type: "places-autocomplete";
+interface IAutocompleteFieldProps extends ISimpleFieldBase {
+  type: "places-autocomplete" | "async-autocomplete";
 }
