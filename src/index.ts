@@ -19,6 +19,10 @@ import {
   INavigationItem,
   Navigation,
 } from "./components/navigation/Navigation";
+import {
+  IPlacesAutocompleteProps,
+  PlacesAutocomplete,
+} from "./components/placesAutocomplete/PlacesAutocomplete";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
 import { SimpleCard } from "./components/simpleCard/SimpleCard";
 import { SimpleDropzone } from "./components/simpleDropzone/SimpleDropzone";
@@ -87,6 +91,7 @@ import useDialog from "./hooks/useDialog";
 import useDocumentAPI from "./hooks/useDocumentAPI";
 import useLoading from "./hooks/useLoading";
 import useLoginActions from "./hooks/useLoginActions";
+import { useMapsAPI } from "./hooks/useMapsAPI";
 import useNotificationAPI from "./hooks/useNotificationAPI";
 import { useTokenAPI } from "./hooks/useTokenAPI";
 import useUserAPI from "./hooks/useUserAPI";
@@ -160,6 +165,7 @@ export {
   SimpleField,
   SimpleDropzone,
   SimpleCard,
+  PlacesAutocomplete,
   /**
    * Helpers export start here
    */
@@ -194,6 +200,7 @@ export {
   useNotificationAPI,
   useUserAPI,
   useTokenAPI,
+  useMapsAPI,
   /**
    * Config export start here
    */
@@ -288,4 +295,5 @@ export type {
   ITimelineItem,
   IUserSignIn,
   IUserToken,
+  IPlacesAutocompleteProps,
 };
