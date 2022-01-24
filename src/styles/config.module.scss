@@ -1,5 +1,7 @@
 @use "sass:map";
 
+@import "animate.css";
+
 $color-primary: #2faa75;
 $color-secondary: #0072ca;
 $color-primary-light: mix($color-primary, white, 50%);
