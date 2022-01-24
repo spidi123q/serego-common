@@ -83,6 +83,7 @@ import {
   toKeyValuePairFromArr,
   getFileName,
 } from "./helpers/transform";
+import { scrollToTarget } from "./helpers/utilities";
 import {
   locationSchema,
   locationResultSchema,
@@ -194,6 +195,7 @@ export {
   getFileSchema,
   gePhoneNumberValidation,
   AxiosApi,
+  scrollToTarget,
   /**
    * Hooks export start here
    */
