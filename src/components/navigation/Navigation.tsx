@@ -27,7 +27,7 @@ import { useSnackbar } from "notistack";
 
 export interface INavigationProps extends IUserMenuProps {
   isLoading: boolean;
-  headerActions: IHeaderAction[];
+  headerActions: (IHeaderAction | JSX.Element)[];
   navigationItems: INavigationItem[];
   headerTitle?: string;
   clearHeaderActions(): any;
@@ -138,15 +138,25 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
           )}
           {getIcon(IconNames["app-logo"])}
           <Box sx={{ flexGrow: 1 }} />
-          {headerActions.map((action, index) => (
-            <IconButton
-              onClick={(ev) => action.onClick(ev)}
-              color="inherit"
-              key={index}
-            >
-              <Icon>{action.icon}</Icon>
-            </IconButton>
-          ))}
+          {headerActions.map((action, index) =>
+            React.isValidElement(action) ? (
+              <span
+                key={index}
+                className="navigation-root__header-action-container"
+              >
+                {action}
+              </span>
+            ) : (
+              <IconButton
+                onClick={(ev) => (action as IHeaderAction).onClick(ev)}
+                color="inherit"
+                key={index}
+                className="navigation-root__header-action-container"
+              >
+                <Icon>{(action as IHeaderAction).icon}</Icon>
+              </IconButton>
+            )
+          )}
           <UserMenu user={user} />
         </Toolbar>
       </AppBar>

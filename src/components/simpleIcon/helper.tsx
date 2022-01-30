@@ -6,42 +6,17 @@ export const getIcon = (iconName: IconNames) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          id="home_6_"
-          data-name="home (6)"
-          width="22.142"
-          height="21.046"
-          viewBox="0 0 22.142 21.046"
+          width="18"
+          height="20.024"
+          viewBox="0 0 18 20.024"
         >
-          <g
-            id="Group_11451"
-            data-name="Group 11451"
-            transform="translate(0 0)"
-          >
-            <g id="Group_11450" data-name="Group 11450">
-              <path
-                id="Path_3872"
-                data-name="Path 3872"
-                d="M21.77,22.026l-9.934-9.052a1.13,1.13,0,0,0-1.529,0L.372,22.026A1.135,1.135,0,0,0,1.137,24H2.723v9.07a.651.651,0,0,0,.651.651H8.82a.651.651,0,0,0,.651-.651V27.563h3.2V33.07a.651.651,0,0,0,.651.651h5.445a.651.651,0,0,0,.651-.651V24h1.587a1.135,1.135,0,0,0,.765-1.975Z"
-                transform="translate(0 -12.675)"
-                fill="#2faa75"
-              />
-            </g>
-          </g>
-          <g
-            id="Group_11453"
-            data-name="Group 11453"
-            transform="translate(14.876 1.3)"
-          >
-            <g id="Group_11452" data-name="Group 11452">
-              <path
-                id="Path_3873"
-                data-name="Path 3873"
-                d="M348.346,42.73h-4.373L349,47.3V43.381A.651.651,0,0,0,348.346,42.73Z"
-                transform="translate(-343.973 -42.73)"
-                fill="#2faa75"
-              />
-            </g>
-          </g>
+          <path
+            id="Path_6301"
+            data-name="Path 6301"
+            d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z"
+            transform="translate(-3 -1.976)"
+            fill="#2faa75"
+          />
         </svg>
       );
 
@@ -74,45 +49,45 @@ export const getIcon = (iconName: IconNames) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="26.776"
-          height="38.893"
-          viewBox="0 0 26.776 38.893"
+          width="18.016"
+          height="21.008"
+          viewBox="0 0 18.016 21.008"
         >
-          <g id="survey" transform="translate(-79.65)">
+          <g id="XMLID_74_" transform="translate(-38 -0.1)">
             <path
-              id="Path_6188"
-              data-name="Path 6188"
-              d="M99.517,2.539V0H86.559V2.539H79.65V38.893h26.776V2.539ZM88.84,2.282h8.395v2.8H88.84Zm15.3,34.329H81.932V4.821h4.627V7.361H99.517V4.821h4.627v31.79Z"
-              transform="translate(0)"
-              fill="#2faa75"
+              id="XMLID_170_"
+              d="M345.447,69.7h2.134L345,67.2v2.105A.435.435,0,0,0,345.447,69.7Z"
+              transform="translate(-294.401 -64.346)"
+              fill="none"
             />
             <path
-              id="Path_6189"
-              data-name="Path 6189"
-              d="M143.744,180.254l-1.021-1.277-1.782,1.425,2.783,3.481,4.316-5.275-1.766-1.445Z"
-              transform="translate(-56.629 -163.686)"
-              fill="#2faa75"
+              id="XMLID_174_"
+              d="M89.4,45.349a2.063,2.063,0,0,1-2.089-2.036V40.125L78.427,40.1a.432.432,0,0,0-.427.41v16.9a.458.458,0,0,0,.447.419H92.36a.4.4,0,0,0,.373-.419V45.349Zm-1.473,3.242a.821.821,0,0,1,0,1.642H80.75a.821.821,0,0,1,0-1.642Zm-7.223-3.283h4.761a.821.821,0,0,1,0,1.642H80.709a.821.821,0,1,1,0-1.642Zm9.275,8.208H80.75a.821.821,0,0,1,0-1.642h9.234a.821.821,0,1,1,0,1.642Z"
+              transform="translate(-38.358 -38.358)"
+              fill="none"
             />
             <path
-              id="Path_6190"
-              data-name="Path 6190"
-              d="M149.237,308.97l-1.628,1.628-1.628-1.628-1.614,1.614L146,312.211l-1.628,1.628,1.614,1.614,1.628-1.628,1.628,1.628,1.614-1.614-1.628-1.628,1.628-1.628Z"
-              transform="translate(-59.795 -285.468)"
-              fill="#2faa75"
+              id="XMLID_488_"
+              d="M55.614,5.423,50.62.588A1.649,1.649,0,0,0,49.475.125L40.068.1A2.062,2.062,0,0,0,38,2.152v16.9a2.1,2.1,0,0,0,2.089,2.056H54a2.039,2.039,0,0,0,2.015-2.06V6.4A1.35,1.35,0,0,0,55.614,5.423ZM50.6,2.854l2.581,2.5H51.046a.435.435,0,0,1-.447-.394ZM54,19.466H40.089a.455.455,0,0,1-.447-.419V2.152a.432.432,0,0,1,.427-.41l8.889.025V4.955A2.066,2.066,0,0,0,51.046,6.99h3.328V19.048A.4.4,0,0,1,54,19.466Z"
+              fill="#707070"
             />
             <path
-              id="Path_6191"
-              data-name="Path 6191"
-              d="M264.657,211.994h7.911v2.282h-7.911Z"
-              transform="translate(-170.934 -195.869)"
-              fill="#2faa75"
+              id="XMLID_490_"
+              d="M125,247.821a.823.823,0,0,0,.821.821H133A.821.821,0,1,0,133,247h-7.182A.823.823,0,0,0,125,247.821Z"
+              transform="translate(-83.43 -236.767)"
+              fill="#707070"
             />
             <path
-              id="Path_6192"
-              data-name="Path 6192"
-              d="M264.657,336.584h7.911v2.282h-7.911Z"
-              transform="translate(-170.934 -310.982)"
-              fill="#2faa75"
+              id="XMLID_491_"
+              d="M124.821,168.642h4.761a.821.821,0,1,0,0-1.642h-4.761a.821.821,0,1,0,0,1.642Z"
+              transform="translate(-82.471 -160.051)"
+              fill="#707070"
+            />
+            <path
+              id="XMLID_492_"
+              d="M135.055,327h-9.234a.821.821,0,0,0,0,1.642h9.234a.821.821,0,0,0,0-1.642Z"
+              transform="translate(-83.43 -313.484)"
+              fill="#707070"
             />
           </g>
         </svg>
@@ -432,7 +407,6 @@ export const getIcon = (iconName: IconNames) => {
               data-name="Path 21"
               d="M18,7.5V23.412"
               transform="translate(-10.044 -7.5)"
-              fill="#2faa75"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="3"
@@ -442,7 +416,6 @@ export const getIcon = (iconName: IconNames) => {
               data-name="Path 22"
               d="M7.5,18H23.412"
               transform="translate(-7.5 -10.044)"
-              fill="#2faa75"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="3"

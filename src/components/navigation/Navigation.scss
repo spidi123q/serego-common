@@ -7,6 +7,9 @@
 }
 
 .navigation-root {
+  .MuiToolbar-root {
+    min-height: 90px;
+  }
   .MuiAppBar-root {
     background-color: white;
     box-shadow: 0px 3px 20px #0000000f;
@@ -32,5 +35,9 @@
     background-color: $color-dark-light4 !important;
     height: 45px;
     width: 45px;
+  }
+
+  &__header-action-container {
+    margin-right: size(4);
   }
 }

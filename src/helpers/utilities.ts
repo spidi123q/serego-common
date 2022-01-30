@@ -1,4 +1,5 @@
 import { isString } from "lodash";
+import "./utilities.scss";
 
 /**
  * Scroll to particular position within page

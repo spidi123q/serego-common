@@ -50,7 +50,7 @@
     }
 
     &--colorBlack {
-      @include set-icon-color($color-disabled);
+      @include set-icon-color($color-black);
     }
 
     &--colorDanger {
