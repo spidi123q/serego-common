@@ -43,3 +43,19 @@ export enum ToastTitle {
   FirebaseError = "App Error",
   FormError = "Form Validation Failed",
 }
+
+export enum TruckType {
+  Small = "Small",
+  Medium = "Medium",
+  Large = "Large",
+  ExtraLarge = "Extra Large",
+}
+
+export enum MassUnit {
+  Kg = "Kg",
+  Ton = "Ton",
+}
+
+export enum MeasurementUnit {
+  cm = "cm",
+}

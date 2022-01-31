@@ -24,6 +24,7 @@ import classNames from "classnames";
 import { useNavigate, useLocation } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useSnackbar } from "notistack";
+import Menu from "@mui/icons-material/Menu";
 
 export interface INavigationProps extends IUserMenuProps {
   isLoading: boolean;
@@ -133,7 +134,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               edge="start"
               onClick={handleDrawerToggle}
             >
-              <Icon>menu</Icon>
+              <Menu />
             </IconButton>
           )}
           {getIcon(IconNames["app-logo"])}

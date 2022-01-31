@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { SimpleButton } from "../..";
 
 export interface ITabTimelineProps {
-  tabs: ITabItem[];
+  tabs: ITabTimelineItem[];
   activeTabIndex?: number;
   onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
   disableNextOnIncomplete?: boolean;
@@ -105,7 +105,7 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
   );
 };
 
-export interface ITabItem {
+export interface ITabTimelineItem {
   title: string;
   subTitle: string;
   content: string | number | JSX.Element;
