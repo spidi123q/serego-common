@@ -103,6 +103,7 @@ import useLoading from "./hooks/useLoading";
 import useLoginActions from "./hooks/useLoginActions";
 import { useMapsAPI } from "./hooks/useMapsAPI";
 import useNotificationAPI from "./hooks/useNotificationAPI";
+import { useQueryParam } from "./hooks/useQueryParam";
 import { useTokenAPI } from "./hooks/useTokenAPI";
 import useUserAPI from "./hooks/useUserAPI";
 import { ICreatedBy } from "./models/CreatedBy";
@@ -220,6 +221,7 @@ export {
   useUserAPI,
   useTokenAPI,
   useMapsAPI,
+  useQueryParam,
   /**
    * Config export start here
    */

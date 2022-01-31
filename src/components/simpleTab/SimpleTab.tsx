@@ -10,11 +10,12 @@ import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 
 export interface ISimpleTabProps {
   tabs: ISimpleTabItem[];
+  activeTab?: string | null;
 }
 
 export const SimpleTab: React.FunctionComponent<ISimpleTabProps> = (props) => {
-  const { tabs } = props;
-  const [value, setValue] = React.useState<string>("1");
+  const { tabs, activeTab } = props;
+  const [value, setValue] = React.useState<string>(activeTab ?? "0");
 
   const handleChange = (
     event: React.SyntheticEvent<Element, Event>,
