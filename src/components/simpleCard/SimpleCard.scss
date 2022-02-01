@@ -2,6 +2,8 @@
 @import "../../styles/mixins.module";
 
 .simple-card {
+  width: 100%;
+  margin: size(1);
   padding: size(2);
   &__variant {
     &--shadow {

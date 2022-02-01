@@ -630,6 +630,45 @@ export const getIcon = (iconName: IconNames) => {
           </g>
         </svg>
       );
+
+    case IconNames.search:
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30.723"
+          height="30.723"
+          viewBox="0 0 30.723 30.723"
+        >
+          <g
+            id="Icon_feather-search"
+            data-name="Icon feather-search"
+            transform="translate(2 2)"
+          >
+            <path
+              id="Path_40"
+              data-name="Path 40"
+              d="M27.517,16.009A11.509,11.509,0,1,1,16.009,4.5,11.509,11.509,0,0,1,27.517,16.009Z"
+              transform="translate(-4.5 -4.5)"
+              fill="none"
+              stroke="#2faa75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="4"
+            />
+            <path
+              id="Path_41"
+              data-name="Path 41"
+              d="M31.233,31.233l-6.258-6.258"
+              transform="translate(-5.338 -5.339)"
+              fill="none"
+              stroke="#2faa75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="4"
+            />
+          </g>
+        </svg>
+      );
   }
 };
 
@@ -648,4 +687,5 @@ export enum IconNames {
   user = "user",
   "app-logo" = "app-logo",
   upload = "upload",
+  search = "search",
 }
