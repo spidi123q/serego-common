@@ -17,6 +17,12 @@ export enum UserPermissions {
   WriteUser = "WriteUser",
   ReadUserSelf = "ReadUserSelf",
   WriteUserSelf = "WriteUserSelf",
+  ReadTruckBooking = "ReadTruckBooking",
+  WriteTruckBooking = "WriteTruckBooking",
+  ReadVehicle = "ReadVehicle",
+  WriteVehicle = "WriteVehicle",
+  ReadClearance = "ReadClearance",
+  WriteClearance = "WriteClearance",
 }
 
 export enum RequestTypes {

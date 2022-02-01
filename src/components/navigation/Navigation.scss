@@ -8,7 +8,7 @@
 
 .navigation-root {
   .MuiToolbar-root {
-    min-height: 75px;
+    min-height: 70px;
   }
   .MuiAppBar-root {
     background-color: white;
@@ -33,11 +33,11 @@
   &__navIcons {
     border-radius: 9px !important;
     background-color: $color-dark-light4 !important;
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
   }
 
   &__header-action-container {
-    margin-right: size(4);
+    margin-right: size(2);
   }
 }
