@@ -1,7 +1,7 @@
-import { ICreatedBy, IUpdatedBy, MassUnit } from "..";
-import { ITimeStamps } from "./TimeStamps";
+import { MassUnit } from "./enum";
+import { ISchemaModel } from "./SchemaModel";
 
-export interface IVehicle extends ITimeStamps, ICreatedBy, IUpdatedBy {
+export interface IVehicle extends ISchemaModel {
   _id: string;
   registrationNumber: string;
   model: string;

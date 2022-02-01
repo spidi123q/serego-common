@@ -124,6 +124,7 @@ import { IKeyValuePair } from "./models/KeyValuePair";
 import { IKnownKeys } from "./models/KnownKeys";
 import { ILocationResult } from "./models/LocationResult";
 import INotification, { INotificationQuery } from "./models/Notification";
+import { IPageQuery } from "./models/PageQuery";
 import IPaginatedRequest from "./models/PaginatedRequest";
 import {
   InitialPaginateResponse,
@@ -141,6 +142,7 @@ import {
   IRazorpayError,
   IRazorpaySuccess,
 } from "./models/Razorpay";
+import { ISchemaModel } from "./models/SchemaModel";
 import { ITimeStamps } from "./models/TimeStamps";
 import { IToastMessage } from "./models/ToastMessage";
 import { ITruckBooking, ITruckBookingQuery } from "./models/TruckBooking";
@@ -331,4 +333,6 @@ export type {
   IVehicleEdit,
   IVehicleQuery,
   ITabTimelineItem,
+  IPageQuery,
+  ISchemaModel,
 };
