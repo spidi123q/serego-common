@@ -1,9 +1,10 @@
 import React from "react";
 import "./SimpleButton.scss";
-import Button, { ButtonProps } from "@mui/material/Button";
 import classNames from "classnames";
+import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
 
-export interface ISimpleButtonProps extends Omit<ButtonProps, "variant"> {
+export interface ISimpleButtonProps
+  extends Omit<LoadingButtonProps, "variant"> {
   marginRight?: boolean;
   marginLeft?: boolean;
   variant?: IType;
@@ -21,9 +22,9 @@ export const SimpleButton: React.FunctionComponent<ISimpleButtonProps> = (
         [`simple-button__variant--${variant}`]: variant,
       })}
     >
-      <Button variant={typeVariantMap[variant ?? "contained"]} {...rest}>
+      <LoadingButton variant={typeVariantMap[variant ?? "contained"]} {...rest}>
         {children}
-      </Button>
+      </LoadingButton>
     </span>
   );
 };

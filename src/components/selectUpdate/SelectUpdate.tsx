@@ -12,12 +12,13 @@ export interface ISelectUpdateProps {
   defaultValue?: string;
   options: IKeyValuePair[];
   onUpdate: (value: string) => void;
+  loading?: boolean;
 }
 
 export const SelectUpdate: React.FunctionComponent<ISelectUpdateProps> = (
   props
 ) => {
-  const { label, options, defaultValue } = props;
+  const { label, options, loading, defaultValue } = props;
   const [value, setValue] = useState<string>(defaultValue ?? "");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -48,7 +49,12 @@ export const SelectUpdate: React.FunctionComponent<ISelectUpdateProps> = (
         </Select>
       </FormControl>
       <div className="select-update__action">
-        <SimpleButton color="secondary" variant="text" onClick={onUpdate}>
+        <SimpleButton
+          color="secondary"
+          variant="text"
+          onClick={onUpdate}
+          loading={loading}
+        >
           Update
         </SimpleButton>
       </div>
