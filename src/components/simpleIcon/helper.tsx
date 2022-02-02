@@ -669,6 +669,23 @@ export const getIcon = (iconName: IconNames) => {
           </g>
         </svg>
       );
+
+    case IconNames.back:
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="27"
+          height="18.003"
+          viewBox="0 0 27 18.003"
+        >
+          <path
+            id="Icon_ionic-ios-arrow-round-forward"
+            data-name="Icon ionic-ios-arrow-round-forward"
+            d="M17.647,11.595a1.225,1.225,0,0,1,.009,1.725l-5.7,5.709H33.649a1.219,1.219,0,1,1,0,2.437H11.965l5.7,5.715a1.233,1.233,0,0,1-.009,1.725A1.213,1.213,0,0,1,15.94,28.9L8.215,21.116h0a1.368,1.368,0,0,1-.253-.384,1.163,1.163,0,0,1-.093-.469,1.221,1.221,0,0,1,.347-.853l7.725-7.781a1.2,1.2,0,0,1,1.707-.033Z"
+            transform="translate(-7.868 -11.255)"
+          />
+        </svg>
+      );
   }
 };
 
@@ -688,4 +705,5 @@ export enum IconNames {
   "app-logo" = "app-logo",
   upload = "upload",
   search = "search",
+  back = "back",
 }

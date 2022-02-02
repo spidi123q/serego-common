@@ -23,6 +23,7 @@ import {
   INavigationItem,
   Navigation,
 } from "./components/navigation/Navigation";
+import { PagePath, IPagePathProps } from "./components/pagePath/PagePath";
 import {
   IPlacesAutocompleteProps,
   PlacesAutocomplete,
@@ -202,6 +203,7 @@ export {
   SummaryCard,
   SimpleItem,
   SelectUpdate,
+  PagePath,
   /**
    * Helpers export start here
    */
@@ -353,4 +355,5 @@ export type {
   ISummaryCardProps,
   ISimpleItemProps,
   ISelectUpdateProps,
+  IPagePathProps,
 };

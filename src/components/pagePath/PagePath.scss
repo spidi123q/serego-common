@@ -1,0 +1,13 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.page-path {
+  display: flex;
+
+  &__labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+}
