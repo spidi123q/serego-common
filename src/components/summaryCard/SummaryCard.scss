@@ -1,0 +1,21 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.summary-card {
+  display: flex;
+  padding: size(2);
+  &__icon-container {
+    @include align-center;
+    background-color: $color-primary-light;
+    height: size(6);
+    width: size(6);
+    border-radius: 6px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: size(1);
+  }
+}

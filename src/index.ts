@@ -46,6 +46,10 @@ import {
 } from "./components/simpleTimeline/SimpleTimeline";
 import { SimpleTypography } from "./components/simpleTypography/SimpleTypography";
 import {
+  ISummaryCardProps,
+  SummaryCard,
+} from "./components/summaryCard/SummaryCard";
+import {
   ITabTimelineItem,
   TabTimeline,
 } from "./components/tabTimeline/TabTimeline";
@@ -187,6 +191,7 @@ export {
   SimpleCard,
   PlacesAutocomplete,
   AsyncAutocomplete,
+  SummaryCard,
   /**
    * Helpers export start here
    */
@@ -335,4 +340,5 @@ export type {
   ITabTimelineItem,
   IPageQuery,
   ISchemaModel,
+  ISummaryCardProps,
 };

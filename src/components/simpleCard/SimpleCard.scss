@@ -2,9 +2,12 @@
 @import "../../styles/mixins.module";
 
 .simple-card {
-  width: 100%;
   margin: size(1);
   padding: size(2);
+  &--full-width {
+    width: 100%;
+  }
+
   &__variant {
     &--shadow {
       border-radius: 30px;
