@@ -1,0 +1,28 @@
+@import "../../styles/config.module";
+
+.select-update {
+  display: flex;
+  justify-content: space-between;
+  border: $border-style;
+  border-radius: 6px;
+
+  .MuiSelect-select {
+    font-weight: 400;
+    font-size: size(2);
+    color: $color-black;
+    font-family: $app-fonts-medium;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    border-left: $border-style;
+    padding-left: size(1);
+    padding-right: size(1);
+  }
+
+  &__select {
+    width: 100%;
+    margin: size(1) !important;
+  }
+}

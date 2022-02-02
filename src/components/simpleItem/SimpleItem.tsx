@@ -11,7 +11,7 @@ export const SimpleItem: React.FunctionComponent<ISimpleItemProps> = (
 ) => {
   const { label, children } = props;
   return (
-    <>
+    <div>
       <div>
         <SimpleTypography color="colorDark" variant="caption">
           {label}
@@ -26,6 +26,6 @@ export const SimpleItem: React.FunctionComponent<ISimpleItemProps> = (
           children
         )}
       </div>
-    </>
+    </div>
   );
 };

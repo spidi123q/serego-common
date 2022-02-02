@@ -34,6 +34,7 @@ $xl-screen: 1920px;
 $default-margin: 0.5rem;
 $default-border-radius: 6px;
 $input-height: size(5);
+$border-style: 1px solid $color-disabled;
 
 :export {
   primaryColor: $color-primary;

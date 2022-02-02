@@ -27,6 +27,10 @@ import {
   IPlacesAutocompleteProps,
   PlacesAutocomplete,
 } from "./components/placesAutocomplete/PlacesAutocomplete";
+import {
+  SelectUpdate,
+  ISelectUpdateProps,
+} from "./components/selectUpdate/SelectUpdate";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
 import { SimpleCard } from "./components/simpleCard/SimpleCard";
 import { SimpleDropzone } from "./components/simpleDropzone/SimpleDropzone";
@@ -37,6 +41,10 @@ import {
 import { getIcon, IconNames } from "./components/simpleIcon/helper";
 import { SimpleIcon } from "./components/simpleIcon/SimpleIcon";
 import { SimpleInput } from "./components/simpleInput/SimpleInput";
+import {
+  ISimpleItemProps,
+  SimpleItem,
+} from "./components/simpleItem/SimpleItem";
 import { ISimpleTabItem, SimpleTab } from "./components/simpleTab/SimpleTab";
 import { IColumn, SimpleTable } from "./components/simpleTable/SimpleTable";
 import { SimpleThemeProvider } from "./components/SimpleThemeProvider";
@@ -192,6 +200,8 @@ export {
   PlacesAutocomplete,
   AsyncAutocomplete,
   SummaryCard,
+  SimpleItem,
+  SelectUpdate,
   /**
    * Helpers export start here
    */
@@ -341,4 +351,6 @@ export type {
   IPageQuery,
   ISchemaModel,
   ISummaryCardProps,
+  ISimpleItemProps,
+  ISelectUpdateProps,
 };

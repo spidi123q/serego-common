@@ -4,7 +4,7 @@
   &__variant {
     &--outline {
       .MuiTable-root {
-        border: 1px solid rgba(224, 224, 224, 1);
+        border: $border-style;
         border-radius: size(1.5);
         border-collapse: unset;
       }
