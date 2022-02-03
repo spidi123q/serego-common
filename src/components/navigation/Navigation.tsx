@@ -16,7 +16,7 @@ import { isAuthorized } from "../../helpers/auth";
 import { IHeaderAction } from "../../models/HeaderAction";
 import Box from "@mui/material/Box";
 import { useIsSmScreen } from "../../hooks/mediaQuery";
-import { find, isEmpty, size } from "lodash";
+import { find, first, isEmpty, size } from "lodash";
 import { getIcon, IconNames } from "../simpleIcon/helper";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
@@ -27,6 +27,8 @@ import { useSnackbar } from "notistack";
 import Menu from "@mui/icons-material/Menu";
 import Collapse from "@mui/material/Collapse";
 import ListItemButton from "@mui/material/ListItemButton";
+import { useQueryParam } from "../../hooks/useQueryParam";
+import cleanDeep from "clean-deep";
 
 export interface INavigationProps extends IUserMenuProps {
   isLoading: boolean;
@@ -53,6 +55,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { enqueueSnackbar } = useSnackbar();
+  const query = useQueryParam();
 
   //Apply authorization
   let navItemList = navigationItems.filter((navItem) =>
@@ -87,12 +90,18 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
 
   const goToPage = (item: INavigationItem) => {
     if (pathname !== item.path) {
-      item.path && navigate(item.path);
+      if (item.path) {
+        isEmpty(item.subNavigationItems)
+          ? navigate(item.path)
+          : navigate(first(item.subNavigationItems)?.path ?? "/");
+      }
       item.onClick && item.onClick();
       clearHeaderActions();
       isDrawerOpen && handleDrawerToggle();
     }
   };
+
+  const goToRoot = () => navigate("/");
 
   const drawerContent = (
     <List>
@@ -182,7 +191,9 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               <Menu />
             </IconButton>
           )}
-          {getIcon(IconNames["app-logo"])}
+          <span className="navigation-root__logo" onClick={goToRoot}>
+            {getIcon(IconNames["app-logo"])}
+          </span>
           <Box sx={{ flexGrow: 1 }} />
           {headerActions.map((action, index) =>
             React.isValidElement(action) ? (
@@ -206,24 +217,29 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
           <UserMenu user={user} />
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant={isSm ? "temporary" : "permanent"}
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
+      {!query.get("hideDrawer") && (
+        <Drawer
+          variant={isSm ? "temporary" : "permanent"}
+          sx={{
             width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        open={isDrawerOpen}
-        onClose={handleDrawerToggle}
-      >
-        <Toolbar />
-        <Box className="navigation-root__drawer-menu" sx={{ overflow: "auto" }}>
-          {drawerContent}
-        </Box>
-      </Drawer>
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: "border-box",
+            },
+          }}
+          open={isDrawerOpen}
+          onClose={handleDrawerToggle}
+        >
+          <Toolbar />
+          <Box
+            className="navigation-root__drawer-menu"
+            sx={{ overflow: "auto" }}
+          >
+            {drawerContent}
+          </Box>
+        </Drawer>
+      )}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         {children}
@@ -242,4 +258,11 @@ export interface INavigationItem {
   permission?: UserPermissions;
   onClick?(): void;
   subNavigationItems?: INavigationItem[];
+}
+
+export const buidNavigationQuery = (query: INavigationQuery): string =>
+  new URLSearchParams(cleanDeep(query) as any).toString();
+
+export interface INavigationQuery {
+  hideDrawer: boolean;
 }

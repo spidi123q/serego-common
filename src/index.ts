@@ -20,9 +20,12 @@ import {
 import AvatarList from "./components/AvatarList";
 import Loader from "./components/loader/Loader";
 import {
+  buidNavigationQuery,
   INavigationItem,
+  INavigationQuery,
   Navigation,
 } from "./components/navigation/Navigation";
+import { NotFound } from "./components/notFound/NotFound";
 import { PagePath, IPagePathProps } from "./components/pagePath/PagePath";
 import {
   IPlacesAutocompleteProps,
@@ -204,6 +207,7 @@ export {
   SimpleItem,
   SelectUpdate,
   PagePath,
+  NotFound,
   /**
    * Helpers export start here
    */
@@ -228,6 +232,7 @@ export {
   gePhoneNumberValidation,
   AxiosApi,
   scrollToTarget,
+  buidNavigationQuery,
   /**
    * Hooks export start here
    */
@@ -356,4 +361,5 @@ export type {
   ISimpleItemProps,
   ISelectUpdateProps,
   IPagePathProps,
+  INavigationQuery,
 };
