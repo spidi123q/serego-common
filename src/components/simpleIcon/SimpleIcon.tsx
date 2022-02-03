@@ -6,7 +6,7 @@ import "./SimpleIcon.scss";
 
 export interface ISimpleIconProps {
   name: IconNames;
-  size?: "regular" | "lg" | "sm";
+  size?: "regular" | "lg" | "sm" | "xlg";
   color?: IColor;
 }
 

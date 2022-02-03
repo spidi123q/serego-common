@@ -1347,6 +1347,24 @@ export const getIcon = (iconName: IconNames) => {
           </g>
         </svg>
       );
+
+    case IconNames["tick-filled"]:
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="151.981"
+          height="151.981"
+          viewBox="0 0 151.981 151.981"
+        >
+          <path
+            id="check_10_"
+            data-name="check (10)"
+            d="M76.991,1a75.991,75.991,0,1,0,75.991,75.991A75.991,75.991,0,0,0,76.991,1Zm32.517,63.6L74.967,99.145a6.908,6.908,0,0,1-9.768,0L44.474,78.421a6.908,6.908,0,1,1,9.769-9.769l15.84,15.841L99.74,54.836a6.908,6.908,0,1,1,9.769,9.769Z"
+            transform="translate(-1 -1)"
+            fill="#2faa75"
+          />
+        </svg>
+      );
   }
 };
 
@@ -1370,4 +1388,5 @@ export enum IconNames {
   car = "car",
   van = "van",
   truck = "truck",
+  "tick-filled" = "tick-filled",
 }

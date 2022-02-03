@@ -11,6 +11,10 @@
       @include set-icon-size(3rem);
     }
 
+    &--xlg {
+      @include set-icon-size(6rem);
+    }
+
     &--sm {
       @include set-icon-size(0.9rem);
     }
