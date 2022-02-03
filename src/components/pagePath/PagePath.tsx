@@ -29,6 +29,7 @@ export const PagePath: React.FunctionComponent<IPagePathProps> = (props) => {
               color={isLast ? "colorBlack" : "colorDark"}
               whiteSpace="pre"
               family={isLast ? "medium" : "regular"}
+              key={index}
             >
               {isLast ? label : ` ${label} / `}
             </SimpleTypography>

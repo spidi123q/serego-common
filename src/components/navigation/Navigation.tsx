@@ -16,7 +16,7 @@ import { isAuthorized } from "../../helpers/auth";
 import { IHeaderAction } from "../../models/HeaderAction";
 import Box from "@mui/material/Box";
 import { useIsSmScreen } from "../../hooks/mediaQuery";
-import { find } from "lodash";
+import { find, isEmpty, size } from "lodash";
 import { getIcon, IconNames } from "../simpleIcon/helper";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
@@ -25,6 +25,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useSnackbar } from "notistack";
 import Menu from "@mui/icons-material/Menu";
+import Collapse from "@mui/material/Collapse";
+import ListItemButton from "@mui/material/ListItemButton";
 
 export interface INavigationProps extends IUserMenuProps {
   isLoading: boolean;
@@ -59,19 +61,23 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
       : true
   );
 
-  navItemList = navItemList.map((item) => {
-    if (item.path && pathname.match(item.path)) {
-      return {
-        ...item,
-        selected: true,
-      };
-    } else {
-      return {
-        ...item,
-        selected: false,
-      };
+  const markSelected = (navItemList?: INavigationItem[]): INavigationItem[] => {
+    if (!navItemList) {
+      return [];
     }
-  });
+    const items = navItemList.map((item) => {
+      if (item.path && pathname.match(item.path)) {
+        item.selected = true;
+      } else {
+        item.selected = false;
+      }
+      markSelected(item.subNavigationItems);
+      return item;
+    });
+    return items;
+  };
+
+  navItemList = markSelected(navItemList);
 
   const selectedNavItem = find(navItemList, { selected: true });
 
@@ -79,41 +85,80 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const goToPage = (item: INavigationItem) => {
+    if (pathname !== item.path) {
+      item.path && navigate(item.path);
+      item.onClick && item.onClick();
+      clearHeaderActions();
+      isDrawerOpen && handleDrawerToggle();
+    }
+  };
+
   const drawerContent = (
     <List>
       {navItemList.map((item, index) => (
-        <ListItem
-          button
-          key={index}
-          onClick={() => {
-            if (pathname !== item.path) {
-              item.path && navigate(item.path);
-              item.onClick && item.onClick();
-              clearHeaderActions();
-              isDrawerOpen && handleDrawerToggle();
-            }
-          }}
-          className={classNames("navigation-root__drawer-menu-item", {
-            "navigation-root__drawer-menu-item--active": item.selected,
-          })}
-        >
-          <ListItemIcon>
-            <SimpleIcon
-              color={item.selected ? "primaryColor" : "colorDark2"}
-              name={item.icon}
+        <>
+          <ListItem
+            button
+            key={index}
+            onClick={() => goToPage(item)}
+            className={classNames("navigation-root__drawer-menu-item", {
+              "navigation-root__drawer-menu-item--active": item.selected,
+              "navigation-root__drawer-menu-item--margin-bottom": isEmpty(
+                item.subNavigationItems
+              ),
+            })}
+          >
+            {item.icon && (
+              <ListItemIcon>
+                <SimpleIcon
+                  color={item.selected ? "primaryColor" : "colorDark2"}
+                  name={item.icon}
+                />
+              </ListItemIcon>
+            )}
+
+            <ListItemText
+              primary={
+                <SimpleTypography
+                  family="medium"
+                  color={item.selected ? "primaryColor" : "colorDark2"}
+                >
+                  {item.title}
+                </SimpleTypography>
+              }
             />
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <SimpleTypography
-                family="medium"
-                color={item.selected ? "primaryColor" : "colorDark2"}
-              >
-                {item.title}
-              </SimpleTypography>
-            }
-          />
-        </ListItem>
+          </ListItem>
+          {item.subNavigationItems?.map((subItem, index) => (
+            <Collapse in={true} timeout="auto" unmountOnExit key={index}>
+              <List component="div" disablePadding>
+                <ListItemButton
+                  onClick={() => goToPage(subItem)}
+                  sx={{ pl: 10 }}
+                  className={classNames(
+                    "navigation-root__drawer-sub-menu-item",
+                    {
+                      "navigation-root__drawer-sub-menu-item--active":
+                        item.selected,
+                      "navigation-root__drawer-menu-item--margin-bottom":
+                        index === size(item.subNavigationItems) - 1,
+                    }
+                  )}
+                >
+                  <ListItemText
+                    primary={
+                      <SimpleTypography
+                        color={subItem.selected ? "primaryColor" : "colorDark2"}
+                      >
+                        {subItem.title}
+                      </SimpleTypography>
+                    }
+                  />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          ))}
+        </>
       ))}
     </List>
   );
@@ -192,8 +237,9 @@ const drawerWidth = 300;
 export interface INavigationItem {
   title: string;
   path?: string;
-  icon: IconNames;
+  icon?: IconNames;
   selected: boolean;
   permission?: UserPermissions;
   onClick?(): void;
+  subNavigationItems?: INavigationItem[];
 }

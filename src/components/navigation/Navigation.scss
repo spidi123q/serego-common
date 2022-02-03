@@ -21,7 +21,9 @@
     margin: size(4);
   }
   &__drawer-menu-item {
-    margin-bottom: size(2) !important;
+    &--margin-bottom {
+      margin-bottom: size(2) !important;
+    }
     &--active {
       @include active-menu;
     }
@@ -39,5 +41,11 @@
 
   &__header-action-container {
     margin-right: size(2);
+  }
+
+  &__drawer-sub-menu-item {
+    &:hover {
+      border-radius: 8px !important;
+    }
   }
 }

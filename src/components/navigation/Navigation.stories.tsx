@@ -44,6 +44,20 @@ Primary.args = {
       path: "RoutePath.OrganizationsPage",
       icon: IconNames.package,
       selected: false,
+      subNavigationItems: [
+        {
+          title: "Shipments",
+          path: "RoutePath.BookingsPage",
+          icon: IconNames.home,
+          selected: false,
+        },
+        {
+          title: "Truck Bookings",
+          path: "RoutePath.BookingsPage",
+          icon: IconNames.home,
+          selected: false,
+        },
+      ],
     },
     {
       title: "Reports",
