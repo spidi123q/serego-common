@@ -2,6 +2,11 @@
 
 .simple-field {
   width: 100%;
+  margin: size(4);
+
+  &--noMargin {
+    margin: unset;
+  }
   .MuiFormControl-root,
   .MuiInputBase-root {
     width: 100%;
@@ -14,5 +19,11 @@
   }
   .MuiFormHelperText-root {
     font-family: $app-fonts-regular;
+  }
+  &__radio-container {
+    flex-direction: row !important;
+    .MuiFormControlLabel-root {
+      margin-right: size(5);
+    }
   }
 }

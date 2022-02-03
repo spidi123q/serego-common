@@ -30,6 +30,7 @@ import {
   ISimpleDropzoneProps,
   SimpleDropzone,
 } from "../simpleDropzone/SimpleDropzone";
+import classNames from "classnames";
 
 export type ISimpleFieldProps =
   | ITextFieldProps
@@ -44,7 +45,7 @@ export type ISimpleFieldProps =
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
   props
 ) => {
-  const { type, name, formikProps, children, ...rest } = props;
+  const { type, name, formikProps, children, noMargin, ...rest } = props;
   const isSm = useIsSmScreen();
 
   const handleChange = (data: any) => {
@@ -161,17 +162,24 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
         />
       );
     } else if (type === "radio") {
-      const { options } = props;
+      const { options, label } = props;
       return (
         <FormControl component="fieldset">
-          <FormLabel component="legend">{props.placeholder}</FormLabel>
-          <Field as={RadioGroup} {...rest} name={name}>
+          {label && (
+            <SimpleTypography color="colorDark">{label}</SimpleTypography>
+          )}
+          <Field
+            className="simple-field__radio-container"
+            as={RadioGroup}
+            {...rest}
+            name={name}
+          >
             {options.map((item, index) => (
               <FormControlLabel
                 key={index}
                 value={item.Value}
                 control={<Radio color="primary" />}
-                label={item.Key}
+                label={<SimpleTypography>{item.Key}</SimpleTypography>}
               />
             ))}
           </Field>
@@ -235,12 +243,21 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
       return <>{children}</>;
     }
   };
-  return <div className="simple-field">{getInput()}</div>;
+  return (
+    <div
+      className={classNames("simple-field", {
+        ["simple-field--noMargin"]: noMargin,
+      })}
+    >
+      {getInput()}
+    </div>
+  );
 };
 
 interface ISimpleFieldBase {
   name: string;
   formikProps: FormikProps<any>;
+  noMargin?: boolean;
 }
 
 interface ITextFieldProps
@@ -266,6 +283,7 @@ interface IDateTimeFieldProps extends ISimpleFieldBase, DateTimePickerProps {
 
 interface IRadioFieldProps extends ISimpleFieldBase, Omit<RadioProps, "name"> {
   type: "radio";
+  label?: string;
   options: IKeyValuePair[];
 }
 
