@@ -1,0 +1,29 @@
+@import "../../styles/config.module";
+@import "../../styles/mixins.module";
+
+.icon-radio {
+  &__button {
+    //padding: size(0.5) !important;
+    padding-left: size(3) !important;
+    padding-right: size(3) !important;
+
+    &--inactive {
+      background-color: $color-dark-light5 !important;
+      border: $border-style !important;
+      svg {
+        mix-blend-mode: luminosity;
+      }
+    }
+    &--active {
+      background-color: $color-primary-light !important;
+      border: 1px solid $color-primary !important;
+    }
+
+    &--sm {
+      width: 10rem;
+    }
+    .simple-typography {
+      margin-left: size(1);
+    }
+  }
+}

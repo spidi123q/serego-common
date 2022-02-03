@@ -5,6 +5,7 @@ import { ISimpleFieldProps, SimpleField } from "./SimpleField";
 import { Form, Formik, FormikProps } from "formik";
 import { SimpleButton } from "../simpleButton/SimpleButton";
 import * as yup from "yup";
+import { IconNames } from "../simpleIcon/helper";
 
 export default {
   title: "Components/Field",
@@ -66,7 +67,8 @@ Primary.args = {
   label: "Custom",
   type: "string",
   options: [
-    { Key: "Apple", Value: "Apple" },
-    { Key: "Android", Value: "Android" },
+    { Key: "Small", Value: "Small", iconName: IconNames.car },
+    { Key: "Medium", Value: "Medium", iconName: IconNames.van },
+    { Key: "Large", Value: "Large", iconName: IconNames.truck },
   ],
 } as any;

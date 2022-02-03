@@ -18,6 +18,11 @@ import {
   IAsyncAutocompleteProps,
 } from "./components/asyncAutocomplete/AsyncAutocomplete";
 import AvatarList from "./components/AvatarList";
+import {
+  IconRadio,
+  IIconRadioItem,
+  IIconRadioProps,
+} from "./components/IconRadio/IconRadio";
 import Loader from "./components/loader/Loader";
 import {
   buidNavigationQuery,
@@ -208,6 +213,7 @@ export {
   SelectUpdate,
   PagePath,
   NotFound,
+  IconRadio,
   /**
    * Helpers export start here
    */
@@ -362,4 +368,6 @@ export type {
   ISelectUpdateProps,
   IPagePathProps,
   INavigationQuery,
+  IIconRadioProps,
+  IIconRadioItem,
 };

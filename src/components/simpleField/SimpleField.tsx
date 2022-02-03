@@ -31,6 +31,7 @@ import {
   SimpleDropzone,
 } from "../simpleDropzone/SimpleDropzone";
 import classNames from "classnames";
+import { IconRadio, IIconRadioProps } from "../IconRadio/IconRadio";
 
 export type ISimpleFieldProps =
   | ITextFieldProps
@@ -40,6 +41,7 @@ export type ISimpleFieldProps =
   | IRadioFieldProps
   | ISwitchFieldProps
   | IFileFieldProps
+  | IIconRadioFieldProps
   | IAutocompleteFieldProps;
 
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
@@ -164,7 +166,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
     } else if (type === "radio") {
       const { options, label } = props;
       return (
-        <FormControl component="fieldset">
+        <FormControl component="fieldset" error={hasError}>
           {label && (
             <SimpleTypography color="colorDark">{label}</SimpleTypography>
           )}
@@ -183,6 +185,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
               />
             ))}
           </Field>
+          <FormHelperText>{currentError}</FormHelperText>
         </FormControl>
       );
     } else if (type === "switch") {
@@ -238,6 +241,16 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
             </>
           )}
         </Field>
+      );
+    } else if (type === "icon-radio") {
+      return (
+        <IconRadio
+          {...(rest as any)}
+          defaultValue={formikProps.values[name]}
+          onChange={handleChange}
+          error={hasError}
+          helperText={currentError as string}
+        />
       );
     } else {
       return <>{children}</>;
@@ -299,4 +312,10 @@ interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
 
 interface IAutocompleteFieldProps extends ISimpleFieldBase {
   type: "places-autocomplete" | "async-autocomplete";
+}
+
+interface IIconRadioFieldProps
+  extends ISimpleFieldBase,
+    Omit<IIconRadioProps, "onChange"> {
+  type: "icon-radio";
 }
