@@ -40,6 +40,7 @@ const typeVariantMap: Record<IType, "text" | "outlined" | "contained"> = {
   "contained-light": "text",
   "contained-dark": "contained",
   "outlined-dark": "outlined",
+  "text-dark": "text",
 };
 
 type IType =
@@ -47,5 +48,6 @@ type IType =
   | "contained"
   | "outlined"
   | "outlined-dark"
+  | "text-dark"
   | "contained-light"
   | "contained-dark";

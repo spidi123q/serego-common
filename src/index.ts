@@ -23,6 +23,11 @@ import {
   IIconRadioItem,
   IIconRadioProps,
 } from "./components/IconRadio/IconRadio";
+import {
+  IListBoxItems,
+  IListBoxProps,
+  ListBox,
+} from "./components/listBox/ListBox";
 import Loader from "./components/loader/Loader";
 import {
   buidNavigationQuery,
@@ -32,6 +37,7 @@ import {
 } from "./components/navigation/Navigation";
 import { NotFound } from "./components/notFound/NotFound";
 import { PagePath, IPagePathProps } from "./components/pagePath/PagePath";
+import { IPageTitleProps, PageTitle } from "./components/pageTitle/PageTitle";
 import {
   IPlacesAutocompleteProps,
   PlacesAutocomplete,
@@ -214,6 +220,8 @@ export {
   PagePath,
   NotFound,
   IconRadio,
+  ListBox,
+  PageTitle,
   /**
    * Helpers export start here
    */
@@ -370,4 +378,7 @@ export type {
   INavigationQuery,
   IIconRadioProps,
   IIconRadioItem,
+  IListBoxItems,
+  IListBoxProps,
+  IPageTitleProps,
 };

@@ -47,6 +47,12 @@ $input-horizontal-multiplier: 2.5;
       }
     }
 
+    &--text-dark {
+      .MuiButton-root {
+        color: $color-black;
+      }
+    }
+
     &--outlined-dark {
       .MuiButton-root {
         color: $color-black;
