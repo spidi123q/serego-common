@@ -179,7 +179,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        {isLoading && <LinearProgress color="secondary" />}
+        {isLoading && <LinearProgress />}
         <Toolbar>
           {isSm && (
             <IconButton
