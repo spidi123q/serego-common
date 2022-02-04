@@ -4,9 +4,13 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import classNames from "classnames";
 import React from "react";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import "./SimpleTimeline.scss";
+import DoneIcon from "@mui/icons-material/Done";
+import { SimpleIcon } from "../simpleIcon/SimpleIcon";
+import { IconNames } from "../..";
 
 export interface ISimpleTimelineProps {
   items: ITimelineItem[];
@@ -21,7 +25,17 @@ export const SimpleTimeline: React.FunctionComponent<ISimpleTimelineProps> = (
       {items.map((item, index) => (
         <TimelineItem key={index}>
           <TimelineSeparator>
-            <TimelineDot>{index + 1}</TimelineDot>
+            <TimelineDot
+              className={classNames({
+                [`simple-timeline__dot--${item.status}`]: item.status,
+              })}
+            >
+              {item.status === "completed" ? (
+                <SimpleIcon size="sm" name={IconNames.check} />
+              ) : (
+                index + 1
+              )}
+            </TimelineDot>
             {index !== items.length - 1 && <TimelineConnector />}
           </TimelineSeparator>
           <TimelineContent>
@@ -43,4 +57,5 @@ export const SimpleTimeline: React.FunctionComponent<ISimpleTimelineProps> = (
 export interface ITimelineItem {
   title?: string;
   content?: string | number | JSX.Element;
+  status?: "completed" | "progress";
 }

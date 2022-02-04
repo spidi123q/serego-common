@@ -23,6 +23,7 @@ Primary.args = {
   items: [
     {
       title: "Origin Details",
+      status: "completed",
       content: (
         <div>
           is simply dummy text of the printing and typesetting industry. Lorem
@@ -36,6 +37,7 @@ Primary.args = {
     },
     {
       title: "Destination Details",
+      status: "progress",
       content: (
         <div>
           unknown printer took a galley of type and scrambled it to make a type

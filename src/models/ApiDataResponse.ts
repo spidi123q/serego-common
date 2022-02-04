@@ -1,3 +1,3 @@
-export interface IApiDataResponse {
-  data: string;
+export interface IApiDataResponse<T = string> {
+  data: T;
 }

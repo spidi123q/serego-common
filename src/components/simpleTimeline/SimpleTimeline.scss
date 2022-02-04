@@ -2,6 +2,12 @@
 
 $dot-size: 2;
 
+@mixin set-dot-color($color) {
+  background-color: $color !important;
+  color: white !important;
+  border-color: $color !important;
+}
+
 .simple-timeline {
   .MuiTimelineItem-root {
     &::before {
@@ -44,6 +50,19 @@ $dot-size: 2;
       margin-bottom: 2rem;
       border-bottom: 1px solid;
       border-bottom-color: $color-dark-light2;
+    }
+  }
+
+  &__dot {
+    &--completed {
+      @include set-dot-color($color-primary);
+      .simple-icon {
+        margin-top: 4px;
+      }
+    }
+
+    &--progress {
+      @include set-dot-color($color-primary);
     }
   }
 }
