@@ -24,7 +24,7 @@ Primary.args = {
     {
       title: "Origin Details",
       subTitle: "Enter the origin details",
-      completed: false,
+      status: "completed",
       content: (
         <div>
           Origin Details is simply dummy text of the printing and typesetting
@@ -39,6 +39,7 @@ Primary.args = {
     {
       title: "Destination Details",
       subTitle: "Enter the destination details",
+      status: "progress",
       content: (
         <div>
           Destinationunknown printer took a galley of type and scrambled it to

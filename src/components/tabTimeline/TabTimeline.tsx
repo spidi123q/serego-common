@@ -35,9 +35,8 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
             <div className="tab-timeline__header-title">
               <span
                 className={classNames("tab-timeline__header-title-index", {
-                  "tab-timeline__header-title-index--active":
-                    activeTabIndex === index && !tab.completed,
-                  "tab-timeline__header-title-index--completed": tab.completed,
+                  [`tab-timeline__header-title-index--${tab.status}`]:
+                    tab.status,
                 })}
               >
                 {index + 1}
@@ -47,7 +46,7 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
                   family="medium"
                   variant="subtitle1"
                   color={
-                    activeTabIndex === index || tab.completed
+                    activeTabIndex === index || tab.status === "completed"
                       ? "colorBlack"
                       : "colorDark"
                   }
@@ -57,7 +56,7 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
                 <SimpleTypography
                   variant="subtitle2"
                   color={
-                    activeTabIndex === index || tab.completed
+                    activeTabIndex === index || tab.status === "completed"
                       ? "colorDark"
                       : "colorDarkLight3"
                   }
@@ -91,7 +90,8 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
           <SimpleButton
             onClick={onNext}
             disabled={
-              disableNextOnIncomplete && !tabs[activeTabIndex].completed
+              disableNextOnIncomplete &&
+              !(tabs[activeTabIndex].status === "completed")
             }
           >
             Next
@@ -109,5 +109,5 @@ export interface ITabTimelineItem {
   title: string;
   subTitle: string;
   content: string | number | JSX.Element;
-  completed?: boolean;
+  status?: "completed" | "progress";
 }

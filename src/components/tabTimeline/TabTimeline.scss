@@ -31,7 +31,7 @@ $dot-size: 5;
         font-size: size(2.5);
         margin-right: size(1);
         background-color: $color-disabled;
-        &--active {
+        &--progress {
           background-color: $color-black;
         }
         &--completed {
