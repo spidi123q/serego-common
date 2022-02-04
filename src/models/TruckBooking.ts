@@ -3,18 +3,12 @@ import { IGeoJSON } from "./GeoJSON";
 import { ISchemaModel } from "./SchemaModel";
 
 export interface ITruckBooking extends ISchemaModel {
+  _id: number;
   pickupAddress: string;
   pickupLocation: IGeoJSON;
   destinationAddress: string;
   destinationLocation: IGeoJSON;
   truckType: TruckType;
-  weight: number;
-  weightUnit: MassUnit;
-  length: number;
-  width: number;
-  height: number;
-  measurementUnit: MeasurementUnit;
-  goodsType: string;
 }
 
 export interface ITruckBookingEdit extends Partial<ITruckBooking> {}

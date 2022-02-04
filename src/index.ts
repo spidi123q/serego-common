@@ -133,6 +133,8 @@ import useNotificationAPI from "./hooks/useNotificationAPI";
 import { useQueryParam } from "./hooks/useQueryParam";
 import { useTokenAPI } from "./hooks/useTokenAPI";
 import useUserAPI from "./hooks/useUserAPI";
+import { IApiDataResponse } from "./models/ApiDataResponse";
+import { IApiUpdateResponse } from "./models/ApiUpdateResponse";
 import { ICreatedBy } from "./models/CreatedBy";
 import { IDocumetResponse } from "./models/DocumetResponse";
 import {
@@ -381,4 +383,6 @@ export type {
   IListBoxItems,
   IListBoxProps,
   IPageTitleProps,
+  IApiUpdateResponse,
+  IApiDataResponse,
 };
