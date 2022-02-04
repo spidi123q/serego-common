@@ -2,7 +2,9 @@ import "./TabTimeline.scss";
 import React, { useState } from "react";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import classNames from "classnames";
-import { SimpleButton } from "../..";
+import { SimpleButton } from "../simpleButton/SimpleButton";
+import { SimpleIcon } from "../simpleIcon/SimpleIcon";
+import { IconNames } from "../simpleIcon/helper";
 
 export interface ITabTimelineProps {
   tabs: ITabTimelineItem[];
@@ -37,9 +39,15 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
                 className={classNames("tab-timeline__header-title-index", {
                   [`tab-timeline__header-title-index--${tab.status}`]:
                     tab.status,
+                  [`tab-timeline__header-title-index--progress`]:
+                    index === activeTabIndex,
                 })}
               >
-                {index + 1}
+                {tab.status === "completed" ? (
+                  <SimpleIcon size="sm" name={IconNames.check} />
+                ) : (
+                  index + 1
+                )}
               </span>
               <span>
                 <SimpleTypography
