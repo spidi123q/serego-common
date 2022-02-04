@@ -14,10 +14,9 @@ export const initFCM = async (): Promise<string> => {
  * Update fcm token to server
  * @param dispatch Redux disptach object
  */
-export const createPushToken = async (
-  dispatch: any
-) => {
+export const createPushToken = async (dispatch: any) => {
   try {
+    console.log("🚀 ~ file: notification.ts ~ line 28 ~ try");
     const token = await initFCM();
     const request = CreatePushToken(token);
     return dispatch(AxiosApi(request));

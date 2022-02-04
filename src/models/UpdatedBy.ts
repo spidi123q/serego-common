@@ -1,6 +1,6 @@
 import { IUser } from "./User";
 
 export interface IUpdatedBy {
-  updatedBy: string;
+  updatedBy: number;
   updatedByUser?: IUser;
 }

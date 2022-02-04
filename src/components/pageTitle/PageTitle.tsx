@@ -6,7 +6,7 @@ import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import "./PageTitle.scss";
 
 export interface IPageTitleProps {
-  title: string;
+  title?: string;
   showCancel?: boolean;
 }
 
@@ -17,9 +17,11 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = (props) => {
 
   return (
     <Grid container justifyContent="space-between" className="page-title">
-      <SimpleTypography family="bold" variant="h5">
-        {title}
-      </SimpleTypography>
+      {title && (
+        <SimpleTypography family="bold" variant="h5">
+          {title}
+        </SimpleTypography>
+      )}
       {showCancel && (
         <SimpleButton variant="text-dark" onClick={goBack}>
           Cancel

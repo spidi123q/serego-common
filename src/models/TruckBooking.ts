@@ -3,7 +3,6 @@ import { IGeoJSON } from "./GeoJSON";
 import { ISchemaModel } from "./SchemaModel";
 
 export interface ITruckBooking extends ISchemaModel {
-  _id: number;
   pickupAddress: string;
   pickupLocation: IGeoJSON;
   destinationAddress: string;

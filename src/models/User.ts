@@ -1,8 +1,7 @@
 import { UserPermissions, UserRoles } from "./enum";
-import { ITimeStamps } from "./TimeStamps";
+import { ISchemaModel } from "./SchemaModel";
 
-export interface IUser extends Partial<ITimeStamps> {
-  _id: string;
+export interface IUser extends ISchemaModel {
   role: UserRoles;
   dob?: Date;
   name?: string;
@@ -26,11 +25,15 @@ export interface IUserQuery extends Partial<IUser> {
 }
 
 export const InitialUser: IUser = {
-  _id: "",
+  _id: 0,
   role: UserRoles.Guest,
   firebaseId: "",
   permissions: [],
   active: true,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  createdBy: 0,
+  updatedBy: 0,
 };
 
 export const InitialUserEdit: IUserEdit = {

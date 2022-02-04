@@ -106,10 +106,9 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
   const drawerContent = (
     <List>
       {navItemList.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           <ListItem
             button
-            key={index}
             onClick={() => goToPage(item)}
             className={classNames("navigation-root__drawer-menu-item", {
               "navigation-root__drawer-menu-item--active": item.selected,
@@ -167,7 +166,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               </List>
             </Collapse>
           ))}
-        </>
+        </React.Fragment>
       ))}
     </List>
   );

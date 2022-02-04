@@ -1,6 +1,6 @@
 import { IUser } from "./User";
 
 export interface ICreatedBy {
-  createdBy: string;
+  createdBy: number;
   createdByUser?: IUser;
 }
