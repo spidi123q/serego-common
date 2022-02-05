@@ -12,6 +12,7 @@ export interface IPageTitleProps {
 
 export const PageTitle: React.FunctionComponent<IPageTitleProps> = (props) => {
   const { title, showCancel } = props;
+  console.log("🚀 ~ file: PageTitle.tsx ~ line 15 ~ title", title);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 

@@ -2,10 +2,10 @@
 
 .simple-field {
   width: 100%;
-  margin: size(2);
+  padding: size(2);
 
-  &--noMargin {
-    margin: unset;
+  &--noPadding {
+    padding: unset;
   }
   .MuiFormControl-root,
   .MuiInputBase-root {

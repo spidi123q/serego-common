@@ -15,6 +15,7 @@ export default {
 const validationSchema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
+  custom: yup.mixed().required(),
 });
 
 // Create a master template for mapping args to render the Button component

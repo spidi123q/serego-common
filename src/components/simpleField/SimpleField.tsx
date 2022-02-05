@@ -2,14 +2,13 @@ import "./SimpleField.scss";
 import { Field, FormikProps, ErrorMessage } from "formik";
 import React from "react";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
-import LinearProgress from "@mui/material/LinearProgress";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 // import { DropzoneArea, DropzoneAreaProps } from "mui-file-dropzone";
-import { first, isBoolean, isNil } from "lodash";
+import { find, first, isBoolean, isNil } from "lodash";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import Radio, { RadioProps } from "@mui/material/Radio";
 import { useIsSmScreen } from "../../hooks/mediaQuery";
@@ -32,8 +31,8 @@ import {
 } from "../simpleDropzone/SimpleDropzone";
 import classNames from "classnames";
 import { IconRadio, IIconRadioProps } from "../IconRadio/IconRadio";
-import { IGeoJSON } from "../../models/GeoJSON";
 import { PlacesAutocomplete } from "../placesAutocomplete/PlacesAutocomplete";
+import Autocomplete from "@mui/material/Autocomplete";
 
 export type ISimpleFieldProps =
   | ITextFieldProps
@@ -45,12 +44,13 @@ export type ISimpleFieldProps =
   | IFileFieldProps
   | IIconRadioFieldProps
   | IPlacesAutocompleteFieldProps
-  | IAutocompleteFieldProps;
+  | IAutocompleteFieldProps
+  | IAsyncAutocompleteFieldProps;
 
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
   props
 ) => {
-  const { type, name, formikProps, children, noMargin, ...rest } = props;
+  const { type, name, formikProps, children, noPadding, ...rest } = props;
   const isSm = useIsSmScreen();
 
   const handleChange = (data: any) => {
@@ -287,6 +287,39 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           helperText={hasError && currentError}
         />
       );
+    } else if (type === "autocomplete") {
+      const { options, label } = props;
+      return (
+        <Autocomplete
+          disablePortal
+          options={options.map((option) => option.Key)}
+          fullWidth
+          defaultValue={formikProps.values[name]}
+          onChange={(event, value) => {
+            const selectedValue = find(options, {
+              Key: value,
+            }) as IKeyValuePair;
+            formikProps.setFieldValue(name, selectedValue.Value);
+          }}
+          onInputChange={() =>
+            formikProps.setTouched(
+              {
+                [name]: true,
+              },
+              true
+            )
+          }
+          onBlur={formikProps.handleBlur}
+          renderInput={(params) => (
+            <SimpleInput
+              {...params}
+              label={label}
+              error={hasError}
+              helperText={hasError && currentError}
+            />
+          )}
+        />
+      );
     } else {
       return <>{children}</>;
     }
@@ -294,7 +327,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
   return (
     <div
       className={classNames("simple-field", {
-        ["simple-field--noMargin"]: noMargin,
+        ["simple-field--noMargin"]: noPadding,
       })}
     >
       {getInput()}
@@ -305,7 +338,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
 interface ISimpleFieldBase {
   name: string;
   formikProps: FormikProps<any>;
-  noMargin?: boolean;
+  noPadding?: boolean;
 }
 
 interface ITextFieldProps
@@ -345,7 +378,7 @@ interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
   type: "file";
 }
 
-interface IAutocompleteFieldProps extends ISimpleFieldBase {
+interface IAsyncAutocompleteFieldProps extends ISimpleFieldBase {
   type: "async-autocomplete";
 }
 
@@ -359,4 +392,10 @@ interface IIconRadioFieldProps
   extends ISimpleFieldBase,
     Omit<IIconRadioProps, "onChange"> {
   type: "icon-radio";
+}
+
+interface IAutocompleteFieldProps extends ISimpleFieldBase {
+  type: "autocomplete";
+  label: string;
+  options: IKeyValuePair[];
 }

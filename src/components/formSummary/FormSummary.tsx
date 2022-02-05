@@ -25,7 +25,7 @@ export const FormSummary: React.FunctionComponent<IFormSummaryProps> = (
       {title && (
         <>
           <SimpleTypography family="medium" variant="body1">
-            Booking Details
+            {title}
           </SimpleTypography>
           <br />
         </>

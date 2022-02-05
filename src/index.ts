@@ -142,6 +142,11 @@ import { useTokenAPI } from "./hooks/useTokenAPI";
 import useUserAPI from "./hooks/useUserAPI";
 import { IApiDataResponse } from "./models/ApiDataResponse";
 import { IApiUpdateResponse } from "./models/ApiUpdateResponse";
+import {
+  IClearance,
+  IClearanceEdit,
+  IClearanceQuery,
+} from "./models/Clearance";
 import { ICreatedBy } from "./models/CreatedBy";
 import { IDocumetResponse } from "./models/DocumetResponse";
 import {
@@ -153,6 +158,7 @@ import {
   TruckType,
   MeasurementUnit,
   MassUnit,
+  PortType,
 } from "./models/enum";
 import { IGeoJSON } from "./models/GeoJSON";
 import { IHeaderAction } from "./models/HeaderAction";
@@ -330,6 +336,7 @@ export {
   ONE_MEGABYTE,
   GoodsTypes,
   DefaultCurrency,
+  PortType,
 };
 
 export type {
@@ -400,4 +407,7 @@ export type {
   ISimpleInputProps,
   ITruckBookingEdit,
   IFormSummaryProps,
+  IClearance,
+  IClearanceEdit,
+  IClearanceQuery,
 };

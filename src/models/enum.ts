@@ -64,3 +64,9 @@ export enum MassUnit {
 export enum MeasurementUnit {
   cm = "cm",
 }
+
+export enum PortType {
+  LandPort = "Land Port",
+  SeaPort = "Sea Port",
+  AirPort = "Airport",
+}
