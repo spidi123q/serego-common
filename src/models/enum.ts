@@ -54,7 +54,6 @@ export enum TruckType {
   Small = "Small",
   Medium = "Medium",
   Large = "Large",
-  ExtraLarge = "Extra Large",
 }
 
 export enum MassUnit {

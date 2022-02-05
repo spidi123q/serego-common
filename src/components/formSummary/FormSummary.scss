@@ -1,8 +1,6 @@
 @import "../../styles/config.module";
 
-.list-box {
-  padding: size(2);
-  border: 2px dashed $color-primary;
+.form-summary {
   &--margin {
     margin: size(2);
   }

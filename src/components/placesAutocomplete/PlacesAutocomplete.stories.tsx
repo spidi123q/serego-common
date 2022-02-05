@@ -20,4 +20,6 @@ const Template: Story<IPlacesAutocompleteProps> = (args) => (
 
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  label: "Add location",
+};

@@ -11,12 +11,13 @@ export interface ITabTimelineProps {
   activeTabIndex?: number;
   onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
   disableNextOnIncomplete?: boolean;
+  loading?: boolean;
 }
 
 export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
   props
 ) => {
-  const { tabs, onSubmit, disableNextOnIncomplete } = props;
+  const { tabs, onSubmit, disableNextOnIncomplete, loading } = props;
   const [activeTabIndex, setActiveTabIndex] = useState<number>(
     props.activeTabIndex ?? 0
   );
@@ -90,7 +91,12 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
       </div>
       <div className="tab-timeline__actions">
         {activeTabIndex > 0 && (
-          <SimpleButton onClick={onBack} variant="outlined" marginRight>
+          <SimpleButton
+            marginLeft
+            onClick={onBack}
+            variant="outlined"
+            disabled={loading}
+          >
             Back
           </SimpleButton>
         )}
@@ -101,12 +107,15 @@ export const TabTimeline: React.FunctionComponent<ITabTimelineProps> = (
               disableNextOnIncomplete &&
               !(tabs[activeTabIndex].status === "completed")
             }
+            marginLeft
           >
             Next
           </SimpleButton>
         )}
         {activeTabIndex + 1 == tabs.length && (
-          <SimpleButton onClick={onSubmit}>Submit</SimpleButton>
+          <SimpleButton marginLeft onClick={onSubmit} loading={loading}>
+            Submit
+          </SimpleButton>
         )}
       </div>
     </div>

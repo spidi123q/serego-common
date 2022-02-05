@@ -32,6 +32,8 @@ import {
 } from "../simpleDropzone/SimpleDropzone";
 import classNames from "classnames";
 import { IconRadio, IIconRadioProps } from "../IconRadio/IconRadio";
+import { IGeoJSON } from "../../models/GeoJSON";
+import { PlacesAutocomplete } from "../placesAutocomplete/PlacesAutocomplete";
 
 export type ISimpleFieldProps =
   | ITextFieldProps
@@ -42,6 +44,7 @@ export type ISimpleFieldProps =
   | ISwitchFieldProps
   | IFileFieldProps
   | IIconRadioFieldProps
+  | IPlacesAutocompleteFieldProps
   | IAutocompleteFieldProps;
 
 export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
@@ -89,9 +92,11 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
               </MenuItem>
             ))}
           </Field>
-          <FormHelperText>
-            <SimpleTypography>{currentError}</SimpleTypography>
-          </FormHelperText>
+          {hasError && (
+            <FormHelperText>
+              <SimpleTypography>{currentError}</SimpleTypography>
+            </FormHelperText>
+          )}
         </FormControl>
       );
     } else if (type === "date") {
@@ -108,7 +113,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
             renderInput={(params) => (
               <SimpleInput
                 error={hasError}
-                helperText={currentError}
+                helperText={hasError && currentError}
                 {...(params as any)}
               />
             )}
@@ -127,7 +132,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
             renderInput={(params) => (
               <SimpleInput
                 error={hasError}
-                helperText={currentError}
+                helperText={hasError && currentError}
                 {...(params as any)}
               />
             )}
@@ -143,7 +148,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           name={name}
           type={type}
           error={hasError}
-          helperText={currentError}
+          helperText={hasError && currentError}
           multiple
           rows={4}
         />
@@ -160,7 +165,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
             formikProps.setFieldValue(name, event.target.value);
           }}
           error={hasError}
-          helperText={currentError}
+          helperText={hasError && currentError}
         />
       );
     } else if (type === "radio") {
@@ -185,7 +190,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
               />
             ))}
           </Field>
-          <FormHelperText>{currentError}</FormHelperText>
+          {hasError && <FormHelperText>{currentError}</FormHelperText>}
         </FormControl>
       );
     } else if (type === "switch") {
@@ -218,22 +223,24 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
               formikProps.setFieldTouched(name, true);
             }}
           />
-          <ErrorMessage
-            name={name}
-            render={(msg) => (
-              <SimpleTypography color="colorDanger">{msg}</SimpleTypography>
-            )}
-          />
+          {hasError && currentError && (
+            <ErrorMessage
+              name={name}
+              render={(msg) => (
+                <SimpleTypography color="colorDanger">{msg}</SimpleTypography>
+              )}
+            />
+          )}
         </Grid>
       );
-    } else if (type === "places-autocomplete") {
+    } else if (type === "async-autocomplete") {
       const { children } = props;
       return (
         <Field name={name}>
           {({ meta }: { meta: any }) => (
             <>
               {children}
-              {meta.error && (
+              {hasError && (
                 <SimpleTypography color="colorDanger">
                   {meta.error}
                 </SimpleTypography>
@@ -242,6 +249,34 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           )}
         </Field>
       );
+    } else if (type === "places-autocomplete") {
+      const { addressFieldName, label, ...rest } = props;
+      const address = formikProps.values[addressFieldName];
+
+      const location = formikProps.values[name];
+      return (
+        <PlacesAutocomplete
+          error={hasError}
+          helperText={hasError && currentError}
+          value={
+            address && location
+              ? {
+                  address,
+                  location,
+                }
+              : undefined
+          }
+          onSelected={(value) => {
+            console.log(
+              "🚀 ~ file: SimpleField.tsx ~ line 269 ~ getInput ~ value",
+              value
+            );
+            formikProps.setFieldValue(addressFieldName, value.address);
+            formikProps.setFieldValue(name, value.location);
+          }}
+          label={label}
+        />
+      );
     } else if (type === "icon-radio") {
       return (
         <IconRadio
@@ -249,7 +284,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           defaultValue={formikProps.values[name]}
           onChange={handleChange}
           error={hasError}
-          helperText={currentError as string}
+          helperText={hasError && currentError}
         />
       );
     } else {
@@ -311,7 +346,13 @@ interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
 }
 
 interface IAutocompleteFieldProps extends ISimpleFieldBase {
-  type: "places-autocomplete" | "async-autocomplete";
+  type: "async-autocomplete";
+}
+
+interface IPlacesAutocompleteFieldProps extends ISimpleFieldBase {
+  type: "places-autocomplete";
+  addressFieldName: string;
+  label: string;
 }
 
 interface IIconRadioFieldProps

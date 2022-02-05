@@ -19,7 +19,7 @@ export interface IIconRadioProps {
   width?: "sm";
   onChange?: (value: string) => void;
   error?: boolean;
-  helperText?: string;
+  helperText?: React.ReactNode;
 }
 
 export const IconRadio: React.FunctionComponent<IIconRadioProps> = (props) => {
