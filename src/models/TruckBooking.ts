@@ -1,4 +1,4 @@
-import { TruckType } from "./enum";
+import { TruckBookingStatus, TruckType } from "./enum";
 import { IGeoJSON } from "./GeoJSON";
 import { IPageQuery } from "./PageQuery";
 import { ISchemaModel } from "./SchemaModel";
@@ -9,6 +9,7 @@ export interface ITruckBooking extends ISchemaModel {
   destinationAddress: string;
   destinationLocation: IGeoJSON;
   truckType: TruckType;
+  status: TruckBookingStatus;
 }
 
 export interface ITruckBookingEdit extends Partial<ITruckBooking> {}

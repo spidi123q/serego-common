@@ -70,3 +70,19 @@ export enum PortType {
   SeaPort = "Sea Port",
   AirPort = "Airport",
 }
+
+export enum TruckBookingStatus {
+  Pending = "Pending",
+  ContainerLoaded = "Container loaded",
+  EnRoute = "En route",
+  Delivered = "Delivered",
+}
+
+export enum ClearanceStatus {
+  DocumentCollectionPending = "Document Collection pending",
+  DocumentCollected = "Document collected",
+  PreparingDocuments = "Preparing documents",
+  CustomsClearanceInitiated = "Customs clearance initiated",
+  CustomsClearanceCompleted = "Customs clearance completed",
+  ContainerReleased = "Container released",
+}

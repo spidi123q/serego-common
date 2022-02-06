@@ -1,6 +1,6 @@
 @import "../../styles/config.module";
 
-$dot-size: 2;
+$dot-size: 4;
 
 @mixin set-dot-color($color) {
   background-color: $color !important;
@@ -9,6 +9,7 @@ $dot-size: 2;
 }
 
 .simple-timeline {
+  padding: 0 !important;
   .MuiTimelineItem-root {
     &::before {
       content: unset;

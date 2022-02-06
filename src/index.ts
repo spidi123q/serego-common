@@ -76,13 +76,18 @@ import {
 } from "./components/simpleItem/SimpleItem";
 import { ISimpleTabItem, SimpleTab } from "./components/simpleTab/SimpleTab";
 import { PaginatedTable } from "./components/simpleTable/PaginatedTable";
-import { IColumn, SimpleTable } from "./components/simpleTable/SimpleTable";
+import {
+  IColumn,
+  IColumnCellRenderProps,
+  SimpleTable,
+} from "./components/simpleTable/SimpleTable";
 import {
   ISimpleSimpleTablePaginationProps,
   SimpleTablePagination,
 } from "./components/simpleTable/SimpleTablePagination";
 import { SimpleThemeProvider } from "./components/SimpleThemeProvider";
 import {
+  ISimpleTimelineProps,
   ITimelineItem,
   SimpleTimeline,
 } from "./components/simpleTimeline/SimpleTimeline";
@@ -174,6 +179,8 @@ import {
   MeasurementUnit,
   MassUnit,
   PortType,
+  ClearanceStatus,
+  TruckBookingStatus,
 } from "./models/enum";
 import { IGeoJSON } from "./models/GeoJSON";
 import { IHeaderAction } from "./models/HeaderAction";
@@ -226,6 +233,7 @@ import {
   InitialAppInfoReducerState,
 } from "./state/appInfo/AppInfoReducerState";
 import { LoginActionTypes, LoginActions } from "./state/login/LoginAction";
+import { GetTruckBookingById } from "./api/truckBooking/GetTruckBookingById";
 
 export {
   /**
@@ -326,6 +334,7 @@ export {
   CreateTruckBooking,
   GetTruckBookings,
   UpdateTruckBooking,
+  GetTruckBookingById,
   /**
    * State items are exported here
    */
@@ -359,6 +368,8 @@ export {
   DefaultCurrency,
   PortType,
   DefaultRowsPerPage,
+  TruckBookingStatus,
+  ClearanceStatus,
 };
 
 export type {
@@ -435,4 +446,6 @@ export type {
   ITabTimelineProps,
   IOperationCompletedProps,
   ISimpleSimpleTablePaginationProps,
+  IColumnCellRenderProps,
+  ISimpleTimelineProps,
 };

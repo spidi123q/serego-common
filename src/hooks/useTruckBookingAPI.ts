@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { CreateTruckBooking } from "../api/truckBooking/CreateTruckBooking";
+import { GetTruckBookingById } from "../api/truckBooking/GetTruckBookingById";
 import { GetTruckBookings } from "../api/truckBooking/GetTruckBookings";
 import { UpdateTruckBooking } from "../api/truckBooking/UpdateTruckBooking";
 import { AxiosApi, IResponse } from "../helpers/axios";
@@ -35,9 +36,18 @@ export default function useTruckBookingAPI() {
     return dispatch(AxiosApi(request));
   };
 
+  const getTruckBookingById = async (id: number): IResponse<ITruckBooking> => {
+    const request = GetTruckBookingById(id);
+    loading.start();
+    const result = await dispatch(AxiosApi(request));
+    loading.stop();
+    return result;
+  };
+
   return {
     createElseUpdate,
     getTruckBookings,
+    getTruckBookingById,
     isLoading: loading.isLoading,
   };
 }

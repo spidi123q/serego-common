@@ -10,7 +10,7 @@ import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import "./SimpleTimeline.scss";
 import DoneIcon from "@mui/icons-material/Done";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
-import { IconNames } from "../..";
+import { IconNames, SimpleItem } from "../..";
 
 export interface ISimpleTimelineProps {
   items: ITimelineItem[];
@@ -40,9 +40,9 @@ export const SimpleTimeline: React.FunctionComponent<ISimpleTimelineProps> = (
           </TimelineSeparator>
           <TimelineContent>
             <div className="simple-timeline__item">
-              <SimpleTypography color="primaryColor" family="medium">
-                {item.title}
-              </SimpleTypography>
+              {item.label && (
+                <SimpleItem label={item.label}>{item.title}</SimpleItem>
+              )}
               <div className="simple-timeline__item-content">
                 {item.content}
               </div>
@@ -55,6 +55,7 @@ export const SimpleTimeline: React.FunctionComponent<ISimpleTimelineProps> = (
 };
 
 export interface ITimelineItem {
+  label?: string;
   title?: string;
   content?: string | number | JSX.Element;
   status?: "completed" | "progress";

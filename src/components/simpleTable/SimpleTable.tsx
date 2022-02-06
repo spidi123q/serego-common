@@ -42,8 +42,8 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            {columns.map((column) => (
-              <TableCell key={column.headerName} align={column.align}>
+            {columns.map((column, index) => (
+              <TableCell key={index} align={column.align}>
                 <SimpleTypography family="medium">
                   {column.headerName}
                 </SimpleTypography>
@@ -56,7 +56,11 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
             <TableRow key={index}>
               {columns.map((column, index) => (
                 <TableCell key={index} align={column.align}>
-                  {row[column.field]}
+                  {column.cellRenderer ? (
+                    <column.cellRenderer value={row[column.field]} data={row} />
+                  ) : (
+                    row[column.field]
+                  )}
                 </TableCell>
               ))}
             </TableRow>
@@ -91,8 +95,14 @@ SimpleTable.defaultProps = {
   variant: "outline",
 };
 
-export interface IColumn {
+export interface IColumn<T = any> {
   headerName: string;
   field: string;
   align?: "left" | "center" | "right" | "justify" | "inherit";
+  cellRenderer?: (props: IColumnCellRenderProps<T>) => JSX.Element;
+}
+
+export interface IColumnCellRenderProps<T> {
+  value: any;
+  data: T;
 }

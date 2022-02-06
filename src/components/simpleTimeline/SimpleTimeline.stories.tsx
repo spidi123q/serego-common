@@ -10,11 +10,9 @@ export default {
 
 // Create a master template for mapping args to render the Button component
 const Template: Story<ISimpleTimelineProps> = (args) => (
-  <div style={{ width: "50rem" }}>
-    <StoryBookTemplate>
-      <SimpleTimeline {...args} />
-    </StoryBookTemplate>
-  </div>
+  <StoryBookTemplate>
+    <SimpleTimeline {...args} />
+  </StoryBookTemplate>
 );
 
 // Reuse that template for creating different stories
@@ -22,7 +20,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   items: [
     {
-      title: "Origin Details",
+      label: "Origin Details",
+      title: "Delivery Status",
       status: "completed",
       content: (
         <div>
@@ -36,7 +35,8 @@ Primary.args = {
       ),
     },
     {
-      title: "Destination Details",
+      label: "Destination Details",
+      title: "Payment Status",
       status: "progress",
       content: (
         <div>
@@ -47,7 +47,7 @@ Primary.args = {
       ),
     },
     {
-      title: "Consignment Details",
+      label: "Consignment Details",
       content: (
         <div>
           tting industry. Lorem Ipsum has been the industry's standard dummy
