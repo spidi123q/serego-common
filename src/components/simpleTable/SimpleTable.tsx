@@ -44,7 +44,9 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
           <TableRow>
             {columns.map((column) => (
               <TableCell key={column.headerName} align={column.align}>
-                {column.headerName}
+                <SimpleTypography family="medium">
+                  {column.headerName}
+                </SimpleTypography>
               </TableCell>
             ))}
           </TableRow>

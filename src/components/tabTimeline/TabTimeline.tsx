@@ -9,7 +9,7 @@ import { IconNames } from "../simpleIcon/helper";
 export interface ITabTimelineProps {
   tabs: ITabTimelineItem[];
   activeTabIndex?: number;
-  onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
+  onSubmit?: () => void;
   disableNextOnIncomplete?: boolean;
   loading?: boolean;
 }
