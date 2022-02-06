@@ -9,7 +9,7 @@ export enum AppInfoActionTypes {
   SetRecentSearch = "@@UI/SetRecentSearch",
   GetNotificationOnSuccess = "@@UI/GetNotificationOnSuccess",
   GetNotification = "@@UI/GetNotification",
-  SetPageFilterValues = "@@UI/SetPageFilterValues",
+  SetPlaceholder = "@@UI/SetPlaceholder",
 }
 
 export const AppInfoActions = {
@@ -20,8 +20,8 @@ export const AppInfoActions = {
     (error: string) => error
   ),
   AppReady: createAction(AppInfoActionTypes.AppReady),
-  SetPageFilterValues: createAction(
-    AppInfoActionTypes.SetPageFilterValues,
-    (values: any) => values
+  SetPlaceholder: createAction(
+    AppInfoActionTypes.SetPlaceholder,
+    (show: boolean) => show
   ),
 };

@@ -29,12 +29,14 @@ import Collapse from "@mui/material/Collapse";
 import ListItemButton from "@mui/material/ListItemButton";
 import { useQueryParam } from "../../hooks/useQueryParam";
 import cleanDeep from "clean-deep";
+import { SkeletonPlaceholder } from "../skeletonPlaceholder/SkeletonPlaceholder";
 
 export interface INavigationProps extends IUserMenuProps {
-  isLoading: boolean;
+  isLoading?: boolean;
   headerActions: (IHeaderAction | JSX.Element)[];
   navigationItems: INavigationItem[];
   headerTitle?: string;
+  showPlaceholder?: boolean;
   clearHeaderActions(): any;
 }
 
@@ -49,6 +51,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     clearHeaderActions,
     navigationItems,
     user,
+    showPlaceholder,
   } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const isSm = useIsSmScreen();
@@ -178,7 +181,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        {isLoading && <LinearProgress />}
+        {isLoading && <LinearProgress className="navigation-root__progress" />}
         <Toolbar>
           {isSm && (
             <IconButton
@@ -241,7 +244,15 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
       )}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        {children}
+        {showPlaceholder && <SkeletonPlaceholder />}
+
+        <div
+          className={classNames({
+            ["navigation-root__content--hide"]: showPlaceholder,
+          })}
+        >
+          {children}
+        </div>
       </Box>
     </Box>
   );

@@ -1,0 +1,8 @@
+@import "../../styles/config.module";
+
+.skeleton-placeholder {
+  &__item {
+    height: size(6);
+    margin-bottom: size(2);
+  }
+}

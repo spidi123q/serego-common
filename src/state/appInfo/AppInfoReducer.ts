@@ -13,6 +13,7 @@ export const AppInfoReducer: Reducer<IAppInfoReducerState> = (
   switch (action.type) {
     case AppInfoActionTypes.InApiProgress:
       return { ...state, isLoading: true };
+
     case AppInfoActionTypes.OnApiFail:
       return {
         ...state,
@@ -21,10 +22,13 @@ export const AppInfoReducer: Reducer<IAppInfoReducerState> = (
       };
     case AppInfoActionTypes.OnApiSuccess:
       return { ...state, isLoading: false };
+
     case AppInfoActionTypes.AppReady:
       return { ...state, appReady: true };
-    case AppInfoActionTypes.SetPageFilterValues:
-      return { ...state, pageFilterValues: action.payload };
+
+    case AppInfoActionTypes.SetPlaceholder:
+      return { ...state, showPlaceholder: action.payload };
+
     default:
       return state;
   }

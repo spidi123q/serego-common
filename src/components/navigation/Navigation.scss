@@ -7,6 +7,13 @@
 }
 
 .navigation-root {
+  &__progress {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
   .MuiToolbar-root {
     min-height: 70px;
   }
@@ -51,5 +58,11 @@
 
   &__logo {
     cursor: pointer;
+  }
+
+  &__content {
+    &--hide {
+      display: none;
+    }
   }
 }

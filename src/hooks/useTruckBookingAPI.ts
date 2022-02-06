@@ -38,9 +38,7 @@ export default function useTruckBookingAPI() {
 
   const getTruckBookingById = async (id: number): IResponse<ITruckBooking> => {
     const request = GetTruckBookingById(id);
-    loading.start();
     const result = await dispatch(AxiosApi(request));
-    loading.stop();
     return result;
   };
 
