@@ -14,6 +14,6 @@ export interface ITruckBooking extends ISchemaModel {
 
 export interface ITruckBookingEdit extends Partial<ITruckBooking> {}
 
-export interface ITruckBookingQuery
-  extends Partial<ITruckBooking>,
-    IPageQuery {}
+export interface ITruckBookingQuery extends Partial<ITruckBooking>, IPageQuery {
+  isOpen?: boolean;
+}

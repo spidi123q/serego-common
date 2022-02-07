@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StartPage } from "../../config/constants";
 import { IResponse } from "../../helpers/axios";
+import useLoading from "../../hooks/useLoading";
 import { IPageQuery } from "../../models/PageQuery";
 import {
   InitialPaginateResult,
@@ -18,6 +19,7 @@ export function PaginatedTable<T>(props: IPaginatedTableProps<T>) {
   const [paginateResult, setPaginateResult] = useState<IPaginateResult<T>>(
     InitialPaginateResult
   );
+  const loading = useLoading();
 
   const onPageChange = (page: number) => {
     getCollection(page);
@@ -27,8 +29,10 @@ export function PaginatedTable<T>(props: IPaginatedTableProps<T>) {
   };
 
   const getCollection = async (page: number) => {
+    loading.start();
     const result = await fetchCollections({ page, pagination: true });
     setPaginateResult(result.payload);
+    loading.stop();
   };
 
   useEffect(() => {
@@ -42,6 +46,7 @@ export function PaginatedTable<T>(props: IPaginatedTableProps<T>) {
       paginateResult={paginateResult}
       onPageChange={onPageChange}
       onRowsPerPageChange={onRowsPerPageChange}
+      loading={loading.isLoading}
       {...rest}
     />
   );

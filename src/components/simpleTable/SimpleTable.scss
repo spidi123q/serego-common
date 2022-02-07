@@ -1,6 +1,11 @@
 @import "../../styles/config.module";
 
 .simple-table {
+  &__row {
+    &--hidden {
+      display: none !important;
+    }
+  }
   &__variant {
     &--outline {
       .MuiTable-root {

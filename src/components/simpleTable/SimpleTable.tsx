@@ -12,12 +12,14 @@ import { isEmpty } from "lodash";
 import classNames from "classnames";
 import { IPaginateResult } from "../../models/PaginateResult";
 import { SimpleTablePagination } from "./SimpleTablePagination";
+import { SkeletonPlaceholder } from "../skeletonPlaceholder/SkeletonPlaceholder";
 
 export interface ISimpleTableProps {
   columns: IColumn[];
   variant?: "outline" | "clear";
   rows?: any[];
   paginateResult?: IPaginateResult<unknown>;
+  loading?: boolean;
   onPageChange?(page: number): void;
   onRowsPerPageChange?(page: number): void;
 }
@@ -32,6 +34,7 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
     paginateResult,
     onRowsPerPageChange,
     onPageChange,
+    loading,
   } = props;
   return (
     <TableContainer
@@ -53,7 +56,12 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
         </TableHead>
         <TableBody>
           {rows?.map((row, index) => (
-            <TableRow key={index}>
+            <TableRow
+              className={classNames({
+                ["simple-table__row--hidden"]: loading,
+              })}
+              key={index}
+            >
               {columns.map((column, index) => (
                 <TableCell key={index} align={column.align}>
                   {column.cellRenderer ? (
@@ -65,18 +73,25 @@ export const SimpleTable: React.FunctionComponent<ISimpleTableProps> = (
               ))}
             </TableRow>
           ))}
-          {isEmpty(rows) && (
-            <Grid
-              container
-              xs={12}
-              justifyContent="center"
-              alignItems="center"
-              direction="column"
-            >
-              <br />
-              <SimpleTypography>No records</SimpleTypography>
-              <br />
-            </Grid>
+          {(loading || isEmpty(rows)) && (
+            <TableRow>
+              <TableCell colSpan={columns.length}>
+                {loading && <SkeletonPlaceholder />}
+                {isEmpty(rows) && (
+                  <Grid
+                    container
+                    xs={12}
+                    justifyContent="center"
+                    alignItems="center"
+                    direction="column"
+                  >
+                    <br />
+                    <SimpleTypography>No records</SimpleTypography>
+                    <br />
+                  </Grid>
+                )}
+              </TableCell>
+            </TableRow>
           )}
         </TableBody>
       </Table>
