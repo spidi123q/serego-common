@@ -49,3 +49,19 @@ export const scrollToTarget = (
     console.error(`Element you tried to scroll to (${target}) does not exist`);
   }
 };
+
+/**
+ * Call given function when user press given key in keyboard
+ * @param event
+ * @param key key need to be pressed by uset to initialte call back
+ * @param callback Calback
+ */
+export const onKeyPress = (
+  event: KeyboardEvent,
+  key: "enter" | "escape",
+  callback: (event: any) => any
+): void => {
+  if (event.key.toLowerCase() === key) {
+    callback(event);
+  }
+};

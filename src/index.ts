@@ -142,7 +142,7 @@ import {
   toKeyValuePairFromArr,
   getFileName,
 } from "./helpers/transform";
-import { scrollToTarget } from "./helpers/utilities";
+import { onKeyPress, scrollToTarget } from "./helpers/utilities";
 import {
   locationSchema,
   locationResultSchema,
@@ -240,6 +240,11 @@ import {
   SkeletonPlaceholder,
   ISkeletonPlaceholderProps,
 } from "./components/skeletonPlaceholder/SkeletonPlaceholder";
+import { CreateClearance } from "./api/clearance/CreateClearance";
+import { GetClearanceById } from "./api/clearance/GetClearanceById";
+import { GetClearances } from "./api/clearance/GetClearances";
+import { UpdateClearance } from "./api/clearance/UpdateClearance";
+import useClearanceAPI from "./hooks/useClearanceAPI";
 
 export {
   /**
@@ -299,6 +304,7 @@ export {
   AxiosApi,
   scrollToTarget,
   buidNavigationQuery,
+  onKeyPress,
   /**
    * Hooks export start here
    */
@@ -314,6 +320,7 @@ export {
   useQueryParam,
   useAppActions,
   useTruckBookingAPI,
+  useClearanceAPI,
   /**
    * Config export start here
    */
@@ -343,6 +350,10 @@ export {
   GetTruckBookings,
   UpdateTruckBooking,
   GetTruckBookingById,
+  CreateClearance,
+  GetClearanceById,
+  GetClearances,
+  UpdateClearance,
   /**
    * State items are exported here
    */
