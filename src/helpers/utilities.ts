@@ -57,7 +57,7 @@ export const scrollToTarget = (
  * @param callback Calback
  */
 export const onKeyPress = (
-  event: KeyboardEvent,
+  event: React.KeyboardEvent<any>,
   key: "enter" | "escape",
   callback: (event: any) => any
 ): void => {

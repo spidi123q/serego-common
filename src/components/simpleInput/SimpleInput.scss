@@ -9,4 +9,13 @@ $input-horizontal-multiplier: 2.5;
   .MuiInputBase-input {
     font-family: $app-fonts-regular;
   }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
