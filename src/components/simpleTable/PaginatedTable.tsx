@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StartPage } from "../../config/constants";
+import { DefaultRowsPerPage, StartPage } from "../../config/constants";
 import { IResponse } from "../../helpers/axios";
 import useLoading from "../../hooks/useLoading";
 import { IPageQuery } from "../../models/PageQuery";
@@ -20,24 +20,25 @@ export function PaginatedTable<T>(props: IPaginatedTableProps<T>) {
     InitialPaginateResult
   );
   const loading = useLoading();
+  const [limit, setLimit] = useState<number>(DefaultRowsPerPage);
 
   const onPageChange = (page: number) => {
     getCollection(page);
   };
   const onRowsPerPageChange = (count: number) => {
-    // setRowsPerPage(count);
+    setLimit(count);
   };
 
   const getCollection = async (page: number) => {
     loading.start();
-    const result = await fetchCollections({ page, pagination: true });
+    const result = await fetchCollections({ page, limit, pagination: true });
     setPaginateResult(result.payload);
     loading.stop();
   };
 
   useEffect(() => {
     getCollection(StartPage);
-  }, []);
+  }, [limit]);
 
   return (
     <SimpleTable

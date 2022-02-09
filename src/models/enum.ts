@@ -73,9 +73,12 @@ export enum PortType {
 
 export enum TruckBookingStatus {
   Pending = "Pending",
-  ContainerLoaded = "Container loaded",
-  EnRoute = "En route",
-  Delivered = "Delivered",
+  VehicleAssigned = "Vehicle Assigned",
+  EnRoute = "En Route to pick up location",
+  Arrived = "Arrived at Pick up location",
+  ShipmentInTransit = "Shipment in transit for Delivery",
+  ShipmentDelivered = "Shipment Delivered",
+  AwaitingPayment = "Awaiting Payment",
 }
 
 export enum ClearanceStatus {
@@ -85,4 +88,13 @@ export enum ClearanceStatus {
   CustomsClearanceInitiated = "Customs clearance initiated",
   CustomsClearanceCompleted = "Customs clearance completed",
   ContainerReleased = "Container released",
+  AwaitingPayment = "Awaiting Payment",
+}
+
+export enum ShipmentStatus {
+  Pending = "Pending",
+  ContainerReleased = "Container Released",
+  InTransit = "In Transit to Wearhouse",
+  ShipmentDelivered = "Shipment Delivered",
+  ContainerDelivered = "Container Delivered to Port",
 }

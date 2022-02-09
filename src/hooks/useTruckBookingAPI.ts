@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
+import { IApiDataResponse } from "..";
 import { CreateTruckBooking } from "../api/truckBooking/CreateTruckBooking";
 import { GetTruckBookingById } from "../api/truckBooking/GetTruckBookingById";
 import { GetTruckBookings } from "../api/truckBooking/GetTruckBookings";
+import { GetTruckBookingSummaryCount } from "../api/truckBooking/GetTruckBookingSummaryCount";
 import { UpdateTruckBooking } from "../api/truckBooking/UpdateTruckBooking";
 import { AxiosApi, IResponse } from "../helpers/axios";
 import { IApiUpdateResponse } from "../models/ApiUpdateResponse";
@@ -36,6 +38,13 @@ export default function useTruckBookingAPI() {
     return dispatch(AxiosApi(request));
   };
 
+  const getTruckBookingSummaryCount = async (
+    query: ITruckBookingQuery
+  ): IResponse<IApiDataResponse<number>> => {
+    const request = GetTruckBookingSummaryCount(query);
+    return dispatch(AxiosApi(request));
+  };
+
   const getTruckBookingById = async (id: number): IResponse<ITruckBooking> => {
     const request = GetTruckBookingById(id);
     const result = await dispatch(AxiosApi(request));
@@ -46,6 +55,7 @@ export default function useTruckBookingAPI() {
     createElseUpdate,
     getTruckBookings,
     getTruckBookingById,
+    getTruckBookingSummaryCount,
     isLoading: loading.isLoading,
   };
 }

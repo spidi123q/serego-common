@@ -12,6 +12,8 @@ import {
   IClearanceQuery,
 } from "../models/Clearance";
 import useLoading from "./useLoading";
+import { GetClearanceSummaryCount } from "../api/clearance/GetClearanceSummaryCount";
+import { IApiDataResponse } from "../models/ApiDataResponse";
 
 export default function useClearanceAPI() {
   const dispatch: any = useDispatch();
@@ -42,10 +44,18 @@ export default function useClearanceAPI() {
     return result;
   };
 
+  const getClearanceSummaryCount = async (
+    query: IClearanceQuery
+  ): IResponse<IApiDataResponse<number>> => {
+    const request = GetClearanceSummaryCount(query);
+    return dispatch(AxiosApi(request));
+  };
+
   return {
     createElseUpdate,
     getClearances,
     getClearanceById,
     isLoading: loading.isLoading,
+    getClearanceSummaryCount,
   };
 }

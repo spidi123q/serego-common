@@ -182,6 +182,7 @@ import {
   PortType,
   ClearanceStatus,
   TruckBookingStatus,
+  ShipmentStatus,
 } from "./models/enum";
 import { IGeoJSON } from "./models/GeoJSON";
 import { IHeaderAction } from "./models/HeaderAction";
@@ -245,6 +246,12 @@ import { GetClearanceById } from "./api/clearance/GetClearanceById";
 import { GetClearances } from "./api/clearance/GetClearances";
 import { UpdateClearance } from "./api/clearance/UpdateClearance";
 import useClearanceAPI from "./hooks/useClearanceAPI";
+import { GetTruckBookingSummaryCount } from "./api/truckBooking/GetTruckBookingSummaryCount";
+import { GetClearanceSummaryCount } from "./api/clearance/GetClearanceSummaryCount";
+import {
+  CountSummaryCard,
+  ICountSummaryCardProps,
+} from "./components/summaryCard/CountSummaryCard";
 
 export {
   /**
@@ -279,6 +286,7 @@ export {
   OperationCompleted,
   PaginatedTable,
   SkeletonPlaceholder,
+  CountSummaryCard,
   /**
    * Helpers export start here
    */
@@ -350,10 +358,12 @@ export {
   GetTruckBookings,
   UpdateTruckBooking,
   GetTruckBookingById,
+  GetTruckBookingSummaryCount,
   CreateClearance,
   GetClearanceById,
   GetClearances,
   UpdateClearance,
+  GetClearanceSummaryCount,
   /**
    * State items are exported here
    */
@@ -389,6 +399,7 @@ export {
   DefaultRowsPerPage,
   TruckBookingStatus,
   ClearanceStatus,
+  ShipmentStatus,
 };
 
 export type {
@@ -469,4 +480,5 @@ export type {
   ISimpleTimelineProps,
   ISkeletonPlaceholderProps,
   INavigationProps,
+  ICountSummaryCardProps,
 };
