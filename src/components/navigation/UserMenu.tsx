@@ -23,17 +23,21 @@ import Mail from "@mui/icons-material/MailOutline";
 import Security from "@mui/icons-material/Security";
 import PowerSettingsNew from "@mui/icons-material/PowerSettingsNew";
 import FileCopy from "@mui/icons-material/FileCopyOutlined";
+import { useNavigate } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
 
 export interface IUserMenuProps {
   user: IUser;
+  profilePagePath: string;
 }
 
 export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
-  const { user } = props;
+  const { user, profilePagePath } = props;
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const { logout } = useLoginActions();
   const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -65,11 +69,14 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
       icon: <Face />,
       title: user.name ?? "",
       description: "Name",
-    },
-    {
-      icon: <Mail />,
-      title: user.email ?? "",
-      description: "Email",
+      actions: [
+        {
+          icon: <EditIcon />,
+          onClick: async () => {
+            navigate(profilePagePath);
+          },
+        },
+      ],
     },
     {
       icon: <Security />,
@@ -157,7 +164,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
                     ))}
                   </List>
                   <Grid item container xs={12} justifyContent="center">
-                    <IconButton color="primary" onClick={signOut}>
+                    <IconButton color="error" onClick={signOut}>
                       <PowerSettingsNew />
                     </IconButton>
                   </Grid>

@@ -60,4 +60,12 @@ $input-horizontal-multiplier: 2.5;
       }
     }
   }
+
+  &__width {
+    &--md {
+      .MuiButton-root {
+        width: size(20);
+      }
+    }
+  }
 }

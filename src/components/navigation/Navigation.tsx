@@ -47,7 +47,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
     children,
     isLoading,
     headerActions,
-    headerTitle,
+    profilePagePath,
     clearHeaderActions,
     navigationItems,
     user,
@@ -216,7 +216,7 @@ export const Navigation: React.FunctionComponent<INavigationProps> = (
               </IconButton>
             )
           )}
-          <UserMenu user={user} />
+          <UserMenu profilePagePath={profilePagePath} user={user} />
         </Toolbar>
       </AppBar>
       {!query.get("hideDrawer") && (

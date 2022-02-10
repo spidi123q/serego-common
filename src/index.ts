@@ -49,7 +49,7 @@ import {
   OperationCompleted,
 } from "./components/operationCompleted/OperationCompleted";
 import { PagePath, IPagePathProps } from "./components/pagePath/PagePath";
-import { IPageTitleProps, PageTitle } from "./components/pageTitle/PageTitle";
+import { IPageTitleProps, PageTitle } from "./components/page/PageTitle";
 import {
   IPlacesAutocompleteProps,
   PlacesAutocomplete,
@@ -252,6 +252,7 @@ import {
   CountSummaryCard,
   ICountSummaryCardProps,
 } from "./components/summaryCard/CountSummaryCard";
+import { PageContainer } from "./components/page/PageContainer";
 
 export {
   /**
@@ -287,6 +288,7 @@ export {
   PaginatedTable,
   SkeletonPlaceholder,
   CountSummaryCard,
+  PageContainer,
   /**
    * Helpers export start here
    */
