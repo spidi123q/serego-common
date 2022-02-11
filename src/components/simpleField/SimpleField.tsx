@@ -327,7 +327,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
   return (
     <div
       className={classNames("simple-field", {
-        ["simple-field--noMargin"]: noPadding,
+        ["simple-field--noPadding"]: noPadding,
       })}
     >
       {getInput()}
