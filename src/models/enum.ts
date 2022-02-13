@@ -5,6 +5,8 @@ export enum UserRoles {
   OrganizationAdmin = "Organization Admin",
   Admin = "Admin",
   SuperAdmin = "SuperAdmin",
+  ClearanceAgent = "Clearance Agent",
+  Transporter = "Transporter",
 }
 
 export enum UserPermissions {
@@ -23,6 +25,8 @@ export enum UserPermissions {
   WriteVehicle = "WriteVehicle",
   ReadClearance = "ReadClearance",
   WriteClearance = "WriteClearance",
+  ProcessClearance = "ProcessClearance",
+  ProcessTruckBooking = "ProcessTruckBooking",
 }
 
 export enum RequestTypes {

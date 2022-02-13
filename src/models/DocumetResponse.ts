@@ -3,4 +3,5 @@ export interface IDocumetResponse {
   region: string;
   fileName: string;
   bucket: string;
+  originalFilename?: string;
 }

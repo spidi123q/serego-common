@@ -10,9 +10,13 @@ export default function useDocumentAPI() {
   const loading = useLoading();
   const [uploadPercentage, setUploadPercentage] = useState<number>(0);
 
-  const upload = async (file: File): Promise<IDocumetResponse> => {
+  const upload = async (
+    file: File,
+    onUploadProgress?: (progress: number) => void
+  ): Promise<IDocumetResponse> => {
     const request = CreateDocument(file, (progress) => {
       setUploadPercentage(progress);
+      onUploadProgress && onUploadProgress(progress);
     });
     loading.start();
     const result: IResolvedResponse<IDocumetResponse> = await dispatch(
