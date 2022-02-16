@@ -1,11 +1,16 @@
 {
   "name": "@classmate_technolabs/serego-common",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "common library fo serego",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
+  "homepage": "https://spidi123q.github.io/serego-common",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spidi123q/serego-common"
+  },
   "files": [
     "src",
     "lib"
