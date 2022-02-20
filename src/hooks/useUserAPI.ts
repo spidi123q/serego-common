@@ -59,7 +59,7 @@ export default function useUserAPI() {
       ? UpdateUserById(userEdit._id, userEdit)
       : CreateUser(userEdit);
     setIsLoading(true);
-    const result = dispatch(AxiosApi(request));
+    const result = await dispatch(AxiosApi(request));
     setIsLoading(false);
     return result;
   };

@@ -1,6 +1,7 @@
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import classNames from "classnames";
 import React, { useState } from "react";
 import { IKeyValuePair } from "../..";
 import { SimpleButton } from "../simpleButton/SimpleButton";
@@ -8,7 +9,7 @@ import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import "./SelectUpdate.scss";
 
 export interface ISelectUpdateProps {
-  label: string;
+  label?: string;
   defaultValue?: string;
   options: IKeyValuePair[];
   onUpdate: (value: string) => void;
@@ -28,13 +29,16 @@ export const SelectUpdate: React.FunctionComponent<ISelectUpdateProps> = (
   const onUpdate = () => {
     props.onUpdate(value);
   };
+  const selectUpdateClasses = classNames("select-update", {});
 
   return (
-    <div className="select-update">
+    <div className={selectUpdateClasses}>
       <FormControl className="select-update__select" variant="standard">
-        <SimpleTypography color="colorDark" variant="caption">
-          {label}
-        </SimpleTypography>
+        {label && (
+          <SimpleTypography color="colorDark" variant="caption">
+            {label}
+          </SimpleTypography>
+        )}
         <Select
           value={value}
           onChange={handleChange}

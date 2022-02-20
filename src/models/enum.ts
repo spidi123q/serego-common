@@ -91,7 +91,6 @@ export enum ClearanceStatus {
   PreparingDocuments = "Preparing documents",
   CustomsClearanceInitiated = "Customs clearance initiated",
   CustomsClearanceCompleted = "Customs clearance completed",
-  ContainerReleased = "Container released",
   AwaitingPayment = "Awaiting Payment",
 }
 
