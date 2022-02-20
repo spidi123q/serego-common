@@ -253,6 +253,10 @@ import {
   ICountSummaryCardProps,
 } from "./components/summaryCard/CountSummaryCard";
 import { PageContainer } from "./components/page/PageContainer";
+import {
+  FileUploadDialog,
+  IFileUploadDialogProps,
+} from "./components/simpleDropzone/FileUploadDialog";
 
 export {
   /**
@@ -289,6 +293,7 @@ export {
   SkeletonPlaceholder,
   CountSummaryCard,
   PageContainer,
+  FileUploadDialog,
   /**
    * Helpers export start here
    */
@@ -483,4 +488,5 @@ export type {
   ISkeletonPlaceholderProps,
   INavigationProps,
   ICountSummaryCardProps,
+  IFileUploadDialogProps,
 };

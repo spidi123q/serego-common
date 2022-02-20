@@ -218,8 +218,7 @@ export const SimpleField: React.FunctionComponent<ISimpleFieldProps> = (
           <SimpleDropzone
             {...props}
             onChange={async (files) => {
-              const file = first(files);
-              handleChange(file);
+              handleChange(files);
               formikProps.setFieldTouched(name, true);
             }}
           />
@@ -374,7 +373,9 @@ interface ISwitchFieldProps
   type: "switch";
 }
 
-interface IFileFieldProps extends ISimpleFieldBase, ISimpleDropzoneProps {
+interface IFileFieldProps
+  extends ISimpleFieldBase,
+    Omit<ISimpleDropzoneProps, "onChange"> {
   type: "file";
 }
 
