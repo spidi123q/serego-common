@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { IPaginateResponse } from "..";
 import CreateUser from "../api/user/CreateUser";
 import GetUser from "../api/user/GetUser";
 import GetUsers from "../api/user/GetUsers";
@@ -8,6 +7,8 @@ import { IUserSignIn, IUserToken, SignInUser } from "../api/user/SignInUser";
 import UpdateUser from "../api/user/UpdateUser";
 import { UpdateUserById } from "../api/user/UpdateUserById";
 import { AxiosApi, IResolvedResponse, IResponse } from "../helpers/axios";
+import { IApiUpdateResponse } from "../models/ApiUpdateResponse";
+import { IPaginateResponse } from "../models/PaginateResult";
 import { IUser, IUserEdit, IUserQuery } from "../models/User";
 
 export default function useUserAPI() {
@@ -51,11 +52,16 @@ export default function useUserAPI() {
     await getUser(true);
   };
 
-  const createElseUpdate = async (userEdit: IUserEdit) => {
+  const createElseUpdate = async (
+    userEdit: IUserEdit
+  ): IResponse<IApiUpdateResponse> => {
     const request = userEdit._id
       ? UpdateUserById(userEdit._id, userEdit)
       : CreateUser(userEdit);
-    return dispatch(AxiosApi(request));
+    setIsLoading(true);
+    const result = dispatch(AxiosApi(request));
+    setIsLoading(false);
+    return result;
   };
 
   const getUsers = async (query: IUserQuery): IPaginateResponse<IUser> => {
