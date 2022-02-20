@@ -257,6 +257,7 @@ import {
   FileUploadDialog,
   IFileUploadDialogProps,
 } from "./components/simpleDropzone/FileUploadDialog";
+import { EditFile, IEditFileProps } from "./components/simpleDropzone/EditFile";
 
 export {
   /**
@@ -294,6 +295,7 @@ export {
   CountSummaryCard,
   PageContainer,
   FileUploadDialog,
+  EditFile,
   /**
    * Helpers export start here
    */
@@ -489,4 +491,5 @@ export type {
   INavigationProps,
   ICountSummaryCardProps,
   IFileUploadDialogProps,
+  IEditFileProps,
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SlideUpTransition } from "../components/Transitions";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -8,13 +8,14 @@ export default function useDialog(isFullScreen?: boolean) {
   const theme = useTheme();
   const isXsDown = isFullScreen ?? useMediaQuery(theme.breakpoints.down("xs"));
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
-  const [component, setComponent] = useState<JSX.Element>();
+  const componentRef = useRef<JSX.Element>();
+
   const open = (component: JSX.Element) => {
-    setComponent(component);
+    componentRef.current = component;
     setIsFormOpen(true);
   };
   const close = () => {
-    setComponent(undefined);
+    componentRef.current = undefined;
     setIsFormOpen(false);
   };
   const PopUp = () => (
@@ -25,7 +26,7 @@ export default function useDialog(isFullScreen?: boolean) {
       onClose={close}
       TransitionComponent={SlideUpTransition}
     >
-      {component}
+      {componentRef.current}
     </Dialog>
   );
 

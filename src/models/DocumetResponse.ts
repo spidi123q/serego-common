@@ -4,4 +4,5 @@ export interface IDocumetResponse {
   fileName: string;
   bucket: string;
   originalFilename?: string;
+  size: number;
 }
