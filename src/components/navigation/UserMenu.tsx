@@ -137,13 +137,7 @@ export const UserMenu: React.FunctionComponent<IUserMenuProps> = (props) => {
                   <List dense={true}>
                     {listItems.map((item, index) => (
                       <ListItem key={index}>
-                        <ListItemIcon>
-                          <Icon>{item.icon}</Icon>
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={item.title}
-                          secondary={item.description}
-                        />
+                        <ListItemText primary={item.title} />
                         {item.actions && (
                           <ListItemSecondaryAction>
                             {item.actions.map((action, index) => (
