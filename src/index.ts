@@ -55,9 +55,9 @@ import {
   PlacesAutocomplete,
 } from "./components/placesAutocomplete/PlacesAutocomplete";
 import {
-  SelectUpdate,
-  ISelectUpdateProps,
-} from "./components/selectUpdate/SelectUpdate";
+  InputUpdate,
+  IInputUpdateProps,
+} from "./components/inputUpdate/InputUpdate";
 import { SimpleButton } from "./components/simpleButton/SimpleButton";
 import { SimpleCard } from "./components/simpleCard/SimpleCard";
 import { SimpleDropzone } from "./components/simpleDropzone/SimpleDropzone";
@@ -282,7 +282,7 @@ export {
   AsyncAutocomplete,
   SummaryCard,
   SimpleItem,
-  SelectUpdate,
+  InputUpdate,
   PagePath,
   NotFound,
   IconRadio,
@@ -466,7 +466,7 @@ export type {
   ISchemaModel,
   ISummaryCardProps,
   ISimpleItemProps,
-  ISelectUpdateProps,
+  IInputUpdateProps,
   IPagePathProps,
   INavigationQuery,
   IIconRadioProps,

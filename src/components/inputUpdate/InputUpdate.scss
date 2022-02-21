@@ -1,12 +1,13 @@
 @import "../../styles/config.module";
 
-.select-update {
+.input-update {
   display: flex;
   justify-content: space-between;
   border: $border-style;
   border-radius: 6px;
 
-  .MuiSelect-select {
+  .MuiSelect-select,
+  .MuiInput-input {
     font-weight: 400;
     font-size: size(2);
     color: $color-black;

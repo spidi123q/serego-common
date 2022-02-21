@@ -1,24 +1,25 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
-import { ISelectUpdateProps, SelectUpdate } from "./SelectUpdate";
 import { StoryBookTemplate } from "../StoryBookTemplate";
+import { InputUpdate, IInputUpdateProps } from "./InputUpdate";
 
 export default {
-  title: "Components/SelectUpdate",
-  component: SelectUpdate,
+  title: "Components/InputUpdate",
+  component: InputUpdate,
 } as Meta;
 
 // Create a master template for mapping args to render the Button component
-const Template: Story<ISelectUpdateProps> = (args) => (
+const Template: Story<IInputUpdateProps> = (args) => (
   <div>
     <StoryBookTemplate>
-      <SelectUpdate {...args} />
+      <InputUpdate {...args} />
     </StoryBookTemplate>
   </div>
 );
 
 // Reuse that template for creating different stories
 export const Primary = Template.bind({});
+
 Primary.args = {
   label: "Container released",
   defaultValue: "Apple",
@@ -26,4 +27,6 @@ Primary.args = {
     { Key: "Apple", Value: "Apple" },
     { Key: "Android", Value: "Android" },
   ],
+  type: "select",
+  onUpdate: (event) => console.log("onUpdate", event),
 };
