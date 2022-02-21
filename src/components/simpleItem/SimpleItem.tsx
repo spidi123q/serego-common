@@ -1,4 +1,4 @@
-import { isString } from "lodash";
+import { isNumber, isString } from "lodash";
 import React from "react";
 import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 
@@ -18,7 +18,7 @@ export const SimpleItem: React.FunctionComponent<ISimpleItemProps> = (
         </SimpleTypography>
       </div>
       <div>
-        {isString(children) ? (
+        {isString(children) || isNumber(children) ? (
           <SimpleTypography family="medium" variant="body1">
             {children}
           </SimpleTypography>
