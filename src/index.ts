@@ -183,6 +183,8 @@ import {
   ClearanceStatus,
   TruckBookingStatus,
   ShipmentStatus,
+  PaymentStatus,
+  Currency,
 } from "./models/enum";
 import { IGeoJSON } from "./models/GeoJSON";
 import { IHeaderAction } from "./models/HeaderAction";
@@ -409,6 +411,8 @@ export {
   TruckBookingStatus,
   ClearanceStatus,
   ShipmentStatus,
+  PaymentStatus,
+  Currency,
 };
 
 export type {

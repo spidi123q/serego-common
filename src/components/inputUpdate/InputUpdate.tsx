@@ -17,7 +17,7 @@ export type IInputUpdateProps = ISelectUpdateProps | ITextUpdateProps;
 export const InputUpdate: React.FunctionComponent<IInputUpdateProps> = (
   props
 ) => {
-  const { label, loading, defaultValue, type } = props;
+  const { label, loading, defaultValue, type, width } = props;
   const [value, setValue] = useState<string>(defaultValue ?? "");
 
   const handleChange = (event: any) => {
@@ -27,7 +27,9 @@ export const InputUpdate: React.FunctionComponent<IInputUpdateProps> = (
   const onUpdate = () => {
     props.onUpdate(value);
   };
-  const selectUpdateClasses = classNames("input-update", {});
+  const selectUpdateClasses = classNames("input-update", {
+    [`input-update__width--${width}`]: width,
+  });
 
   const getField = (): JSX.Element | null => {
     switch (type) {
@@ -59,8 +61,10 @@ export const InputUpdate: React.FunctionComponent<IInputUpdateProps> = (
             variant="standard"
             InputProps={{
               disableUnderline: true,
-              startAdornment: startAdornment && (
-                <InputAdornment position="start">AED</InputAdornment>
+              startAdornment: (
+                <InputAdornment position="start">
+                  {startAdornment}
+                </InputAdornment>
               ),
             }}
             value={value}
@@ -104,6 +108,7 @@ export interface IBaseInputUpdateProps {
   defaultValue?: string;
   onUpdate: (value: string) => void;
   loading?: boolean;
+  width?: "md";
 }
 
 interface ISelectUpdateProps extends IBaseInputUpdateProps {

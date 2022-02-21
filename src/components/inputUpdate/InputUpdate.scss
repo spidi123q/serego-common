@@ -6,6 +6,12 @@
   border: $border-style;
   border-radius: 6px;
 
+  &__width {
+    &--md {
+      width: size(50);
+    }
+  }
+
   .MuiSelect-select,
   .MuiInput-input {
     font-weight: 400;

@@ -101,3 +101,14 @@ export enum ShipmentStatus {
   ShipmentDelivered = "Shipment Delivered",
   ContainerDelivered = "Container Delivered to Port",
 }
+
+export enum PaymentStatus {
+  NotInitiated = "Not Initiated",
+  AwaitingPayment = "Awaiting Payment",
+  Failed = "Failed",
+  Success = "Success",
+}
+
+export enum Currency {
+  AED = "AED",
+}

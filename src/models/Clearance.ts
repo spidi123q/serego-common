@@ -1,5 +1,11 @@
 import { IDocumetResponse } from "./DocumetResponse";
-import { ClearanceStatus, PortType, ShipmentStatus } from "./enum";
+import {
+  ClearanceStatus,
+  Currency,
+  PaymentStatus,
+  PortType,
+  ShipmentStatus,
+} from "./enum";
 import { IPageQuery } from "./PageQuery";
 import { ISchemaModel } from "./SchemaModel";
 
@@ -9,6 +15,9 @@ export interface IClearance extends ISchemaModel {
   deliveryAddress: string;
   status: ClearanceStatus;
   shipmentStatus: ShipmentStatus;
+  paymentStatus: PaymentStatus;
+  currency: Currency;
+  price?: number;
   invoices?: IDocumetResponse[];
   documents?: IDocumetResponse[];
 }

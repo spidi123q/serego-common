@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
 import { SlideUpTransition } from "../components/Transitions";
-import { useTheme } from "@mui/material/styles";
+import { Breakpoint, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Dialog from "@mui/material/Dialog";
 
-export default function useDialog(isFullScreen?: boolean) {
+export default function useDialog(
+  isFullScreen?: boolean,
+  maxWidth?: Breakpoint
+) {
   const theme = useTheme();
-  const isXsDown = isFullScreen ?? useMediaQuery(theme.breakpoints.down("xs"));
+  const isXsDown = isFullScreen ?? useMediaQuery(theme.breakpoints.down("md"));
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const componentRef = useRef<JSX.Element>();
 
@@ -25,6 +28,8 @@ export default function useDialog(isFullScreen?: boolean) {
       open={isFormOpen}
       onClose={close}
       TransitionComponent={SlideUpTransition}
+      maxWidth={maxWidth}
+      fullWidth
     >
       {componentRef.current}
     </Dialog>
