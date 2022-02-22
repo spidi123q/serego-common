@@ -14,6 +14,7 @@ import {
 import useLoading from "./useLoading";
 import { GetClearanceSummaryCount } from "../api/clearance/GetClearanceSummaryCount";
 import { IApiDataResponse } from "../models/ApiDataResponse";
+import { CreateClearanceStripePaymentIntent } from "../api/clearance/CreateClearanceStripePaymentIntent";
 
 export default function useClearanceAPI() {
   const dispatch: any = useDispatch();
@@ -40,7 +41,9 @@ export default function useClearanceAPI() {
 
   const getClearanceById = async (id: number): IResponse<IClearance> => {
     const request = GetClearanceById(id);
+    loading.start();
     const result = await dispatch(AxiosApi(request));
+    loading.stop();
     return result;
   };
 
@@ -51,11 +54,22 @@ export default function useClearanceAPI() {
     return dispatch(AxiosApi(request));
   };
 
+  const createClearanceStripePaymentIntent = async (
+    id: number
+  ): IResponse<IApiDataResponse<number>> => {
+    const request = CreateClearanceStripePaymentIntent(id);
+    loading.start();
+    const result = await dispatch(AxiosApi(request));
+    loading.stop();
+    return result;
+  };
+
   return {
     createElseUpdate,
     getClearances,
     getClearanceById,
     isLoading: loading.isLoading,
     getClearanceSummaryCount,
+    createClearanceStripePaymentIntent,
   };
 }

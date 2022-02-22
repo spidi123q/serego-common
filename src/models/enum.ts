@@ -109,6 +109,9 @@ export enum PaymentStatus {
   Success = "Success",
 }
 
+/**
+ * Currency ISO codes
+ */
 export enum Currency {
   AED = "AED",
 }

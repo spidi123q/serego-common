@@ -6,11 +6,11 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import classNames from "classnames";
 import React from "react";
-import { SimpleTypography } from "../simpleTypography/SimpleTypography";
 import "./SimpleTimeline.scss";
-import DoneIcon from "@mui/icons-material/Done";
 import { SimpleIcon } from "../simpleIcon/SimpleIcon";
-import { IconNames, SimpleItem } from "../..";
+import { IconNames } from "../simpleIcon/helper";
+import { SimpleItem } from "../simpleItem/SimpleItem";
+import { PaymentStatus } from "../../models/enum";
 
 export interface ISimpleTimelineProps {
   items: ITimelineItem[];
@@ -60,3 +60,16 @@ export interface ITimelineItem {
   content?: string | number | JSX.Element;
   status?: "completed" | "progress";
 }
+
+export const getPaymentProgress = (
+  currentStatus?: PaymentStatus
+): "progress" | "completed" | undefined => {
+  switch (currentStatus) {
+    case PaymentStatus.NotInitiated:
+      return undefined;
+    case PaymentStatus.Success:
+      return "completed";
+    default:
+      return "progress";
+  }
+};

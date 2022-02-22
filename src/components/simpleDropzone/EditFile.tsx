@@ -22,7 +22,7 @@ import Grid from "@mui/material/Grid";
 export interface IEditFileProps {
   files?: IDocumetResponse[];
   readonly?: boolean;
-  onSave(files: IDocumetResponse[]): Promise<unknown>;
+  onSave?(files: IDocumetResponse[]): Promise<unknown>;
   onClose(): void;
 }
 
@@ -44,7 +44,7 @@ export function EditFile(props: IEditFileProps) {
     loading.start();
     const deletedfiles = xorBy(props.files, files, "fileName");
     await deleteDocuments(deletedfiles);
-    await props.onSave(files);
+    props.onSave && (await props.onSave(files));
     loading.stop();
     enqueueSnackbar("Documents updated", { variant: "success" });
     onClose();

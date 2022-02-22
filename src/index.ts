@@ -88,6 +88,7 @@ import {
 } from "./components/simpleTable/SimpleTablePagination";
 import { SimpleThemeProvider } from "./components/SimpleThemeProvider";
 import {
+  getPaymentProgress,
   ISimpleTimelineProps,
   ITimelineItem,
   SimpleTimeline,
@@ -324,6 +325,7 @@ export {
   scrollToTarget,
   buidNavigationQuery,
   onKeyPress,
+  getPaymentProgress,
   /**
    * Hooks export start here
    */
