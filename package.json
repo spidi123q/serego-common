@@ -69,6 +69,8 @@
     "yarn:publish": "yarn publish"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.23.0",
     "animate.css": "^4.1.1",
     "autosuggest-highlight": "^3.2.0",
     "axios": "^0.24.0",

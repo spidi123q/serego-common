@@ -261,6 +261,8 @@ import {
   IFileUploadDialogProps,
 } from "./components/simpleDropzone/FileUploadDialog";
 import { EditFile, IEditFileProps } from "./components/simpleDropzone/EditFile";
+import { loadStripe } from "@stripe/stripe-js";
+import { IStripeProps, Stripe } from "./components/stripe/Stripe";
 
 export {
   /**
@@ -299,6 +301,7 @@ export {
   PageContainer,
   FileUploadDialog,
   EditFile,
+  Stripe,
   /**
    * Helpers export start here
    */
@@ -326,6 +329,7 @@ export {
   buidNavigationQuery,
   onKeyPress,
   getPaymentProgress,
+  loadStripe,
   /**
    * Hooks export start here
    */
@@ -498,4 +502,5 @@ export type {
   ICountSummaryCardProps,
   IFileUploadDialogProps,
   IEditFileProps,
+  IStripeProps,
 };

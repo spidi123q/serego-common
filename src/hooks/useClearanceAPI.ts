@@ -56,7 +56,7 @@ export default function useClearanceAPI() {
 
   const createClearanceStripePaymentIntent = async (
     id: number
-  ): IResponse<IApiDataResponse<number>> => {
+  ): IResponse<IApiDataResponse<string>> => {
     const request = CreateClearanceStripePaymentIntent(id);
     loading.start();
     const result = await dispatch(AxiosApi(request));
