@@ -4,6 +4,7 @@ import {
   PaymentElement,
   useStripe,
   useElements,
+  PaymentElementProps,
 } from "@stripe/react-stripe-js";
 import { SimpleButton } from "../simpleButton/SimpleButton";
 import { useSnackbar } from "notistack";
@@ -60,6 +61,10 @@ export const CheckoutForm: React.FunctionComponent<ICheckoutFormProps> = (
     });
   }, [stripe]);
 
+  useEffect(() => {
+    loading.start();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -99,7 +104,7 @@ export const CheckoutForm: React.FunctionComponent<ICheckoutFormProps> = (
 
   return (
     <form className="checkout-form" onSubmit={handleSubmit}>
-      <PaymentElement id="payment-element" />
+      <PaymentElement onReady={loading.stop} id="payment-element" />
       <br />
       <SimpleButton
         loading={loading.isLoading || !stripe || !elements}
