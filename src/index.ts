@@ -166,6 +166,7 @@ import { IApiDataResponse } from "./models/ApiDataResponse";
 import { IApiUpdateResponse } from "./models/ApiUpdateResponse";
 import {
   IClearance,
+  IClearanceDTO,
   IClearanceEdit,
   IClearanceQuery,
 } from "./models/Clearance";
@@ -263,6 +264,7 @@ import {
 import { EditFile, IEditFileProps } from "./components/simpleDropzone/EditFile";
 import { loadStripe } from "@stripe/stripe-js";
 import { IStripeProps, Stripe } from "./components/stripe/Stripe";
+import { IStripePaymentDetails } from "./models/StripePaymentDetails";
 
 export {
   /**
@@ -492,6 +494,7 @@ export type {
   IClearance,
   IClearanceEdit,
   IClearanceQuery,
+  IClearanceDTO,
   ITabTimelineProps,
   IOperationCompletedProps,
   ISimpleSimpleTablePaginationProps,
@@ -503,4 +506,5 @@ export type {
   IFileUploadDialogProps,
   IEditFileProps,
   IStripeProps,
+  IStripePaymentDetails,
 };

@@ -8,6 +8,7 @@ import { IApiUpdateResponse } from "../models/ApiUpdateResponse";
 import { IPaginateResponse } from "../models/PaginateResult";
 import {
   IClearance,
+  IClearanceDTO,
   IClearanceEdit,
   IClearanceQuery,
 } from "../models/Clearance";
@@ -34,12 +35,12 @@ export default function useClearanceAPI() {
 
   const getClearances = async (
     query: IClearanceQuery
-  ): IPaginateResponse<IClearance> => {
+  ): IPaginateResponse<IClearanceDTO> => {
     const request = GetClearances(query);
     return dispatch(AxiosApi(request));
   };
 
-  const getClearanceById = async (id: number): IResponse<IClearance> => {
+  const getClearanceById = async (id: number): IResponse<IClearanceDTO> => {
     const request = GetClearanceById(id);
     loading.start();
     const result = await dispatch(AxiosApi(request));
