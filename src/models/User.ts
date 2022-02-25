@@ -13,6 +13,7 @@ export interface IUser extends ISchemaModel {
   organizationId?: string;
   firebaseId: string;
   active: boolean;
+  stripeCustomerId: string;
   permissions: UserPermissions[];
 }
 
@@ -27,6 +28,7 @@ export interface IUserQuery extends Partial<IUser> {
 export const InitialUser: IUser = {
   _id: 0,
   role: UserRoles.Guest,
+  stripeCustomerId: "",
   firebaseId: "",
   permissions: [],
   active: true,
@@ -41,7 +43,6 @@ export const InitialUserEdit: IUserEdit = {
   password: "",
   name: "",
   phone: "",
-  organizationId: "",
   role: UserRoles.User,
   active: true,
 };
