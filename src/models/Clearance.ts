@@ -18,7 +18,7 @@ export interface IClearance extends ISchemaModel {
 export interface IClearanceEdit extends Partial<IClearance> {}
 
 export interface IClearanceQuery extends IClearanceEdit, IPageQuery {
-  isOpen?: boolean;
+  isCompleted?: boolean;
 }
 
 export interface IClearanceDTO extends IClearance {
