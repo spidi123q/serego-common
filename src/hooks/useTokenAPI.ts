@@ -4,7 +4,8 @@ import { createPushToken } from "../helpers/notification";
 export function useTokenAPI() {
   const dispatch: any = useDispatch();
 
-  const updateFCMToken = () => createPushToken(dispatch);
+  const updateFCMToken = (firebaseVapidKey: string) =>
+    createPushToken(dispatch, firebaseVapidKey);
 
   return { updateFCMToken };
 }

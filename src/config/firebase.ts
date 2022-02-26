@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,7 +19,7 @@ export const firebaseVapidKey =
   "BF2oMi2FJ8A8c3ISF7y0BSZejpxtn2zsSx5SQoukxEZwlZ6GZgnt8c2SRlE9au_qJ2YtdSheD9f1nbjcDZ3I7GA";
 
 // Initialize Firebase
-export const initializeFirebase = () => {
+export const initializeFirebase = (options: FirebaseOptions) => {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   return {

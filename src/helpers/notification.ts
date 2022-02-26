@@ -3,10 +3,10 @@ import CreatePushToken from "../api/token/CreatePushToken";
 import { firebaseVapidKey } from "../config/firebase";
 import { AxiosApi } from "./axios";
 
-export const initFCM = async (): Promise<string> => {
+export const initFCM = async (firebaseVapidKey: string): Promise<string> => {
   const messaging = getMessaging();
   const token = await getToken(messaging, { vapidKey: firebaseVapidKey });
-  console.log("token: ", token);
+  console.log("FCM token: ", token);
   return token;
 };
 
@@ -14,10 +14,12 @@ export const initFCM = async (): Promise<string> => {
  * Update fcm token to server
  * @param dispatch Redux disptach object
  */
-export const createPushToken = async (dispatch: any) => {
+export const createPushToken = async (
+  dispatch: any,
+  firebaseVapidKey: string
+) => {
   try {
-    console.log("🚀 ~ file: notification.ts ~ line 28 ~ try");
-    const token = await initFCM();
+    const token = await initFCM(firebaseVapidKey);
     const request = CreatePushToken(token);
     return dispatch(AxiosApi(request));
   } catch (err) {

@@ -2,4 +2,7 @@
 
 .page-container {
   padding: size(2);
+  &--no-padding-top {
+    padding-top: unset;
+  }
 }
