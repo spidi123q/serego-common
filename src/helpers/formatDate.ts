@@ -7,3 +7,10 @@ export const formatWithTime = (date?: string | Date | null): string => {
   }
   return format(isString(date) ? parseISO(date) : date, "d MMM yyyy K:m bbb");
 };
+
+export const formatDate = (date?: string | Date | null): string => {
+  if (isNil(date)) {
+    return "";
+  }
+  return format(isString(date) ? parseISO(date) : date, "d MMM yyyy");
+};

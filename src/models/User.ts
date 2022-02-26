@@ -1,3 +1,4 @@
+import { IDocumetResponse } from "./DocumetResponse";
 import { UserPermissions, UserRoles } from "./enum";
 import { ISchemaModel } from "./SchemaModel";
 
@@ -14,6 +15,10 @@ export interface IUser extends ISchemaModel {
   firebaseId: string;
   active: boolean;
   stripeCustomerId: string;
+  tradeLicenses?: IDocumetResponse[];
+  vatNumber?: string;
+  importerCode?: string;
+  tradeLicensesExpiryDate?: Date;
   permissions: UserPermissions[];
 }
 

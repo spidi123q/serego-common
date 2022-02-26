@@ -353,11 +353,15 @@ interface ISelectFieldProps
   options: IKeyValuePair[];
 }
 
-interface IDateFieldProps extends ISimpleFieldBase, MobileDatePickerProps {
+interface IDateFieldProps
+  extends ISimpleFieldBase,
+    Omit<MobileDatePickerProps, "onChange" | "value" | "renderInput"> {
   type: "date";
 }
 
-interface IDateTimeFieldProps extends ISimpleFieldBase, DateTimePickerProps {
+interface IDateTimeFieldProps
+  extends ISimpleFieldBase,
+    Omit<DateTimePickerProps, "onChange" | "value" | "renderInput"> {
   type: "date-time";
 }
 

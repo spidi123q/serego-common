@@ -130,7 +130,7 @@ import {
   IResolvedResponse,
   IResponse,
 } from "./helpers/axios";
-import { formatWithTime } from "./helpers/formatDate";
+import { formatDate, formatWithTime } from "./helpers/formatDate";
 import {
   getOperatingSystem,
   getDeviceId,
@@ -332,6 +332,7 @@ export {
   onKeyPress,
   getPaymentProgress,
   loadStripe,
+  formatDate,
   /**
    * Hooks export start here
    */
