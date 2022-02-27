@@ -1,6 +1,6 @@
 {
   "name": "@classmate_technolabs/serego-common",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "common library fo serego",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
